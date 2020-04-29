@@ -1,0 +1,22 @@
+.Blog {
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  z-index: 0;
+  padding: 1rem;
+  line-height: 1.5625rem;
+  text-align: justify;
+}
+
+.Blog__col {
+  position: static;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .Blog__col {
+    align-items: flex-start;
+  }
+}
