@@ -11,18 +11,11 @@ export default class About extends Component {
             <div className="About__col col-12 col-md-8">
               <h1>Acerca de</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                varius consequat gravida. Curabitur eu ante lobortis, venenatis
-                diam in, efficitur ex. Phasellus a est quis felis dictum
-                tristique. Curabitur id imperdiet elit. Aenean eget lacinia
-                turpis, quis elementum quam. Suspendisse a leo nec dolor
-                interdum rhoncus. Duis purus libero, vehicula cursus pretium
-                nec, posuere ut nisl. Aenean ornare a ex nec varius. Quisque
-                sollicitudin nisi atuctor ultricies. Pellentesque eleifend sem
-                vel felis commodo, sit amet iaculis mi efficitur. Pellentesque
-                posuere venenatis sagittis.{" "}
+                Hola mi nombre es Marco Madera, me gradué como ingeniero industrial y le hayé el gusto a programar.
               </p>
+              <p>[Espacio para descripción más descriptiva]</p>
               <p>
+                No tengo presencia ey
                 Proin hendrerit suscipit semper. Curabitur faucibus libero sit
                 amet ex pretium consequat. Pellentesque efficitur in tellus et
                 molestie. Morbi elementum nisl vitae nibh fringilla, vel maximus

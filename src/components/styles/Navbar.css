@@ -1,23 +1,10 @@
 .Navbar {
+  min-height: 8vh;
   text-align: center;
-  width: 100%;
-  padding: 0.5rem 0;
-  background-color: rgb(233, 233, 233);
-  font-size: 22px;
-
-  display: flex;
   align-items: center;
-  /* Fixes IE */
-  overflow-x: auto;
+  font-size: 21px;
+  display: flex;
   box-shadow: -6px 0 white, 6px 0 white, 1px 3px 6px rgba(0, 0, 0, 0.15);
-  padding: 10px 1.25em 10px;
-  transition: all 250ms;
-  -ms-overflow-style: none;
-  /* IE 10+ */
-  scrollbar-width: none;
-  /* Firefox */
-  background: white;
-  margin-bottom: 20px;
 }
 
 .Navbar__brand {

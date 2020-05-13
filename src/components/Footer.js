@@ -4,11 +4,11 @@ import "./styles/Footer.css";
 class Footer extends React.Component {
   render() {
     return (
-      <div className="Footer">
-        <div className="container-fluid">
-          <footer>Marco Madera | 2020</footer>
+      <footer className="Footer">
+        <div className="Footer-text">
+          Marco Madera | 2020
         </div>
-      </div>
+      </footer>
     );
   }
 }

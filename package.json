@@ -10,6 +10,8 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
+    "chi-squared": "^1.1.0",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
     "react": "^16.13.1",
@@ -70,6 +72,6 @@
     "url-loader": "^4.1.0",
     "webpack": "4.42.1",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "webpack-dev-server": "^3.11.0"
   }
 }

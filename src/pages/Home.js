@@ -10,7 +10,7 @@ export default class Home extends Component {
           <div className="row">
             <div className="Home__col col-12 col-md-6">
               <h1>Sistema de control Personal</h1>
-              <Link className="btn btn-primary" to="/randomPage">
+              <Link className="btn btn-primary" to="/Blog/Pseudo-Random-numbers">
                 Random Page
               </Link>
             </div>
