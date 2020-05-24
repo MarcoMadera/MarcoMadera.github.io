@@ -9,37 +9,17 @@ export default class About extends Component {
         <div className="container">
           <div className="row">
             <div className="About__col col-12 col-md-8">
-              <h1>Acerca de</h1>
+              <h1>Sobre mí</h1>
               <p>
-                Hola mi nombre es Marco Madera, me gradué como ingeniero industrial y le hayé el gusto a programar.
-              </p>
-              <p>[Espacio para descripción más descriptiva]</p>
-              <p>
-                No tengo presencia ey
-                Proin hendrerit suscipit semper. Curabitur faucibus libero sit
-                amet ex pretium consequat. Pellentesque efficitur in tellus et
-                molestie. Morbi elementum nisl vitae nibh fringilla, vel maximus
-                elit aliquet. Cras at eros ut arcu consequat dapibus at id leo.
-                Cras lectus sem, sagittis vitae felis vel, fermentum bibendum
-                purus. Donec lectus nunc, posuere in pretium sit amet, rhoncus
-                in felis. Aenean eget libero ullamcorper, fringilla est in,
-                ornare eros. Etiam vitae pretium sapien, feugiat dictum leo.
-                Cras lacinia, purus at posuere feugiat, massa lorem imperdiet
-                sem, pulvinar ullamcorper est urna eget odio. Morbi finibus vel
-                lectus eu consequat. Curabitur efficitur eros non purus
-                efficitur, sed malesuada leo tempus. Proin ac ligula ut ante
-                scelerisque sodales. Ut libero tortor, accumsan vitae nunc sed,
-                ullamcorper vulputate augue.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                varius consequat gravida. Curabitur eu ante lobortis, venenatis
-                diam in, efficitur ex. Phasellus a est quis felis dictum
-                tristique. Curabitur id imperdiet elit. Aenean eget lacinia
-                turpis, quis elementum quam. Suspendisse a leo nec dolor
-                interdum rhoncus. Duis purus libero, vehicula cursus pretium
-                nec, posuere ut nisl. Aenean ornare a ex nec varius. Quisque
-                sollicitudin nisi atuctor ultricies.
+                ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
+                administrador administrativo en la secretaria de relaciones
+                exteriores, desarrollador web frontend por afición y entusiasta
+                de las tecnología web que cada día me apasionan más: JavaScript,
+                Node.js, React, etc.. Estoy en constante proceso de aprendizaje
+                sobre todas las nuevas tecnologías, me gusta estar informado de
+                lo que pasa en la web, ver cursos, leer artículos, ver
+                tutoriales y trataré de compartir mis conocimientos en la
+                sección de blog.
               </p>
             </div>
           </div>

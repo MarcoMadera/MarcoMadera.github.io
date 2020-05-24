@@ -1,13 +1,30 @@
 .Home {
+  background-image: Url('../../images/cover.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
-  color: #000000;
-  align-items: center;
-  z-index: -1;
+  height: 90.6vh;
+  margin: 0 auto;
   display: inline-flex;
-  position: fixed;
-  top: 0;
+  position: relative;
+  top: 1.4vh;
   justify-content: center;
+  /* outline: solid 1px purple; */
+}
+
+.hero_img{
+  padding: 3em;
+  margin:0 auto;
+  text-align: center;
+  /* outline: solid 1px blue; */
+}
+.hero_img img{
+  width:120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius:50%;
+  display: block;
+  /* outline: solid 1px red; */
 }
 
 .Home__col {
@@ -21,4 +38,15 @@
   .Home__col {
     align-items: flex-start;
   }
+}
+
+
+.faBrands a{
+  color: rgb(59, 59, 59);
+  padding: 14px 25px;
+  display: inline-block;
+}
+
+.faBrands a:hover{
+  color: rgb(150, 150, 150);
 }

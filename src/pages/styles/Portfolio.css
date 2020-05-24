@@ -1,12 +1,8 @@
-.Blog {
+.Portfolio {
   margin: 1rem;
 }
 
-.BlogList ul > li {
-  margin-bottom: 1rem;
-}
-
-.Blog__col {
+.Portfolio__col {
   text-align: justify;
   position: static;
   margin-left: auto;
@@ -14,14 +10,14 @@
   padding-bottom: 3rem;
 }
 
-.Blog__title {
+.Portfolio__title {
   text-align: left;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2em;
 }
 
 @media screen and (min-width: 768px) {
-  .Blog__col {
+  .Portfolio__col {
     align-items: flex-start;
   }
 }

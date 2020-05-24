@@ -3,6 +3,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul {
+  list-style-type: none;
+ }
+
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -51,5 +55,6 @@ a.link-unstyled:hover {
 @media screen and (max-width: 600px){
   a:not(:first-child) {
     display: list-item;
+    list-style-type: none;
   }
 }
