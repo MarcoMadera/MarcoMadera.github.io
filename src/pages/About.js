@@ -12,7 +12,7 @@ export default class About extends Component {
               <h1>Sobre mí</h1>
               <p>
                 ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
-                administrador administrativo en la secretaria de relaciones
+                auxiliar administrativo en la secretaria de relaciones
                 exteriores, desarrollador web frontend por afición y entusiasta
                 de las tecnología web que cada día me apasionan más: JavaScript,
                 Node.js, React, etc.. Estoy en constante proceso de aprendizaje

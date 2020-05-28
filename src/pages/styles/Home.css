@@ -2,21 +2,19 @@
   background-image: Url('../../images/cover.jpg');
   background-size:cover;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   height: 90.6vh;
   margin: 0 auto;
   display: inline-flex;
   position: relative;
   top: 1.4vh;
   justify-content: center;
-  /* outline: solid 1px purple; */
 }
 
 .hero_img{
   padding: 3em;
   margin:0 auto;
   text-align: center;
-  /* outline: solid 1px blue; */
 }
 .hero_img img{
   width:120px;
@@ -24,7 +22,6 @@
   margin: 0 auto 10px;
   border-radius:50%;
   display: block;
-  /* outline: solid 1px red; */
 }
 
 .Home__col {
