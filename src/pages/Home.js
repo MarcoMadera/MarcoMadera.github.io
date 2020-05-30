@@ -10,6 +10,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default class Home extends Component {
+  randomPage() {
+    let pages = [
+      "/about",
+      "/portfolio",
+      "/portfolio/sreExcel",
+      "/portfolio/chiSqrt",
+      "/blog",
+      "/blog/Pseudo-Random-numbers",
+    ];
+
+    return pages[Math.round(Math.random() * (pages.length - 1))];
+  }
+
   render() {
     return (
       <div className="Home">
@@ -34,10 +47,7 @@ export default class Home extends Component {
                   </a>
                 </div>
                 <br />
-                <Link
-                  className="btn btn-primary"
-                  to="/Blog/Pseudo-Random-numbers"
-                >
+                <Link className="btn btn-primary" to={this.randomPage()}>
                   Página aleatoria
                 </Link>
               </div>

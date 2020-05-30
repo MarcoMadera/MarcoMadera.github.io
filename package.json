@@ -16,6 +16,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "chi-squared": "^1.1.0",
+    "image-zoom-react": "^0.1.2",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
     "react": "^16.13.1",

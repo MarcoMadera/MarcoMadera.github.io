@@ -7,33 +7,67 @@ import {
   faListAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+
 import cover from "../images/image.jpg";
 
-let state = false;
-let cls = "BlogList";
+let state = {
+  view: "List",
+  type: "BlogList",
+  faList: "selected",
+  faListAlt: "",
+  faGripHorizontal: "",
+};
 
 class BlogPost extends React.Component {
   List = () => (
-    <Link
-      className="text-reset text-decoration-none"
-      to={`/blog${this.props.link ? this.props.link : ""}`}
-    >
-      <div className="BlogListItem">
-        <img
-          src={this.props.cover}
-          alt={this.props.title}
-          className="BlogListItem__preview"
-        />
+    <div className="BlogListItem">
+      <Link
+        className="text-reset text-decoration-none"
+        to={`/blog${this.props.link ? this.props.link : ""}`}
+      >
         <div>
-          <p className="BlogEntry__title">
-            {this.props.title}
-            <br />
-            {this.props.date} <br />
-            {this.props.tags}
-          </p>
+          <div className="BlogListItem__grid">
+            <div>
+              <h4 className="BlogEntry__title">{this.props.title}</h4>
+              <p className="BlogEntry__excerpt">
+                {this.props.excerpt}
+                <span>
+                  ... <span className="BlogList__readMore">Leer más</span>
+                </span>
+              </p>
+            </div>
+            <img
+              src={this.props.cover}
+              alt={this.props.title}
+              className="BlogListItem__preview"
+            />
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+      <footer>
+        <div className="BlogEntry__meta">
+          {(() => {
+            let tags = [];
+            for (let i = 0; i < this.props.tags.length; i++) {
+              tags.push(
+                <span key={i}>
+                  <Link
+                    className="text-reset text-decoration-none"
+                    to={`/blog/tag/${this.props.tags[i]}`}
+                  >
+                    <span className="BlogEntry__tags">
+                      #{this.props.tags[i]}
+                    </span>{" "}
+                  </Link>
+                </span>
+              );
+            }
+            return tags;
+          })()}
+        </div>
+        <p className="BlogList__metaName">Marco Madera | {this.props.date}</p>
+      </footer>
+    </div>
   );
 
   Grid = () => (
@@ -74,7 +108,7 @@ class BlogPost extends React.Component {
   );
 
   render() {
-    if (state == true) {
+    if (state.view == "List") {
       return this.List();
     } else {
       return this.Grid();
@@ -96,9 +130,13 @@ function Blog(props) {
                     icon={faList}
                     size="2x"
                     onClick={(e) => {
-                      state = true;
-                      cls = "BlogList";
+                      state.view = "List";
+                      state.type = "BlogList";
+                      state.faList = "selected";
+                      state.faListAlt = "";
+                      state.faGripHorizontal = "";
                     }}
+                    className={state.faList}
                   />
                 </Link>
               </div>
@@ -108,9 +146,13 @@ function Blog(props) {
                     icon={faListAlt}
                     size="2x"
                     onClick={(e) => {
-                      state = false;
-                      cls = "BlogList";
+                      state.view = "Grid";
+                      state.type = "BlogList";
+                      state.faList = "";
+                      state.faListAlt = "selected";
+                      state.faGripHorizontal = "";
                     }}
+                    className={state.faListAlt}
                   />
                 </Link>
               </div>
@@ -120,22 +162,26 @@ function Blog(props) {
                     icon={faGripHorizontal}
                     size="2x"
                     onClick={(e) => {
-                      state = false;
-                      cls = "Posts";
+                      state.view = "Grid";
+                      state.type = "Posts";
+                      state.faList = "";
+                      state.faListAlt = "";
+                      state.faGripHorizontal = "selected";
                     }}
+                    className={state.faGripHorizontal}
                   />
                 </Link>
               </div>
             </div>
-            <section className={cls} id="Entries">
+            <section className={state.type} id="Entries">
               <ul>
                 <li>
                   <BlogPost
-                    title="Números Pseudo Aleatorios"
+                    title="Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios "
                     cover={cover}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
-                    tags="#Estadística"
+                    tags={["Estadística", "Matematicas"]}
                     link="/Pseudo-Random-numbers"
                   />
                 </li>
@@ -147,7 +193,7 @@ function Blog(props) {
                     cover={cover}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
-                    tags="#Estadística"
+                    tags={["Estadística", "Fisica"]}
                     link="/Pseudo-Random-numbers"
                   />
                 </li>
@@ -159,7 +205,7 @@ function Blog(props) {
                     cover={cover}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
-                    tags="#Estadística"
+                    tags={["Estadística", "Matematicas", "Ciencias"]}
                     link="/Pseudo-Random-numbers"
                   />
                 </li>
@@ -171,7 +217,19 @@ function Blog(props) {
                     cover={cover}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
-                    tags="#Estadística"
+                    tags={["Estadística", "Matematicas"]}
+                    link="/Pseudo-Random-numbers"
+                  />
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <BlogPost
+                    title="Números Pseudo Aleatorios"
+                    cover={cover}
+                    excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
+                    date="20/05/2020"
+                    tags={["Estadística", "Matematicas"]}
                     link="/Pseudo-Random-numbers"
                   />
                 </li>

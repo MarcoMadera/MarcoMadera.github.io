@@ -1,24 +1,23 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 // const ManifestPlugin = require("webpack-manifest-plugin")
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
-const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin')
-
+const AppManifestWebpackPlugin = require("app-manifest-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/index.js'),
+    app: path.resolve(__dirname, "src/index.js"),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js',
-    publicPath: '/',
-    chunkFilename: 'js/[id].[chunkhash].js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "js/[name].js",
+    publicPath: "/",
+    chunkFilename: "js/[id].[chunkhash].js",
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, "dist"),
     open: true,
     port: 9000,
     hot: true,
@@ -27,21 +26,18 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
-        exclude: [/node_modules/]
+        use: "babel-loader",
+        exclude: [/node_modules/],
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.svg|jpg|png|gif$/,
-        use: 'file-loader'
+        test: /\.svg|jpg|png|jpeg|gif$/,
+        use: "file-loader",
       },
-    ]
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -71,7 +67,7 @@ module.exports = {
       host: "https://github.io",
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html'),
+      template: path.resolve(__dirname, "public/index.html"),
     }),
     // new AppManifestWebpackPlugin({
     //   logo: './src/images/logo512.png',
@@ -107,4 +103,4 @@ module.exports = {
     //   }
     // }),
   ],
-}
+};

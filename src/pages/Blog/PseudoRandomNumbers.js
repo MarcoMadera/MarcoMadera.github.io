@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Chart from "chart.js";
 import chi from "chi-squared";
 import gamma from "gamma";
-import LineChart from "../components/LineChart";
+import LineChart from "../../components/LineChart";
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
