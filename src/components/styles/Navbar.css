@@ -1,3 +1,7 @@
+#sidebar ul li{
+  display: inline;
+}
+
 .Navbar {
   min-height: 8vh;
   text-align: center;
@@ -5,6 +9,10 @@
   font-size: 21px;
   display: flex;
   box-shadow: -6px 0 white, 6px 0 white, 1px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.Navbar__header{
+  display: none;
 }
 
 .Navbar__brand {
@@ -17,4 +25,64 @@
 .Navbar__brand:hover {
   color: #808080;
   text-decoration: none;
+}
+
+@media screen and (max-width: 600px){
+  .Navbar .container-fluid{
+    padding-left:0;
+  }
+  .Navbar__brand{
+    margin: 0;
+  }
+
+  .Navbar__header{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: block;
+    position: absolute;
+    width: 100vw;
+  }
+
+  #sidebar ul a{
+    display: block;
+    padding: 10px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(65, 65, 65);
+  }
+
+  #sidebar{
+    position: absolute;
+    top: 0;
+    width: 190px;
+    height: 100%;
+    background: white;
+    z-index: 10;
+    color: rgba(230,230, 230, 0.9);
+    left: -190px;
+  }
+
+  #sidebar.show {
+    position: absolute;
+    left: 0px;
+    transition: all 500ms linear;
+  }
+
+  #sidebar .toggleBtn{
+    position:absolute;
+    left: 230px;
+    top: 10px;
+  }
+  #sidebar.show .toggleBtn{
+    position:absolute;
+    left: 150px;
+    top: 10px;
+  }
+
+
+  #sidebar .toggleBtn span{
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: black;
+    margin: 5px 0px;
+  }
 }
