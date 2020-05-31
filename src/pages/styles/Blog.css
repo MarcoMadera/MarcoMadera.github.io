@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.Blog__orderView svg:hover {
+.Blog__orderView i:hover {
   color: rgb(59, 59, 59);
 }
 

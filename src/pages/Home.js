@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./styles/Home.css";
 import profileImg from "./../images/me.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 
 export default class Home extends Component {
   randomPage() {
@@ -34,16 +28,17 @@ export default class Home extends Component {
                 <h1>Marco Madera</h1>
                 <div className="faBrands">
                   <a href="https://github.com/MarcoMadera" target="_blank">
-                    <FontAwesomeIcon icon={faGithub} size="lg" />
+                    <i className="fab fa-github"></i>
                   </a>
+
                   <a
                     href="https://www.linkedin.com/in/marcomadera/"
                     target="_blank"
                   >
-                    <FontAwesomeIcon icon={faLinkedin} size="lg" />
+                    <i className="fab fa-linkedin"></i>
                   </a>
                   <a href="https://twitter.com/madera_marco" target="_blank">
-                    <FontAwesomeIcon icon={faTwitter} size="lg" />
+                    <i className="fab fa-twitter"></i>
                   </a>
                 </div>
                 <br />

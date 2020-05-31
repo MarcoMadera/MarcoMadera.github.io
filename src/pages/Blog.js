@@ -1,11 +1,5 @@
 import React from "react";
 import "./styles/Blog.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGripHorizontal,
-  faList,
-  faListAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 import cover from "../images/image.jpg";
@@ -126,9 +120,8 @@ function Blog(props) {
               <h1>Blog</h1>
               <div className="Blog__orderView">
                 <Link to="/blog" className="text-reset text-decoration-none">
-                  <FontAwesomeIcon
-                    icon={faList}
-                    size="2x"
+                  <i
+                    className={`fas fa-list ${state.faList}`}
                     onClick={(e) => {
                       state.view = "List";
                       state.type = "BlogList";
@@ -136,15 +129,13 @@ function Blog(props) {
                       state.faListAlt = "";
                       state.faGripHorizontal = "";
                     }}
-                    className={state.faList}
                   />
                 </Link>
               </div>
               <div className="Blog__orderView">
                 <Link to="/blog" className="text-reset text-decoration-none">
-                  <FontAwesomeIcon
-                    icon={faListAlt}
-                    size="2x"
+                  <i
+                    className={`fas fa-list-alt ${state.faListAlt}`}
                     onClick={(e) => {
                       state.view = "Grid";
                       state.type = "BlogList";
@@ -152,14 +143,13 @@ function Blog(props) {
                       state.faListAlt = "selected";
                       state.faGripHorizontal = "";
                     }}
-                    className={state.faListAlt}
                   />
                 </Link>
               </div>
               <div className="Blog__orderView">
                 <Link to="/blog" className="text-reset text-decoration-none">
-                  <FontAwesomeIcon
-                    icon={faGripHorizontal}
+                  <i
+                    className={`fas fa-grip-horizontal ${state.faGripHorizontal}`}
                     size="2x"
                     onClick={(e) => {
                       state.view = "Grid";
@@ -168,7 +158,6 @@ function Blog(props) {
                       state.faListAlt = "";
                       state.faGripHorizontal = "selected";
                     }}
-                    className={state.faGripHorizontal}
                   />
                 </Link>
               </div>
