@@ -38,34 +38,26 @@ function Navbar(props) {
             <span></span>
           </div>
           <ul>
-            <Link className="Navbar__brand" to="/">
-              <li>
-                <span>
-                  <span className="font-weight-ligh">Inicio</span>
-                </span>
-              </li>
-            </Link>
-            <Link className="Navbar__brand" to="/blog">
-              <li>
-                <span>
-                  <span className="font-weight-ligh">Blog</span>
-                </span>
-              </li>
-            </Link>
-            <Link className="Navbar__brand" to="/portfolio">
-              <li>
-                <span>
-                  <span className="font-weight-ligh">Portafolio</span>
-                </span>
-              </li>
-            </Link>
-            <Link className="Navbar__brand" to="/about">
-              <li>
-                <span>
-                  <span className="font-weight-ligh">Sobre mí</span>
-                </span>
-              </li>
-            </Link>
+            <li>
+              <Link className="Navbar__brand" to="/">
+                <span className="font-weight-ligh">Inicio</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="Navbar__brand" to="/blog">
+                <span className="font-weight-ligh">Blog</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="Navbar__brand" to="/portfolio">
+                <span className="font-weight-ligh">Portafolio</span>
+              </Link>
+            </li>
+            <li>
+              <Link className="Navbar__brand" to="/about">
+                <span className="font-weight-ligh">Sobre mí</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

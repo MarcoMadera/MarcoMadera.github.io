@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./styles/Home.css";
-import profileImg from "./../images/me.jpg";
+import profileImgWebp from "./../images/profile.webp";
+import profileImg from "./../images/profile.jpg";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "../components/Icons";
 
 export default class Home extends Component {
   randomPage() {
@@ -24,21 +26,40 @@ export default class Home extends Component {
           <div className="">
             <div className="Home__col">
               <div className="hero_img">
-                <img src={profileImg} id="me" alt="me" />
+                <picture>
+                  <source srcSet={profileImgWebp} type="image/webp" alt="me" />
+                  <img
+                    className="profileImg"
+                    src={profileImg}
+                    id="me"
+                    alt="me"
+                  />
+                </picture>
                 <h1>Marco Madera</h1>
-                <div className="faBrands">
-                  <a href="https://github.com/MarcoMadera" target="_blank">
-                    <i className="fab fa-github"></i>
-                  </a>
-
+                <div className="icons">
                   <a
+                    aria-label="Github"
+                    href="https://github.com/MarcoMadera"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <GithubIcon />
+                  </a>
+                  <a
+                    aria-label="LinkedIn"
                     href="https://www.linkedin.com/in/marcomadera/"
                     target="_blank"
+                    rel="noopener"
                   >
-                    <i className="fab fa-linkedin"></i>
+                    <LinkedinIcon />
                   </a>
-                  <a href="https://twitter.com/madera_marco" target="_blank">
-                    <i className="fab fa-twitter"></i>
+                  <a
+                    aria-label="Twitter"
+                    href="https://twitter.com/madera_marco"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <TwitterIcon />
                   </a>
                 </div>
                 <br />

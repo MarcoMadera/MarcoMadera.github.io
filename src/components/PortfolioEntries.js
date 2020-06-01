@@ -9,7 +9,14 @@ const PortfolioEntries = (props) => {
         className="text-reset text-decoration-none"
         to={`portfolio/${props.link}`}
       >
-        <img src={props.cover} alt="" className="PortfolioListItem__preview" />
+        <picture>
+          <source srcSet={props.coverWebp} type="image/webp" alt="Cover" />
+          <img
+            src={props.cover}
+            alt="Cover"
+            className="PortfolioListItem__preview"
+          />
+        </picture>
       </Link>
       <div>
         <h4 className="PortfolioEntry__title">{props.title}</h4>

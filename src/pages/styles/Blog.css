@@ -1,7 +1,3 @@
-.selected{
-  color: rgb(59,59,59)
-}
-
 .Blog {
   margin-top: 1rem;
 }
@@ -22,15 +18,23 @@
   align-items: center;
 }
 
-.Blog__orderView i:hover {
-  color: rgb(59, 59, 59);
-}
-
 .Blog__orderView {
-  color: rgb(150, 150, 150);
   display: inline-block;
   text-align: center;
 }
+
+.Blog__orderView a svg g{
+  fill: rgb(150, 150, 150);
+}
+
+.Blog__orderView a:hover svg g{
+  fill: rgb(90, 90, 90);
+}
+
+.Blog__orderView .selected svg g{
+  fill: rgb(88, 88, 88);
+}
+
 
 .BlogListItem {
   background: #ffffff;

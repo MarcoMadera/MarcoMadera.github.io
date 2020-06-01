@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import reporte from "../../images/Portfolio/ChiSqrt/ChiSqrtCover.jpeg";
-
-import ImageZoom from "image-zoom-react";
+import reporteWebp from "../../images/Portfolio/ChiSqrt/ChiSqrtCover.webp";
+import ImageZoom from "../../components/Zoom";
 
 import "./styles/chiSqrt.css";
 
@@ -20,6 +20,7 @@ export default class chiSqrt extends Component {
               <ImageZoom
                 className="chiSqrt__image"
                 src={reporte}
+                srcWebp={reporteWebp}
                 magnify={1.75}
                 alt="Reporte Diario"
               />

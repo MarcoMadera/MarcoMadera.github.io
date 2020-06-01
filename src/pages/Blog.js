@@ -1,8 +1,13 @@
 import React from "react";
 import "./styles/Blog.css";
 import { Link } from "react-router-dom";
-
+import {
+  ListMenuIcon,
+  LisWrapMenuIcon,
+  GridMenuIcon,
+} from "../components/Icons";
 import cover from "../images/image.jpg";
+import coverWebp from "../images/image.webp";
 
 let state = {
   view: "List",
@@ -30,11 +35,18 @@ class BlogPost extends React.Component {
                 </span>
               </p>
             </div>
-            <img
-              src={this.props.cover}
-              alt={this.props.title}
-              className="BlogListItem__preview"
-            />
+            <picture>
+              <source
+                srcSet={this.props.coverWebp}
+                type="image/webp"
+                alt={this.props.title}
+              />
+              <img
+                src={this.props.cover}
+                alt={this.props.title}
+                className="BlogListItem__preview"
+              />
+            </picture>
           </div>
         </div>
       </Link>
@@ -72,11 +84,18 @@ class BlogPost extends React.Component {
             className="text-reset text-decoration-none"
             to={`/blog${this.props.link ? this.props.link : ""}`}
           >
-            <img
-              src={this.props.cover}
-              alt={this.props.title}
-              className="Post__cover"
-            />
+            <picture>
+              <source
+                srcSet={this.props.coverWebp}
+                type="image/webp"
+                alt={this.props.title}
+              />
+              <img
+                src={this.props.cover}
+                alt={this.props.title}
+                className="Post__cover"
+              />
+            </picture>
           </Link>
           <div className="content">
             <Link
@@ -119,46 +138,48 @@ function Blog(props) {
             <div className="Blog__header">
               <h1>Blog</h1>
               <div className="Blog__orderView">
-                <Link to="/blog" className="text-reset text-decoration-none">
-                  <i
-                    className={`fas fa-list ${state.faList}`}
-                    onClick={(e) => {
-                      state.view = "List";
-                      state.type = "BlogList";
-                      state.faList = "selected";
-                      state.faListAlt = "";
-                      state.faGripHorizontal = "";
-                    }}
-                  />
+                <Link
+                  onClick={(e) => {
+                    state.view = "List";
+                    state.type = "BlogList";
+                    state.faList = "selected";
+                    state.faListAlt = "";
+                    state.faGripHorizontal = "";
+                  }}
+                  className={`text-reset text-decoration-none ${state.faList}`}
+                  to="/blog"
+                >
+                  <ListMenuIcon />
                 </Link>
               </div>
               <div className="Blog__orderView">
-                <Link to="/blog" className="text-reset text-decoration-none">
-                  <i
-                    className={`fas fa-list-alt ${state.faListAlt}`}
-                    onClick={(e) => {
-                      state.view = "Grid";
-                      state.type = "BlogList";
-                      state.faList = "";
-                      state.faListAlt = "selected";
-                      state.faGripHorizontal = "";
-                    }}
-                  />
+                <Link
+                  onClick={(e) => {
+                    state.view = "Grid";
+                    state.type = "BlogList";
+                    state.faList = "";
+                    state.faListAlt = "selected";
+                    state.faGripHorizontal = "";
+                  }}
+                  className={`text-reset text-decoration-none ${state.faListAlt}`}
+                  to="/blog"
+                >
+                  <LisWrapMenuIcon />
                 </Link>
               </div>
               <div className="Blog__orderView">
-                <Link to="/blog" className="text-reset text-decoration-none">
-                  <i
-                    className={`fas fa-grip-horizontal ${state.faGripHorizontal}`}
-                    size="2x"
-                    onClick={(e) => {
-                      state.view = "Grid";
-                      state.type = "Posts";
-                      state.faList = "";
-                      state.faListAlt = "";
-                      state.faGripHorizontal = "selected";
-                    }}
-                  />
+                <Link
+                  onClick={(e) => {
+                    state.view = "Grid";
+                    state.type = "Posts";
+                    state.faList = "";
+                    state.faListAlt = "";
+                    state.faGripHorizontal = "selected";
+                  }}
+                  className={`text-reset text-decoration-none ${state.faGripHorizontal}`}
+                  to="/blog"
+                >
+                  <GridMenuIcon />
                 </Link>
               </div>
             </div>
@@ -168,6 +189,7 @@ function Blog(props) {
                   <BlogPost
                     title="Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios "
                     cover={cover}
+                    coverWebp={coverWebp}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
                     tags={["Estadística", "Matematicas"]}
@@ -180,6 +202,7 @@ function Blog(props) {
                   <BlogPost
                     title="Números Pseudo Aleatorios"
                     cover={cover}
+                    coverWebp={coverWebp}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
                     tags={["Estadística", "Fisica"]}
@@ -192,6 +215,7 @@ function Blog(props) {
                   <BlogPost
                     title="Números Pseudo Aleatorios"
                     cover={cover}
+                    coverWebp={coverWebp}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
                     tags={["Estadística", "Matematicas", "Ciencias"]}
@@ -204,6 +228,7 @@ function Blog(props) {
                   <BlogPost
                     title="Números Pseudo Aleatorios"
                     cover={cover}
+                    coverWebp={coverWebp}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
                     tags={["Estadística", "Matematicas"]}
@@ -216,6 +241,7 @@ function Blog(props) {
                   <BlogPost
                     title="Números Pseudo Aleatorios"
                     cover={cover}
+                    coverWebp={coverWebp}
                     excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
                     date="20/05/2020"
                     tags={["Estadística", "Matematicas"]}

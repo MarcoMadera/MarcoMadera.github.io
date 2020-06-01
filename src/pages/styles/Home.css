@@ -1,5 +1,12 @@
-.Home {
+.webp .Home{
+  background-image: Url('../../images/cover.webp');
+}
+
+.no-webp .Home {
   background-image: Url('../../images/cover.jpg');
+}
+
+.Home {
   background-size:cover;
   background-repeat: no-repeat;
   width: 100vw;
@@ -16,9 +23,7 @@
   margin:0 auto;
   text-align: center;
 }
-.hero_img img{
-  width:120px;
-  height: 120px;
+.hero_img .profileImg{
   margin: 0 auto 10px;
   border-radius:50%;
   display: block;
@@ -31,16 +36,13 @@
   align-items: center;
 }
 
-
-
-.faBrands a{
-  color: rgb(59, 59, 59);
+.icons a{
   padding: 14px 25px;
   display: inline-block;
 }
 
-.faBrands a:hover{
-  color: rgb(150, 150, 150);
+.icons a:hover svg g{
+  fill: rgb(150, 150, 150);
 }
 
 @media screen and (min-width: 768px) {

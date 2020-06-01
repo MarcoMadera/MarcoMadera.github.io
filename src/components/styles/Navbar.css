@@ -46,7 +46,7 @@
     display: block;
     padding: 10px 10px;
     text-align: left;
-    border-bottom: 1px solid rgb(65, 65, 65);
+    border-bottom: 1px solid rgba(107, 107, 107, 0.192);
   }
 
   #sidebar{
@@ -63,11 +63,12 @@
   #sidebar.show {
     position: absolute;
     left: 0px;
-    transition: all 500ms linear;
+    transition: all 400ms linear;
   }
 
   #sidebar .toggleBtn{
     position:absolute;
+    cursor: pointer;
     left: 230px;
     top: 10px;
   }
@@ -84,5 +85,20 @@
     height: 5px;
     background: black;
     margin: 5px 0px;
+  }
+
+  #sidebar.show .toggleBtn span:nth-last-child(1){
+    opacity: 1;
+  transform: rotate(45deg) translate(0px, 0px);
+  transition: all 400ms linear;
+  }
+  #sidebar.show .toggleBtn span:nth-last-child(2){
+    position: absolute;
+    top: 10px;
+    transform: rotate(-45deg) translate(0px, 0px);
+    transition: all 400ms linear;
+  }
+  #sidebar.show .toggleBtn span:nth-last-child(3){
+    opacity: 0;
   }
 }
