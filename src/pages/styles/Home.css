@@ -1,8 +1,8 @@
-.webp .Home{
+html.webp .Home{
   background-image: Url('../../images/cover.webp');
 }
 
-.no-webp .Home {
+html:not(.webp) .Home{
   background-image: Url('../../images/cover.jpg');
 }
 
