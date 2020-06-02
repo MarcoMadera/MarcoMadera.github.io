@@ -1,0 +1,38 @@
+.BlogGridView{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+}
+
+.BlogGridView__header__cover{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.BlogGridView__header__content{
+  padding: 0 0.5rem;
+}
+
+.BlogGridView__header__content__title{
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.BlogGridView__header__content__title:hover,
+.BlogGridView__header__content__excerpt:hover .BlogGridView__footer__readMore,
+.BlogGridView__footer__tags:hover{
+  text-decoration: underline;
+}
+
+.BlogGridView__header__content__excerpt{
+  cursor: pointer;
+  text-align: justify;
+}
+
+.BlogGridView__footer{
+  padding: 0 0.5rem 0.1rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.BlogGridView__footer__meta{
+  font-size: 0.9rem;
+}

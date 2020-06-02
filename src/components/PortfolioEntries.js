@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PortfolioEntries = (props) => {
   return (
-    <div className="PortfolioListItem">
+    <div className="PortfolioEntries">
       <Link
         className="text-reset text-decoration-none"
         to={`portfolio/${props.link}`}
@@ -14,14 +14,14 @@ const PortfolioEntries = (props) => {
           <img
             src={props.cover}
             alt="Cover"
-            className="PortfolioListItem__preview"
+            className="PortfolioEntries__preview"
           />
         </picture>
+        <div className="PortfolioEntries__content">
+          <h4 className="PortfolioEntry__title">{props.title}</h4>
+          <p>{props.description}</p>
+        </div>
       </Link>
-      <div>
-        <h4 className="PortfolioEntry__title">{props.title}</h4>
-        <p>{props.description}</p>
-      </div>
     </div>
   );
 };

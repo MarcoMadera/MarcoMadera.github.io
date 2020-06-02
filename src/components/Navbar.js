@@ -9,20 +9,31 @@ function Navbar(props) {
   }
 
   let location = useLocation();
+  let activeTab = {
+    blogTab: undefined,
+    portfolioTab: undefined,
+    aboutTab: undefined,
+    homeTab: undefined,
+  };
   function HeaderView() {
     let header = "";
+
     switch (location.pathname.split("/")[1]) {
       case "blog":
         header = "Blog";
+        activeTab.blogTab = "active";
         break;
       case "portfolio":
         header = "Portafolio";
+        activeTab.portfolioTab = "active";
         break;
       case "about":
         header = "Sobre mí";
+        activeTab.aboutTab = "active";
         break;
       default:
         header = "Inicio";
+        activeTab.homeTab = "active";
         break;
     }
     return <h3>{header}</h3>;
@@ -30,6 +41,7 @@ function Navbar(props) {
 
   return (
     <div className="Navbar" id="myNavbar">
+      <div className="Navbar__header">{HeaderView()}</div>
       <div className="container-fluid">
         <div id="sidebar" ref={ref} onClick={handleClick}>
           <div className="toggleBtn">
@@ -40,28 +52,35 @@ function Navbar(props) {
           <ul>
             <li>
               <Link className="Navbar__brand" to="/">
-                <span className="font-weight-ligh">Inicio</span>
+                <span className={`font-weight-ligh ${activeTab.homeTab}`}>
+                  Inicio
+                </span>
               </Link>
             </li>
             <li>
               <Link className="Navbar__brand" to="/blog">
-                <span className="font-weight-ligh">Blog</span>
+                <span className={`font-weight-ligh ${activeTab.blogTab}`}>
+                  Blog
+                </span>
               </Link>
             </li>
             <li>
               <Link className="Navbar__brand" to="/portfolio">
-                <span className="font-weight-ligh">Portafolio</span>
+                <span className={`font-weight-ligh ${activeTab.portfolioTab}`}>
+                  Portafolio
+                </span>
               </Link>
             </li>
             <li>
               <Link className="Navbar__brand" to="/about">
-                <span className="font-weight-ligh">Sobre mí</span>
+                <span className={`font-weight-ligh ${activeTab.aboutTab}`}>
+                  Sobre mí
+                </span>
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="Navbar__header">{HeaderView()}</div>
     </div>
   );
 }

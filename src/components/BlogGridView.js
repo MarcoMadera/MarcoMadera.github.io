@@ -1,27 +1,15 @@
 import React from "react";
-import "./styles/BlogListView.css";
+import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
 
-const BlogListView = (props) => {
+const BlogGridView = (props) => {
   return (
-    <article className="BlogListView">
+    <article className="BlogGridView">
       <Link
         className="text-reset text-decoration-none"
-        to={`/blog${props.link ? props.link : ""}`}
+        to={`/blog${props.link && props.link}`}
       >
-        <header className="BlogListView__header">
-          <div className="BlogListView__header__content">
-            <h4 className="BlogListView__header__content__title">
-              {props.title}
-            </h4>
-            <p className="BlogListView__header__content__excerpt">
-              {props.excerpt}
-              ...{" "}
-              <span className="BlogListView__header__content__excerpt__readMore">
-                Leer más
-              </span>
-            </p>
-          </div>
+        <header className="BlogGridView__header">
           <picture>
             <source
               srcSet={props.coverWebp}
@@ -31,12 +19,22 @@ const BlogListView = (props) => {
             <img
               src={props.cover}
               alt={props.title}
-              className="BlogListView__header__preview"
+              className="BlogGridView__header__cover"
             />
           </picture>
+          <div className="BlogGridView__header__content">
+            <h4 className="BlogGridView__header__content__title">
+              {props.title}
+            </h4>
+            <p className="BlogGridView__header__content__excerpt">
+              {props.excerpt}
+              ...{" "}
+              <span className="BlogGridView__footer__readMore">Leer más</span>
+            </p>
+          </div>
         </header>
       </Link>
-      <footer className="BlogListView__footer">
+      <footer className="BlogGridView__footer">
         {(() => {
           let tags = [];
           for (let i = 0; i < props.tags.length; i++) {
@@ -46,7 +44,7 @@ const BlogListView = (props) => {
                   className="text-reset text-decoration-none"
                   to={`/blog/tag/${props.tags[i]}`}
                 >
-                  <span className="BlogListView__footer__tags">
+                  <span className="BlogGridView__footer__tags">
                     #{props.tags[i]}
                   </span>{" "}
                 </Link>
@@ -55,12 +53,16 @@ const BlogListView = (props) => {
           }
           return tags;
         })()}
-        <p className="BlogListView__footer__meta">
+        <p className="BlogGridView__footer__meta">
           Marco Madera | {props.date}
         </p>
+        <Link
+          className="text-reset text-decoration-none"
+          to={`/blog${props.link ? props.link : ""}`}
+        ></Link>
       </footer>
     </article>
   );
 };
 
-export default BlogListView;
+export default BlogGridView;

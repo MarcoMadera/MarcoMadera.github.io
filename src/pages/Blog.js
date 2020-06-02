@@ -1,35 +1,31 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleMenuView } from "../actions";
+import { toggleView } from "../actions";
 import "./styles/Blog.css";
 import BlogPost from "../components/BlogPost";
-import {
-  ListMenuIcon,
-  LisWrapMenuIcon,
-  GridMenuIcon,
-} from "../components/Icons";
+import { ListIcon, CardIcon, GridIcon } from "../components/Icons";
 import cover from "../images/image.jpg";
 import coverWebp from "../images/image.webp";
 
 function Blog() {
   let state = {
-    listViewClassName: "",
-    cardViewclassName: "",
-    gridViewclassName: "",
-    type: "",
+    listViewClassName: "selected",
+    cardViewClassName: undefined,
+    gridViewClassName: undefined,
+    view: undefined,
   };
   const listView = useSelector((state) => state.blogReducer.listView);
   const cardView = useSelector((state) => state.blogReducer.cardView);
   const gridView = useSelector((state) => state.blogReducer.gridView);
   listView
-    ? ((state.listViewClassName = "selected"), (state.type = "list"))
-    : (state.listViewClassName = "");
+    ? ((state.listViewClassName = "selected"), (state.view = undefined))
+    : (state.listViewClassName = undefined);
   cardView
-    ? ((state.cardViewClassName = "selected"), (state.type = "list"))
-    : (state.cardViewClassName = "");
+    ? ((state.cardViewClassName = "selected"), (state.view = undefined))
+    : (state.cardViewClassName = undefined);
   gridView
-    ? ((state.gridViewClassName = "selected"), (state.type = "Posts"))
-    : (state.gridViewClassName = "");
+    ? ((state.gridViewClassName = "selected"), (state.view = "Blog__gridView"))
+    : (state.gridViewClassName = undefined);
 
   const dispatch = useDispatch();
   return (
@@ -38,41 +34,41 @@ function Blog() {
         <div className="row">
           <div className="Blog__col col-12 col-md-8">
             <div className="Blog__header">
-              <h1>Blog</h1>
-              <div className="Blog__orderView">
+              <h1 className="Blog__header__title">Entradas</h1>
+              <div className="Blog__View">
                 <i
                   onClick={() => {
-                    dispatch(toggleMenuView("listView"));
+                    dispatch(toggleView("listView"));
                   }}
                   className={`text-reset text-decoration-none ${state.listViewClassName}`}
                 >
-                  <ListMenuIcon />
+                  <ListIcon />
                 </i>
               </div>
-              <div className="Blog__orderView">
+              <div className="Blog__View">
                 <i
                   onClick={() => {
-                    dispatch(toggleMenuView("cardView"));
+                    dispatch(toggleView("cardView"));
                   }}
-                  className={`text-reset text-decoration-none ${state.cardViewclassName}`}
+                  className={`text-reset text-decoration-none ${state.cardViewClassName}`}
                 >
-                  <LisWrapMenuIcon />
+                  <CardIcon />
                 </i>
               </div>
-              <div className="Blog__orderView">
+              <div className="Blog__View">
                 <i
                   onClick={() => {
-                    dispatch(toggleMenuView("gridView"));
+                    dispatch(toggleView("gridView"));
                   }}
-                  className={`text-reset text-decoration-none ${state.gridViewclassName}`}
+                  className={`text-reset text-decoration-none ${state.gridViewClassName}`}
                 >
-                  <GridMenuIcon />
+                  <GridIcon />
                 </i>
               </div>
             </div>
-            <section className={state.type} id="Entries">
+            <ul className={state.view}>
               <BlogPost
-                title="Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios Números Pseudo Aleatorios "
+                title="Pseudo Aleatorios Números Pseudo Aleatorios "
                 cover={cover}
                 coverWebp={coverWebp}
                 excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
@@ -116,7 +112,7 @@ function Blog() {
                 tags={["Estadística", "Matematicas"]}
                 link="/Pseudo-Random-numbers"
               />
-            </section>
+            </ul>
           </div>
         </div>
       </div>

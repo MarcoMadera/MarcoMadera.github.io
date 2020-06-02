@@ -2,6 +2,10 @@
   display: inline;
 }
 
+.active{
+  text-decoration: underline;
+}
+
 .Navbar {
   min-height: 8vh;
   text-align: center;

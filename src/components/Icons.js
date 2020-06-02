@@ -67,7 +67,7 @@ export const TwitterIcon = () => {
   );
 };
 
-export const ListMenuIcon = () => {
+export const ListIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export const ListMenuIcon = () => {
   );
 };
 
-export const LisWrapMenuIcon = () => {
+export const CardIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ export const LisWrapMenuIcon = () => {
   );
 };
 
-export const GridMenuIcon = () => {
+export const GridIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
