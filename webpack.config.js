@@ -128,5 +128,9 @@ module.exports = {
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/app.*"],
     }),
+    new HtmlWebpackPlugin({
+      filename: "404.html",
+      template: path.resolve(__dirname, "public/404.html"),
+    }),
   ],
 };
