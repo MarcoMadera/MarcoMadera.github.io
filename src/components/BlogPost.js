@@ -11,7 +11,9 @@ const BlogPost = (props) => {
         <BlogListView
           title={props.title}
           cover={props.cover}
+          author={props.author}
           coverWebp={props.coverWebp}
+          coverDescription={props.coverDescription}
           excerpt={props.excerpt}
           date={props.date}
           tags={props.tags}
@@ -24,8 +26,10 @@ const BlogPost = (props) => {
       <li>
         <BlogGridView
           title={props.title}
+          author={props.author}
           cover={props.cover}
           coverWebp={props.coverWebp}
+          coverDescription={props.coverDescription}
           excerpt={props.excerpt}
           date={props.date}
           tags={props.tags}

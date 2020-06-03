@@ -11,14 +11,10 @@ const BlogGridView = (props) => {
       >
         <header className="BlogGridView__header">
           <picture>
-            <source
-              srcSet={props.coverWebp}
-              type="image/webp"
-              alt={props.title}
-            />
+            <source srcSet={props.coverWebp} type="image/webp" />
             <img
               src={props.cover}
-              alt={props.title}
+              alt={props.coverDescription}
               className="BlogGridView__header__cover"
             />
           </picture>
@@ -35,26 +31,19 @@ const BlogGridView = (props) => {
         </header>
       </Link>
       <footer className="BlogGridView__footer">
-        {(() => {
-          let tags = [];
-          for (let i = 0; i < props.tags.length; i++) {
-            tags.push(
-              <span key={i}>
-                <Link
-                  className="text-reset text-decoration-none"
-                  to={`/blog/tag/${props.tags[i]}`}
-                >
-                  <span className="BlogGridView__footer__tags">
-                    #{props.tags[i]}
-                  </span>{" "}
-                </Link>
-              </span>
-            );
-          }
-          return tags;
-        })()}
+        {(() =>
+          props.tags.map((tags, i) => (
+            <span key={i}>
+              <Link
+                className="text-reset text-decoration-none"
+                to={`/blog/tag/${tags}`}
+              >
+                <span className="BlogListView__footer__tags">#{tags}</span>{" "}
+              </Link>
+            </span>
+          )))()}
         <p className="BlogGridView__footer__meta">
-          Marco Madera | {props.date}
+          {props.author} | {props.date}
         </p>
         <Link
           className="text-reset text-decoration-none"

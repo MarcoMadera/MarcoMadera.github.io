@@ -4,8 +4,7 @@ import { toggleView } from "../actions";
 import "./styles/Blog.css";
 import BlogPost from "../components/BlogPost";
 import { ListIcon, CardIcon, GridIcon } from "../components/Icons";
-import cover from "../images/image.jpg";
-import coverWebp from "../images/image.webp";
+import { entries } from "./Blog/BlogEntries";
 
 function Blog() {
   let state = {
@@ -28,6 +27,35 @@ function Blog() {
     : (state.gridViewClassName = undefined);
 
   const dispatch = useDispatch();
+  const blogEntries = entries.map(
+    (
+      {
+        title,
+        author,
+        cover,
+        coverWebp,
+        coverDescription,
+        excerpt,
+        date,
+        tags,
+        link,
+      },
+      i
+    ) => (
+      <BlogPost
+        key={i}
+        title={title}
+        author={author}
+        cover={cover}
+        coverWebp={coverWebp}
+        coverDescription={coverDescription}
+        excerpt={excerpt}
+        date={date}
+        tags={tags}
+        link={link}
+      />
+    )
+  );
   return (
     <div className="Blog">
       <div className="container">
@@ -66,53 +94,7 @@ function Blog() {
                 </i>
               </div>
             </div>
-            <ul className={state.view}>
-              <BlogPost
-                title="Pseudo Aleatorios Números Pseudo Aleatorios "
-                cover={cover}
-                coverWebp={coverWebp}
-                excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
-                date="20/05/2020"
-                tags={["Estadística", "Matematicas"]}
-                link="/Pseudo-Random-numbers"
-              />
-              <BlogPost
-                title="Números Pseudo Aleatorios"
-                cover={cover}
-                coverWebp={coverWebp}
-                excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
-                date="20/05/2020"
-                tags={["Estadística", "Fisica"]}
-                link="/Pseudo-Random-numbers"
-              />
-              <BlogPost
-                title="Números Pseudo Aleatorios"
-                cover={cover}
-                coverWebp={coverWebp}
-                excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
-                date="20/05/2020"
-                tags={["Estadística", "Matematicas", "Ciencias"]}
-                link="/Pseudo-Random-numbers"
-              />
-              <BlogPost
-                title="Números Pseudo Aleatorios"
-                cover={cover}
-                coverWebp={coverWebp}
-                excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
-                date="20/05/2020"
-                tags={["Estadística", "Matematicas"]}
-                link="/Pseudo-Random-numbers"
-              />
-              <BlogPost
-                title="Números Pseudo Aleatorios"
-                cover={cover}
-                coverWebp={coverWebp}
-                excerpt="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
-                date="20/05/2020"
-                tags={["Estadística", "Matematicas"]}
-                link="/Pseudo-Random-numbers"
-              />
-            </ul>
+            <ul className={state.view}>{blogEntries}</ul>
           </div>
         </div>
       </div>

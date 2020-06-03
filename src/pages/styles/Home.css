@@ -2,7 +2,7 @@ html.webp .Home{
   background-image: Url('../../images/cover.webp');
 }
 
-html:not(.webp) .Home{
+html.no-webp .Home{
   background-image: Url('../../images/cover.jpg');
 }
 
@@ -18,35 +18,33 @@ html:not(.webp) .Home{
   justify-content: center;
 }
 
-.hero_img{
-  padding: 3em;
-  margin:0 auto;
+.Home__col {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
-.hero_img .profileImg{
+
+.Home__container{
+  padding: 3em;
+}
+.Home__container__profileImg{
   margin: 0 auto 10px;
   border-radius:50%;
   display: block;
 }
 
-.Home__col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Home__container__button{
+  margin-top: 1.5rem;
 }
 
-.icons a{
-  padding: 14px 25px;
-  display: inline-block;
+.Home__container__icons {
+  margin: 1.5rem 0;
 }
 
-.icons a:hover svg g{
+.Home__container__icons a{
+  padding: 0rem 1.5rem;  
+}
+
+.Home__container__icons a:hover svg g{
   fill: rgb(150, 150, 150);
-}
-
-@media screen and (min-width: 768px) {
-  .Home__col {
-    align-items: flex-start;
-  }
 }
