@@ -39,15 +39,29 @@ module.exports = {
         ],
       },
       {
-        test: /\.jpg|png|jpeg|webp|gif|woff|eot|ttf|svg|mp4|webm$/,
+        test: /\.jpg|png|jpeg|gif|woff|eot|ttf|svg|mp4|webm$/,
         use: {
           loader: "url-loader",
           options: {
-            limit: 8000,
+            limit: 1000,
             name: "[hash].[ext]",
             outputPath: "assets",
           },
         },
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg|webp)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              webp: {
+                quality: 80,
+              },
+            },
+          },
+        ],
       },
     ],
   },
@@ -61,8 +75,8 @@ module.exports = {
     }),
     new AppManifestWebpackPlugin({
       logo: "./src/images/logo512.png",
-      prefix: "./images/", // default '/'
-      output: "./images/", // default '/'. Can be absolute or relative
+      prefix: "images/", // default '/'
+      output: "/", // default '/'. Can be absolute or relative
       emitStats: true,
       statsFilename: "iconstats.json", // can be absolute path
       statsEncodeHtml: false,
@@ -127,10 +141,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/app.*"],
-    }),
-    new HtmlWebpackPlugin({
-      filename: "404.html",
-      template: path.resolve(__dirname, "public/404.html"),
     }),
   ],
 };

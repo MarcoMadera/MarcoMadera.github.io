@@ -31,8 +31,18 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.svg|jpg|png|jpeg|gif|webp$/,
-        use: "file-loader",
+        test: /\.(gif|png|jpe?g|svg|webp)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              webp: {
+                quality: 80,
+              },
+            },
+          },
+        ],
       },
     ],
   },
