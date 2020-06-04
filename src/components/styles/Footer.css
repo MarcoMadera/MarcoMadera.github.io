@@ -7,6 +7,7 @@
   font-size: 0.8em;
   background-color: var(--background);
   z-index: 20;
+  transition:  background-color var(--switch-transition);
 }
 
 .Footer-text {
@@ -22,4 +23,5 @@
   height: 1px;
   background: var(--footer-line);
   margin: auto;
+  transition: background var(--switch-transition);
 }

@@ -9,6 +9,7 @@
   display: inline-flex;
   top: 1.4vh;
   justify-content: center;
+  transition: background-color var(--switch-transition), background-image var(--switch-transition);
 }
 
 .Home__col {

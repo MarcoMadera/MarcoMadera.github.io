@@ -64,6 +64,13 @@ function Navbar() {
   return (
     <div className="Navbar" id="myNavbar">
       <div className="Navbar__mobileHeader">{HeaderView()}</div>
+      <input
+        type="checkbox"
+        id="switch"
+        ref={refDark}
+        onChange={handleChange}
+      />
+      <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
       <div className="container-fluid">
         <div id="sidebar" ref={ref} onClick={handleClick}>
           <div className="toggleBtn">
@@ -99,18 +106,6 @@ function Navbar() {
                   Sobre mí
                 </span>
               </Link>
-            </li>
-            <li>
-              <input
-                type="checkbox"
-                id="switch"
-                ref={refDark}
-                onChange={handleChange}
-              />
-              <label
-                className={`Navbar__navLink__switch`}
-                htmlFor="switch"
-              ></label>
             </li>
           </ul>
         </div>
