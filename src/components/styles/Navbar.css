@@ -1,3 +1,7 @@
+.Navbar__mobileHeader{
+  display: none;
+}
+
 #sidebar ul li{
   display: inline;
 }
@@ -7,11 +11,13 @@
 }
 
 .Navbar {
+  text-align: center;
+  align-content: center;
   background-color: var(--navbar-background);
-  min-height: 8vh;
+  height: 8vh;
   text-align: center;
   align-items: center;
-  font-size: 21px;
+  font-size: 1.34rem;
   position: relative;
   display: flex;
   box-shadow: -6px 0 rgb(27, 24, 24), 6px 0 rgb(82, 82, 82), 1px 3px 6px rgba(0, 0, 0, 0.15);
@@ -21,27 +27,56 @@
   display: none;
 }
 
-.Navbar__brand {
+.Navbar__navLink >li{
   color: var(--navbar-color);
   margin: 1em;
-  display: inline;
-  align-items: center;
 }
 
-.Navbar__brand:hover {
+.Navbar__navLink >li a:hover {
   color: #808080;
   text-decoration: none;
+}
+
+.Navbar__navLink__switch{
+  vertical-align: middle;
+  align-content: center;
+  cursor: pointer;
+  margin: 0;
+  width: 5rem;
+  height: 1.3em;
+  border-radius: 50px;
+  background: var(--switch-background);
+  padding: 5px;
+  user-select: none;
+}
+.Navbar__navLink__switch::before{
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  float: right;
+  background-color: var(--switch-button);
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: translate(-50px);
+  transition: .3s;
+  will-change: auto;
+}
+
+#switch{
+  display: none;
+}
+
+#switch:checked ~ .Navbar__navLink__switch:before{
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 600px){
   .Navbar .container-fluid{
     padding-left:0;
   }
-  .Navbar__brand{
-    margin: 0;
-  }
-
-  .Navbar__header{
+  
+  .Navbar__mobileHeader{
     font-family: Georgia, "Times New Roman", Times, serif;
     display: block;
     position: absolute;
@@ -54,15 +89,18 @@
     text-align: left;
     border-bottom: 1px solid rgba(107, 107, 107, 0.192);
   }
+  #sidebar ul{
+    background-color: var(--navbar-background);
+    height: 100vh;
+  }
 
   #sidebar{
     position: absolute;
     top: 0;
     width: 190px;
     height: 100%;
-    background: white;
+    background: var(--background);
     z-index: 10;
-    color: rgba(230,230, 230, 0.9);
     left: -190px;
   }
 
@@ -73,6 +111,7 @@
   }
 
   #sidebar .toggleBtn{
+    
     position:absolute;
     cursor: pointer;
     left: 230px;
@@ -89,7 +128,7 @@
     display: block;
     width: 30px;
     height: 5px;
-    background: black;
+    background: var(--title);
     margin: 5px 0px;
   }
 

@@ -1,12 +1,34 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar() {
   const ref = useRef(null);
+  const refDark = useRef(null);
+
   function handleClick() {
     ref.current.classList.toggle("show");
   }
+
+  function handleChange() {
+    if (refDark.current.checked) {
+      document.body.classList.remove("light-mode");
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+      document.body.classList.add("light-mode");
+    }
+  }
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark-mode");
+      console.log("pasa");
+      refDark.current.checked = true;
+    } else {
+      document.body.classList.add("light-mode");
+    }
+  }, []);
 
   let location = useLocation();
   let activeTab = {
@@ -16,7 +38,7 @@ function Navbar(props) {
     homeTab: undefined,
   };
   function HeaderView() {
-    let header = "";
+    let header = undefined;
 
     switch (location.pathname.split("/")[1]) {
       case "blog":
@@ -41,7 +63,7 @@ function Navbar(props) {
 
   return (
     <div className="Navbar" id="myNavbar">
-      <div className="Navbar__header">{HeaderView()}</div>
+      <div className="Navbar__mobileHeader">{HeaderView()}</div>
       <div className="container-fluid">
         <div id="sidebar" ref={ref} onClick={handleClick}>
           <div className="toggleBtn">
@@ -49,34 +71,46 @@ function Navbar(props) {
             <span></span>
             <span></span>
           </div>
-          <ul>
+          <ul className="Navbar__navLink">
             <li>
-              <Link className="Navbar__brand" to="/">
+              <Link to="/">
                 <span className={`font-weight-ligh ${activeTab.homeTab}`}>
                   Inicio
                 </span>
               </Link>
             </li>
             <li>
-              <Link className="Navbar__brand" to="/blog">
+              <Link to="/blog">
                 <span className={`font-weight-ligh ${activeTab.blogTab}`}>
                   Blog
                 </span>
               </Link>
             </li>
             <li>
-              <Link className="Navbar__brand" to="/portfolio">
+              <Link to="/portfolio">
                 <span className={`font-weight-ligh ${activeTab.portfolioTab}`}>
                   Portafolio
                 </span>
               </Link>
             </li>
             <li>
-              <Link className="Navbar__brand" to="/about">
+              <Link to="/about">
                 <span className={`font-weight-ligh ${activeTab.aboutTab}`}>
                   Sobre mí
                 </span>
               </Link>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="switch"
+                ref={refDark}
+                onChange={handleChange}
+              />
+              <label
+                className={`Navbar__navLink__switch`}
+                htmlFor="switch"
+              ></label>
             </li>
           </ul>
         </div>
