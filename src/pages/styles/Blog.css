@@ -28,15 +28,15 @@
 }
 
 .Blog__View i svg g{
-  fill: rgb(150, 150, 150);
+  fill: var(--icon-color);
 }
 
 .Blog__View i:hover svg g{
-  fill: rgb(90, 90, 90);
+  fill: var(--icon-color-hover);
 }
 
 .Blog__View .selected svg g{
-  fill: rgb(88, 88, 88);
+  fill: var(--icon-color-selected);
 }
 
 .Blog__gridView{

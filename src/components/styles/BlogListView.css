@@ -1,6 +1,7 @@
 .BlogListView {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.23);
   border-radius: 5px;
+  background-color: var(--blog-card-background);
 }
 
 .BlogListView__header {
@@ -14,10 +15,12 @@
 }
 
 .BlogListView__header__content__title{
+  color: var(--title);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .BlogListView__header__content__excerpt{
+  color: var(--content);
   text-align: justify;
 }
 
@@ -32,7 +35,12 @@
   margin-bottom: 1rem;
 }
 
+.BlogListView__footer__tags{
+  color: var(--content);
+}
+
 .BlogListView__footer__meta{
+  color: var(--content);
   font-size: 0.9rem;
 }
 

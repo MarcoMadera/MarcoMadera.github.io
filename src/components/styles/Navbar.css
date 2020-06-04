@@ -7,12 +7,14 @@
 }
 
 .Navbar {
+  background-color: var(--navbar-background);
   min-height: 8vh;
   text-align: center;
   align-items: center;
   font-size: 21px;
+  position: relative;
   display: flex;
-  box-shadow: -6px 0 white, 6px 0 white, 1px 3px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: -6px 0 rgb(27, 24, 24), 6px 0 rgb(82, 82, 82), 1px 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .Navbar__header{
@@ -20,7 +22,7 @@
 }
 
 .Navbar__brand {
-  color: #000000;
+  color: var(--navbar-color);
   margin: 1em;
   display: inline;
   align-items: center;

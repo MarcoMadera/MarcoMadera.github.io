@@ -1,19 +1,12 @@
-html.webp .Home{
-  background-image: Url('../../images/cover.webp');
-}
-
-html.no-webp .Home{
-  background-image: Url('../../images/cover.jpg');
-}
-
 .Home {
+  background-color: var(--home-background-color);
+  background-image: var(--hero-img);
   background-size:cover;
   background-repeat: no-repeat;
   width: 100vw;
   height: 90.6vh;
   margin: 0 auto;
   display: inline-flex;
-  position: relative;
   top: 1.4vh;
   justify-content: center;
 }
@@ -45,6 +38,10 @@ html.no-webp .Home{
   padding: 0rem 1.5rem;  
 }
 
+.Home__container__icons a svg g{
+  fill: var(--icon-color);
+}
+
 .Home__container__icons a:hover svg g{
-  fill: rgb(150, 150, 150);
+  fill: var(--icon-color-hover);
 }

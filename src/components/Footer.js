@@ -6,7 +6,7 @@ class Footer extends React.Component {
     return (
       <footer className="Footer">
         <div className="Footer-text">
-          Marco Madera | 2020
+          <span>Marco Madera | 2020</span>
         </div>
       </footer>
     );

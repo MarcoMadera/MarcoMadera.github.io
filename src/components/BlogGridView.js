@@ -38,7 +38,7 @@ const BlogGridView = (props) => {
                 className="text-reset text-decoration-none"
                 to={`/blog/tag/${tags}`}
               >
-                <span className="BlogListView__footer__tags">#{tags}</span>{" "}
+                <span className="BlogGridView__footer__tags">#{tags}</span>{" "}
               </Link>
             </span>
           )))()}

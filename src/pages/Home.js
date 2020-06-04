@@ -27,7 +27,7 @@ export default class Home extends Component {
                 width="120"
               />
             </picture>
-            <h1>Marco Madera</h1>
+            <h1 className="Home__container__name">Marco Madera</h1>
             <div className="Home__container__icons">
               <a
                 aria-label="Github"

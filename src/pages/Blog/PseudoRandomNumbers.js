@@ -213,8 +213,15 @@ export default class PseudoRandomNumbers extends Component {
                   Introduce números que sean entre 0 y 1 separados por espacios,
                   intenta cuantos números quieras, entre más números mejor.
                 </p>
-                <input type="text" name="randomnumbers" id="ri"></input>
-                <button onClick={chiSqrt}>Calcular</button>
+                <input
+                  type="text"
+                  name="randomnumbers"
+                  id="ri"
+                  class="form-control-sm"
+                ></input>
+                <button onClick={chiSqrt} className="btn btn-primary btn-sm">
+                  Calcular
+                </button>
                 <div id="sol"></div>
                 <div id="linechart"></div>
                 <div id="linechart2"></div>
