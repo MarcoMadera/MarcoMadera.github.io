@@ -103,10 +103,10 @@
   #sidebar{
     position: absolute;
     top: 0;
-    width: 190px;
-    background: var(--background);
+    width: 280px;
     z-index: 10;
     left: -190px;
+    padding-right: 90px;
   }
 
   #sidebar.show {
@@ -114,20 +114,19 @@
     left: 0px;
     transition: all 400ms linear;
   }
-
-  #sidebar .toggleBtn{
-    
-    position:absolute;
-    cursor: pointer;
-    left: 230px;
-    top: 10px;
-  }
   #sidebar.show .toggleBtn{
     position:absolute;
     left: 150px;
     top: 10px;
   }
+  #sidebar .toggleBtn{
+    position:absolute;
+    cursor: pointer;
+    left: 230px;
+    top: 10px;
+  }
 
+  
 
   #sidebar .toggleBtn span{
     display: block;

@@ -44,8 +44,20 @@ function Navbar() {
     return <h3>{header}</h3>;
   }
 
+  const swipe = (event) => {
+    let touch = event.targetTouches[0];
+    const px = touch.pageX;
+    const midpoint = Math.floor(screen.width / 3);
+    if (px > midpoint) {
+      ref.current.classList.add("show");
+    } else {
+      ref.current.classList.remove("show");
+      ref.current.style.transition = "400ms";
+    }
+  };
+
   return (
-    <div className="Navbar" id="myNavbar">
+    <div className="Navbar" id="myNavbar" onTouchMove={swipe}>
       <div className="Navbar__mobileHeader">{HeaderView()}</div>
       {(() => {
         if (darkMode) {
@@ -62,8 +74,8 @@ function Navbar() {
       />
       <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
       <div className="container-fluid">
-        <div id="sidebar" ref={ref} onClick={handleClick}>
-          <div className="toggleBtn">
+        <div id="sidebar" ref={ref}>
+          <div className="toggleBtn" onClick={handleClick}>
             <span></span>
             <span></span>
             <span></span>
