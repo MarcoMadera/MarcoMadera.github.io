@@ -1,8 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleSwitch } from "../actions";
 
 function Navbar() {
+  const darkMode = useSelector((state) => state.navbarReducer);
+  const dispatch = useDispatch();
   const ref = useRef(null);
   const refDark = useRef(null);
 
@@ -10,23 +14,13 @@ function Navbar() {
     ref.current.classList.toggle("show");
   }
 
-  function handleChange() {
-    if (refDark.current.checked) {
-      document.body.classList.remove("light-mode");
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-      document.body.classList.add("light-mode");
-    }
-  }
-
   useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (darkMode) {
       document.body.classList.add("dark-mode");
-      console.log("pasa");
       refDark.current.checked = true;
     } else {
       document.body.classList.add("light-mode");
+      refDark.current.checked = false;
     }
   }, []);
 
@@ -68,7 +62,9 @@ function Navbar() {
         type="checkbox"
         id="switch"
         ref={refDark}
-        onChange={handleChange}
+        onChange={() => {
+          dispatch(toggleSwitch());
+        }}
       />
       <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
       <div className="container-fluid">

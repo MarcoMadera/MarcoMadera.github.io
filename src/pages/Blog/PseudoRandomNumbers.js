@@ -217,7 +217,7 @@ export default class PseudoRandomNumbers extends Component {
                   type="text"
                   name="randomnumbers"
                   id="ri"
-                  class="form-control-sm"
+                  className="form-control-sm"
                 ></input>
                 <button onClick={chiSqrt} className="btn btn-primary btn-sm">
                   Calcular
