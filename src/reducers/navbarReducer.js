@@ -7,17 +7,16 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case TOGGLE_SWITCH:
-      console.log("Llega al reducer", state);
-      if (state == true) {
-        document.body.classList.remove("dark-mode");
-        document.body.classList.add("light-mode");
+      if (state) {
+        document.body.attributes.length == 1
+          ? document.body.removeAttribute("class")
+          : document.body.classList.remove("dark-mode");
         return !state;
       } else {
-        document.body.classList.remove("light-mode");
         document.body.classList.add("dark-mode");
         return !state;
       }
     default:
-      return state.darkMode;
+      return state;
   }
 };

@@ -1,28 +1,17 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleSwitch } from "../actions";
 
 function Navbar() {
-  const darkMode = useSelector((state) => state.navbarReducer);
   const dispatch = useDispatch();
   const ref = useRef(null);
-  const refDark = useRef(null);
+  const darkMode = useSelector((state) => state.navbarReducer);
 
   function handleClick() {
     ref.current.classList.toggle("show");
   }
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
-      refDark.current.checked = true;
-    } else {
-      document.body.classList.add("light-mode");
-      refDark.current.checked = false;
-    }
-  }, []);
 
   let location = useLocation();
   let activeTab = {
@@ -58,10 +47,15 @@ function Navbar() {
   return (
     <div className="Navbar" id="myNavbar">
       <div className="Navbar__mobileHeader">{HeaderView()}</div>
+      {(() => {
+        if (darkMode) {
+          document.body.classList.add("dark-mode");
+        }
+      })()}
       <input
         type="checkbox"
         id="switch"
-        ref={refDark}
+        defaultChecked={darkMode}
         onChange={() => {
           dispatch(toggleSwitch());
         }}
