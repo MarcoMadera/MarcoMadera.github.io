@@ -40,7 +40,7 @@
 
 .Navbar__navLink__switch{
   position: absolute;
-  top: 1.7vh;
+  top: 1.8vh;
   left: 70%;
   vertical-align: middle;
   align-content: center;
@@ -53,6 +53,7 @@
   padding: 5px;
   user-select: none;
 }
+
 .Navbar__navLink__switch::before{
   content: "";
   display: block;
@@ -60,7 +61,6 @@
   height: 20px;
   float: right;
   background-image: var(--switch-icon);
-  /* background-color: var(--switch-button); */
   border-radius: 50%;
   box-sizing: border-box;
   transform: translate(-50px);
@@ -94,6 +94,7 @@
     text-align: left;
     border-bottom: 1px solid rgba(107, 107, 107, 0.192);
   }
+
   #sidebar ul{
     background-color: var(--navbar-background);
     transition: background-color var(--switch-transition);
@@ -103,30 +104,30 @@
   #sidebar{
     position: absolute;
     top: 0;
-    width: 280px;
+    width: 230px;
     z-index: 10;
     left: -190px;
-    padding-right: 90px;
+    padding-right: 40px;
   }
 
   #sidebar.show {
     position: absolute;
     left: 0px;
     transition: all 400ms linear;
+    z-index: 20;
   }
   #sidebar.show .toggleBtn{
     position:absolute;
     left: 150px;
     top: 10px;
   }
+
   #sidebar .toggleBtn{
     position:absolute;
     cursor: pointer;
     left: 230px;
     top: 10px;
   }
-
-  
 
   #sidebar .toggleBtn span{
     display: block;
@@ -138,9 +139,10 @@
 
   #sidebar.show .toggleBtn span:nth-last-child(1){
     opacity: 1;
-  transform: rotate(45deg) translate(0px, 0px);
-  transition: all 400ms linear;
+    transform: rotate(45deg) translate(0px, 0px);
+    transition: all 400ms linear;
   }
+
   #sidebar.show .toggleBtn span:nth-last-child(2){
     position: absolute;
     top: 10px;
@@ -149,5 +151,24 @@
   }
   #sidebar.show .toggleBtn span:nth-last-child(3){
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .Navbar__navLink__switch{
+    top: 3vh;
+    left: 75%;
+  }
+}
+@media screen and (max-width: 768px){
+  .Navbar__navLink__switch{
+    top: 2.5vh;
+    left: 75%;
+  }
+}
+@media screen and (max-width: 600px){
+  .Navbar__navLink__switch{
+    top: 2vh;
+    left: 70%;
   }
 }

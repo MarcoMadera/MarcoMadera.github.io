@@ -3,21 +3,21 @@ import coverWebp from "../../images/image.webp";
 
 export const entries = [
   {
-    title: "Pseudo Aleatorios Números Pseudo Aleatorios",
+    title: "Cómo medir la efectividad en la que estudias",
     author: "Marco Madera",
     cover:
-      "https://marcomadera.github.io/assets/03a28d73157da65b7c04c2bf52111cf1.jpg",
+      "https://static01.nyt.com/images/2013/02/28/us/01thechoice-test/01thechoice-test-blog480.jpg",
     coverWebp:
-      "https://marcomadera.github.io/assets/03a28d73157da65b7c04c2bf52111cf1.jpg",
-    coverDescription: "Tres dados",
-    excerpt:
-      "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
+      "https://static01.nyt.com/images/2013/02/28/us/01thechoice-test/01thechoice-test-blog480.jpg",
+    coverDescription:
+      "Mano que sostiene un lápiz de madera y borra en una hoja",
+    excerpt: "Vista de prueba",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas"],
-    link: "/Pseudo-Random-numbers",
+    link: "/estudio-efectivo",
   },
   {
-    title: "Pseudo Aleatorios Números Pseudo Aleatorios",
+    title: "Números Pseudo Aleatorios",
     author: "Marco Madera",
     cover: cover,
     coverWebp: coverWebp,
@@ -29,27 +29,29 @@ export const entries = [
     link: "/Pseudo-Random-numbers",
   },
   {
-    title: "Pseudo Aleatorios Números Pseudo Aleatorios",
+    title: "Pandemias que ha sufrido la humanidad",
     author: "Marco Madera",
-    cover: cover,
-    coverWebp: coverWebp,
-    coverDescription: "Tres dados",
-    excerpt:
-      "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
+    cover:
+      "https://dnacenter.com/wp-content/uploads/2020/04/blog-COVID19-dna-testing-when-sick.png",
+    coverWebp:
+      "https://dnacenter.com/wp-content/uploads/2020/04/blog-COVID19-dna-testing-when-sick.png",
+    coverDescription: "Mapa del mundo con virus",
+    excerpt: "Vista de prueba",
     date: "May 20, 2020",
-    tags: ["Estadística", "Matemáticas"],
-    link: "/Pseudo-Random-numbers",
+    tags: ["Estadística", "Matemáticas", "Ciencias"],
+    link: "/enfermedades-mortales",
   },
   {
-    title: "Pseudo Aleatorios Números Pseudo Aleatorios",
+    title: "Efectos de una vista cansada",
     author: "Marco Madera",
-    cover: cover,
-    coverWebp: coverWebp,
-    coverDescription: "Tres dados",
-    excerpt:
-      "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
+    cover:
+      "https://www.optica2000.com/blog/wp-content/uploads/2019/10/Test-del-c%C3%ADrculo-horario-650x366.jpg",
+    coverWebp:
+      "https://www.optica2000.com/blog/wp-content/uploads/2019/10/Test-del-c%C3%ADrculo-horario-650x366.jpg",
+    coverDescription: "Anteojos sostenidos hacia el suelo",
+    excerpt: "Vista de prueba",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas", "Fisica"],
-    link: "/Pseudo-Random-numbers",
+    link: "/vision-cansada",
   },
 ];
