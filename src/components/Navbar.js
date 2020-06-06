@@ -7,7 +7,7 @@ import { toggleSwitch } from "../actions";
 function Navbar() {
   const dispatch = useDispatch();
   const ref = useRef(null);
-  const darkMode = useSelector((state) => state.navbarReducer);
+  const theme = useSelector((state) => state.navbarReducer);
 
   function handleClick() {
     ref.current.classList.toggle("show");
@@ -60,14 +60,14 @@ function Navbar() {
     <div className="Navbar" id="myNavbar" onTouchMove={swipe}>
       <div className="Navbar__mobileHeader">{HeaderView()}</div>
       {(() => {
-        if (darkMode) {
+        if (theme.darkMode) {
           document.body.classList.add("dark-mode");
         }
       })()}
       <input
         type="checkbox"
         id="switch"
-        defaultChecked={darkMode}
+        defaultChecked={theme.darkMode}
         onChange={() => {
           dispatch(toggleSwitch());
         }}
