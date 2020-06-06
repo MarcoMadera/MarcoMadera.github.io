@@ -3,10 +3,10 @@
   "short_name": "Marco Madera GitHub Pages",
   "description": "My github pages repository created in react",
   "dir": "auto",
-  "lang": "en-US",
+  "lang": "es-MX",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "/",
+  "start_url": "https://marcomadera.github.io/",
   "background_color": "#fff",
   "theme_color": "#fff",
   "icons": [

@@ -4,12 +4,32 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-
 <url>
   <loc>https://marcomadera.github.io/</loc>
   <lastmod>2020-04-16T08:20:57+00:00</lastmod>
 </url>
-
-
+<url>
+  <loc>https://marcomadera.github.io/about</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://marcomadera.github.io/portfolio</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://marcomadera.github.io/portfolio/sreExcel</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://marcomadera.github.io/portfolio/chiSqrt</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://marcomadera.github.io/blog</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://marcomadera.github.io/blog/Pseudo-Random-numbers</loc>
+  <lastmod>2020-04-16T08:20:57+00:00</lastmod>
+</url>
 </urlset>
