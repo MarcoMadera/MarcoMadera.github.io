@@ -39,7 +39,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.jpg|png|jpeg|gif|woff|eot|ttf|svg|mp4|webm$/,
+        test: /\.jpg|png|jpeg|gif|webp|woff|eot|ttf|svg|mp4|webm$/,
         use: {
           loader: "url-loader",
           options: {
@@ -48,20 +48,6 @@ module.exports = {
             outputPath: "assets",
           },
         },
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg|webp)$/i,
-        use: [
-          "file-loader",
-          {
-            loader: "image-webpack-loader",
-            options: {
-              webp: {
-                quality: 80,
-              },
-            },
-          },
-        ],
       },
     ],
   },
@@ -75,8 +61,8 @@ module.exports = {
     }),
     new AppManifestWebpackPlugin({
       logo: "./src/images/logo512.png",
-      prefix: "images/", // default '/'
-      output: "/", // default '/'. Can be absolute or relative
+      prefix: "./images/", // default '/'
+      output: "./images/", // default '/'. Can be absolute or relative
       emitStats: true,
       statsFilename: "iconstats.json", // can be absolute path
       statsEncodeHtml: false,
