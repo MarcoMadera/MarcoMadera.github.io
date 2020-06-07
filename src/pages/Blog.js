@@ -38,7 +38,7 @@ function Blog() {
         excerpt,
         date,
         tags,
-        link,
+        id,
       },
       i
     ) => (
@@ -52,7 +52,7 @@ function Blog() {
         excerpt={excerpt}
         date={date}
         tags={tags}
-        link={link}
+        id={id}
       />
     )
   );

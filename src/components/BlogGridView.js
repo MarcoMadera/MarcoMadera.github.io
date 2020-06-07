@@ -3,11 +3,12 @@ import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
 
 const BlogGridView = (props) => {
+  const title = props.title.replace(/\s/g, "-");
   return (
     <article className="BlogGridView">
       <Link
         className="text-reset text-decoration-none"
-        to={`/blog${props.link && props.link}`}
+        to={`/blog/${props.id}/#${title}`}
       >
         <header className="BlogGridView__header">
           <picture>
@@ -47,7 +48,7 @@ const BlogGridView = (props) => {
         </p>
         <Link
           className="text-reset text-decoration-none"
-          to={`/blog${props.link ? props.link : ""}`}
+          to={`/blog/${props.id ? props.id : ""}`}
         ></Link>
       </footer>
     </article>

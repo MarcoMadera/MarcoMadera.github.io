@@ -5,7 +5,7 @@ import chiSqrt from "./pages/Portfolio/chiSqrt";
 import About from "./pages/About.js";
 import Blog from "./pages/Blog.js";
 import PseudoRandomNumbers from "./pages/Blog/PseudoRandomNumbers";
-import estudioEfectivo from "./pages/Blog/EstudioEfectivo";
+import GenericBlog from "./pages/Blog/GenericBlog";
 
 export const routes = [
   {
@@ -33,11 +33,11 @@ export const routes = [
     component: Blog,
   },
   {
-    path: "/blog/Pseudo-Random-numbers",
+    path: "/blog/2",
     component: PseudoRandomNumbers,
   },
   {
-    path: "/blog/estudio-efectivo",
-    component: estudioEfectivo,
+    path: "/blog/:blogId",
+    component: GenericBlog,
   },
 ];

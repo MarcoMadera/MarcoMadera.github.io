@@ -17,7 +17,7 @@ const BlogPost = (props) => {
           excerpt={props.excerpt}
           date={props.date}
           tags={props.tags}
-          link={props.link}
+          id={props.id}
         />
       </li>
     );
@@ -33,7 +33,7 @@ const BlogPost = (props) => {
           excerpt={props.excerpt}
           date={props.date}
           tags={props.tags}
-          link={props.link}
+          id={props.id}
         />
       </li>
     );

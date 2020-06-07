@@ -3,11 +3,12 @@ import "./styles/BlogListView.css";
 import { Link } from "react-router-dom";
 
 const BlogListView = (props) => {
+  const title = props.title.replace(/\s/g, "-");
   return (
     <article className="BlogListView">
       <Link
         className="text-reset text-decoration-none"
-        to={`/blog${props.link ? props.link : ""}`}
+        to={`/blog/${props.id}/#${title}`}
       >
         <header className="BlogListView__header">
           <div className="BlogListView__header__content">

@@ -1,8 +1,12 @@
 import cover from "../../images/image.jpg";
 import coverWebp from "../../images/image.webp";
+import GenericBlog from "./GenericBlog.md";
+import Estudios from "./Estudios.md";
+import Pandemias from "./Pandemias.md";
 
 export const entries = [
   {
+    id: 1,
     title: "Cómo medir la efectividad en la que estudias",
     author: "Marco Madera",
     cover:
@@ -14,9 +18,10 @@ export const entries = [
     excerpt: "Vista de prueba",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas"],
-    link: "/estudio-efectivo",
+    src: Estudios,
   },
   {
+    id: "2",
     title: "Números Pseudo Aleatorios",
     author: "Marco Madera",
     cover: cover,
@@ -26,9 +31,10 @@ export const entries = [
       "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas"],
-    link: "/Pseudo-Random-numbers",
+    src: null,
   },
   {
+    id: 3,
     title: "Pandemias que ha sufrido la humanidad",
     author: "Marco Madera",
     cover:
@@ -39,9 +45,10 @@ export const entries = [
     excerpt: "Vista de prueba",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas", "Ciencias"],
-    link: "/enfermedades-mortales",
+    src: Pandemias,
   },
   {
+    id: 4,
     title: "Efectos de una vista cansada",
     author: "Marco Madera",
     cover:
@@ -52,6 +59,6 @@ export const entries = [
     excerpt: "Vista de prueba",
     date: "May 20, 2020",
     tags: ["Estadística", "Matemáticas", "Fisica"],
-    link: "/vision-cansada",
+    src: GenericBlog,
   },
 ];
