@@ -30,7 +30,7 @@
   display: block;
   padding-top: 0.15em;
 }
-.fraction span.fdn {border-top: thin solid black;}
+.fraction span.fdn {border-top: thin solid var(--content);}
 .fraction span.bar {display: none;}
 
 @media screen and (min-width: 768px) {

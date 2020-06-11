@@ -46,10 +46,6 @@ const BlogGridView = (props) => {
         <p className="BlogGridView__footer__meta">
           {props.author} | {props.date}
         </p>
-        <Link
-          className="text-reset text-decoration-none"
-          to={`/blog/${props.id ? props.id : ""}`}
-        ></Link>
       </footer>
     </article>
   );

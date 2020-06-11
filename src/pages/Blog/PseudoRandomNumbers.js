@@ -11,24 +11,31 @@ Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 function chiSqrt() {
   let ri = document.getElementById("ri").value.split(" ");
 
+  function chiSqrtTest(obtained, expected) {
+    let sum = 0;
+    //(Oi-ei)^2/ei
+    for (let i = 0; i < obtained.length; i++) {
+      sum += (obtained[i] - expected[i]) ** 2 / expected[i];
+    }
+    return sum;
+  }
+
   if (ri.length === 1) {
     ReactDOM.render(
-      <p>Incluye numeros validos</p>,
+      <p>Incluye números validos</p>,
       document.getElementById("sol")
     );
     return;
   }
 
-  let sum = 0;
-
   //Add the recomended m = sqrt(n)
-  let m = Math.ceil(Math.sqrt(ri.length));
+  let m = Math.floor(Math.sqrt(ri.length));
 
   /**
    ei: the expected number of events in a category, will be the same for each i 
    because we're expecting to be an uniform distribution since they are pseudo random numbers
    */
-  let ei = ri.length / m;
+  let ei = new Array(m).fill(ri.length / m);
 
   //oi: the observable number of events in a category
   let oi = new Array(m).fill(null);
@@ -49,12 +56,71 @@ function chiSqrt() {
     }
   }
 
-  //X^2 = sum (O-E)^2/E
-  for (let i = 0; i < m; i++) {
-    sum += (oi[i] - ei) ** 2 / ei;
+  const sum = chiSqrtTest(oi, ei);
+  //This is the good stuff
+  let uniform = (1 - chi.cdf(sum, m - 1)) * 100;
+
+  //Dependet Test with Streak
+  let postiveStreak = 0;
+  let negativeStreak = 0;
+  let streak = [];
+  for (let i = 0; i < ri.length; i++) {
+    if (ri[i] > ri[i + 1]) {
+      if (negativeStreak != 0) {
+        streak.push(negativeStreak);
+        negativeStreak = 0;
+      }
+      postiveStreak++;
+    } else {
+      if (postiveStreak != 0) {
+        streak.push(postiveStreak);
+        postiveStreak = 0;
+      }
+      negativeStreak++;
+    }
   }
 
-  let uniform = chi.pdf(sum, m).toFixed(3);
+  function factorial(n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+  }
+
+  //Obtained
+  let count = [];
+  streak.forEach(function (i) {
+    count[i - 1] = (count[i - 1] || 0) + 1;
+  });
+
+  let max = (2 * ri.length - 1) / 3;
+  let desviacion = Math.sqrt((16 * ri.length - 29) / 90);
+  let z = (streak.length - max) / desviacion;
+  if (z < 1.96) {
+    console.log("Se concluye que la lista es independiente");
+  } else {
+    console.log("Se concluye que la lista no es independiete");
+  }
+  while (count[count.length - 1] < 5) {
+    count[count.length - 2] += count[count.length - 1];
+    count.pop();
+  }
+
+  //Expected
+  let expected = [];
+  for (let i = 1; i <= count.length; i++) {
+    expected.push(
+      (2 / factorial(i + 3)) *
+        (ri.length * (i ** 2 + 3 * i + i) - (i ** 3 + 3 * i ** 2 - i - 4))
+    );
+  }
+
+  const result = chiSqrtTest(count, expected);
+  let uniformTest = (1 - chi.cdf(result, count.length - 1)) * 100;
+  console.log(uniformTest, "%");
+  if (uniformTest < 95) {
+    console.log("se concluye que la lista es uniforme");
+  } else {
+    console.log("se concluye que la lista no es uniforme");
+  }
 
   ReactDOM.render(
     <h5>
@@ -81,38 +147,18 @@ function chiSqrt() {
           labels: getlabel(),
           label: "Ocurrencias",
           datas: oi,
-          fill: "none",
+          fill: false,
           backgroundColor: "blue",
           pointRadius: 2,
-          //borderColor: 'red',
+          borderColor: "#cfcfcf",
           borderWidth: 2,
           lineTension: 0,
           max: Math.max(...oi),
           min: 0,
         }}
         title="count"
-        color="#B08EA2"
+        color="#ccc"
       />
-
-      <LineChart
-        type="line"
-        data={{
-          labels: ["", -3, -2, -1, "u", 1, 2, 3, ""],
-          label: "Ocurrencias",
-          datas: oi,
-          fill: true,
-          backgroundColor: "blue",
-          pointRadius: 2,
-          borderColor: "red",
-          borderWidth: 2,
-          lineTension: 0,
-          max: Math.max(...oi),
-          min: Math.min(...oi),
-        }}
-        title="count"
-        color="#B08EA2"
-      />
-
       <b>
         <p>Visualmente entre más recta es la línea más uniforme es.</p>
       </b>
@@ -132,9 +178,8 @@ function chiSqrt() {
       </p>
       <div className="chi-eq">
         <i>
-          x<sup>2</sup>
+          x<sup>2</sup>= &#8721;
         </i>{" "}
-        = &#8721;
         <div className="fraction">
           <span className="fup">
             <i>
@@ -185,51 +230,52 @@ function chiSqrt() {
   );
 }
 
-export default class PseudoRandomNumbers extends Component {
-  render() {
-    return (
-      <div className="Rand">
-        <div className="container">
-          <div className="row">
-            <div className="Rand__col col-12 col-md-8">
-              <h1 className="Rand__title">Números Pseudo Aleatorios</h1>
-              <br></br>
+const PseudoRandomNumbers = () => {
+  return (
+    <div className="Rand">
+      <div className="container">
+        <div className="row">
+          <div className="Rand__col col-12 col-md-8">
+            <h1 className="Rand__title">Números Pseudo Aleatorios</h1>
+            <br></br>
+            <p>
+              Los números pseudo-aleatorios son creados a partir de algoritmos
+              matemáticos, por lo que no se puede decir que son realmente
+              aleatorios, por eso el pseudo, algunos algoritmos hacen muy bien
+              el trabajo de simular las propiedades de los números aleatorios y
+              otros caen en el bucle de repetirse infinitamete.
+            </p>
+            <p>
+              Para que una secuencia de números sea catalogada como aleatoria,
+              es necesario que tengan una distribución uniforme y que no tenga
+              correlación, es decir, que tengan la misma probabilidad de ser
+              elegido y que la elección de uno no dependa del otro.
+            </p>
+            <div className="App">
+              <h5>¿Qué tan uniforme es tu lista de números?</h5>
               <p>
-                Los números pseudo-aleatorios son creados a partir de algoritmos
-                matemáticos, por lo que no se puede decir que son realmente
-                aleatorios, por eso el pseudo, algunos algoritmos hacen muy bien
-                el trabajo de simular las propiedades de los números aleatorios
-                y otros caen en el bucle de repetirse infinitamete.
+                Introduce números que sean entre 0 y 1 separados por espacios,
+                intenta cuantos números quieras, entre más números mejor.
               </p>
-              <p>
-                Para que una secuencia de números sea catalogada como aleatoria,
-                es necesario que tengan una distribución uniforme y que no tenga
-                correlación, es decir, que tengan la misma probabilidad de ser
-                elegido y que la elección de uno no dependa del otro.
-              </p>
-              <div className="App">
-                <h5>¿Qué tan uniforme es tu lista de números?</h5>
-                <p>
-                  Introduce números que sean entre 0 y 1 separados por espacios,
-                  intenta cuantos números quieras, entre más números mejor.
-                </p>
-                <input
-                  type="text"
-                  name="randomnumbers"
-                  id="ri"
-                  className="form-control-sm"
-                ></input>
-                <button onClick={chiSqrt} className="btn btn-primary btn-sm">
-                  Calcular
-                </button>
-                <div id="sol"></div>
-                <div id="linechart"></div>
-                <div id="linechart2"></div>
-              </div>
+              <input
+                type="text"
+                name="randomnumbers"
+                id="ri"
+                className="form-control-sm"
+              ></input>
+              <button onClick={chiSqrt} className="btn btn-primary btn-sm">
+                Calcular
+              </button>
+
+              <div id="sol"></div>
+              <div id="linechart"></div>
+              <div id="linechart2"></div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default PseudoRandomNumbers;

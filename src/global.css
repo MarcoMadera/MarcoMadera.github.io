@@ -80,7 +80,7 @@ h1, h2 ,h3 ,h4 ,h5{
   color:var(--title);
   transition: color var(--switch-transition);
 }
-p, span, img{
+p, span, li, i, img{
   color: var(--content);
   transition: color var(--switch-transition);
 }
@@ -88,6 +88,10 @@ p, span, img{
 input[type="text"], textarea {
   background-color : var(--navbar-background); 
   transition: background-color var(--switch-transition);
+}
+
+canvas {
+  color: red;
 }
 
 html {
