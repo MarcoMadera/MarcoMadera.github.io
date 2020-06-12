@@ -1,8 +1,6 @@
 import cover from "../../images/image.jpg";
 import coverWebp from "../../images/image.webp";
-import GenericBlog from "./GenericBlog.md";
 import LigadurasTipográficas from "./LigadurasTipográficas.md";
-import Pandemias from "./Pandemias.md";
 import LigadurasTipograficasLogo from "../../images/Blog/Ligatures/LigadurasTipograficasLogo.png";
 
 export const entries = [
