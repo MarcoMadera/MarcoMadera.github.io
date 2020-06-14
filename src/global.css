@@ -80,13 +80,13 @@ h1, h2 ,h3 ,h4 ,h5{
   color:var(--title);
   transition: color var(--switch-transition);
 }
-p, span, li, i, img{
+p, span, li, i, th, td, img{
   color: var(--content);
   transition: color var(--switch-transition);
 }
 
 input[type="text"], textarea {
-  background-color : var(--navbar-background); 
+  background-color : var(--footer-line); 
   transition: background-color var(--switch-transition);
 }
 
@@ -116,8 +116,15 @@ body {
   transition: background-color var(--switch-transition);
 }
 
+cite{
+  display: block;
+  margin: 3% 2% 2% 2%;
+  padding: 2%;
+  border-left: 5px solid var(--content);
+}
+
 h1 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2.4rem;
 }
 
 .btn {

@@ -2,6 +2,12 @@
   margin: 1rem;
 }
 
+.Rand ul{
+  list-style: square;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .Rand__col {
   text-align: justify;
   position: static;
@@ -11,13 +17,22 @@
 }
 
 .Rand__title {
-  text-align: left;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 2em;
+  font-size: 2.4rem;
+}
+
+.Rand__arrows{
+  line-height: 0.5;
+  font-size: 1.4rem;
 }
 
 .chi-eq{
   text-align: center;
+}
+
+.eq{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15%;
 }
 
 .fraction {
@@ -30,11 +45,73 @@
   display: block;
   padding-top: 0.15em;
 }
+
 .fraction span.fdn {border-top: thin solid var(--content);}
 .fraction span.bar {display: none;}
+
+.Rand__col__table{
+  align-content: center;
+  text-align: center;
+}
+
+.Rand__col__streakTable, .Rand__col__input{
+  display: block;
+  align-content: center;
+  text-align: center;
+}
+.Rand__col__streakTable td{
+  padding:0 10px;
+}
+
+.Rand__streakTables{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.Rand__streakTables{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.Rand__streakTables td{
+  padding:0 10px;
+}
+
+.Rand .res, .Rand .res input{
+  display: flex;
+  margin: 0 10px;
+}
+
+.Rand #resStreak{
+  margin-bottom: 80px;
+}
+
+table{
+  display: inline-block;
+  margin: 0 1rem 1rem 0;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid var(--content);
+  transition: border var(--switch-transition);
+}
 
 @media screen and (min-width: 768px) {
   .Rand__col {
     align-items: flex-start;
+  }
+  .eq{
+    margin: 5%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .eq{
+    margin: 5%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .eq{
+    display: block;
   }
 }

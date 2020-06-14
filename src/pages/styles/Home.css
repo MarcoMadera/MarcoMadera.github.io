@@ -27,6 +27,11 @@
   display: block;
 }
 
+.Home__container__name{
+  font-family: Georgia,Times New Roman,Times,serif;;
+  font-size: 2.5rem;
+}
+
 .Home__container__button{
   margin-top: 1.5rem;
 }

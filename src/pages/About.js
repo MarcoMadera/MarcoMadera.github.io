@@ -9,7 +9,7 @@ export default class About extends Component {
         <div className="container">
           <div className="row">
             <div className="About__col col-12 col-md-8">
-              <h1>Sobre mí</h1>
+              <h1 className="About__col__title">Sobre mí</h1>
               <p>
                 ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy
                 auxiliar administrativo en la secretaria de relaciones

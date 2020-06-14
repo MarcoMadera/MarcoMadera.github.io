@@ -38,7 +38,7 @@ export default class Portfolio extends Component {
                     link="chiSqrt"
                     cover={[chiSqrtCover]}
                     coverWebp={[chiSqrtCoverWebp]}
-                    title="Prueba de correlación para numeros aleatorios"
+                    title="Pruebas de uniformidad e independencia para números aleatorios."
                     description="Prueba de Chi cuadrada para numeros aleatorios de 0 a 1"
                   />
                 </li>
