@@ -68,31 +68,11 @@ function Navbar() {
           } else {
             if (theme.darkMode) {
               document.body.classList.add("dark-mode");
-              localStorage.setItem("dark-mode", "true");
             }
           }
         }
       })()}
-      <input
-        type="checkbox"
-        id="switch"
-        defaultChecked={(() => {
-          if (localStorage.getItem("dark-mode") === "false") {
-            return false;
-          } else {
-            if (localStorage.getItem("dark-mode") === "true") {
-              return true;
-            } else {
-              return theme.darkMode;
-            }
-          }
-        })()}
-        onChange={() => {
-          console.log("cambio onchange");
-          dispatch(toggleSwitch());
-        }}
-      />
-      <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
+
       <div className="container-fluid">
         <div id="sidebar" ref={ref}>
           <div className="toggleBtn" onClick={handleClick}>
@@ -101,6 +81,7 @@ function Navbar() {
             <span></span>
           </div>
           <ul className="Navbar__navLink">
+            <li></li>
             <li>
               <Link to="/">
                 <span className={`font-weight-ligh ${activeTab.homeTab}`}>
@@ -128,6 +109,30 @@ function Navbar() {
                   Sobre mí
                 </span>
               </Link>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="switch"
+                defaultChecked={(() => {
+                  if (localStorage.getItem("dark-mode") === "false") {
+                    return false;
+                  } else {
+                    if (localStorage.getItem("dark-mode") === "true") {
+                      return true;
+                    } else {
+                      return theme.darkMode;
+                    }
+                  }
+                })()}
+                onChange={() => {
+                  dispatch(toggleSwitch());
+                }}
+              />
+              <label
+                className={`Navbar__navLink__switch`}
+                htmlFor="switch"
+              ></label>
             </li>
           </ul>
         </div>

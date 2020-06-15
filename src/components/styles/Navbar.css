@@ -41,20 +41,20 @@
 .Navbar__navLink__switch{
   position: absolute;
   top: 1.8vh;
-  left: 70%;
+  /* left: 70%; */
   vertical-align: middle;
   align-content: center;
   cursor: pointer;
   margin: 0;
-  width: 5rem;
-  height: 1.3em;
-  border-radius: 50px;
-  background: var(--switch-background);
-  padding: 5px;
+  width: 30px;
+  height: 30px;
+  background: var(--switch-icon);
+  background-repeat: no-repeat;
+  /* padding: 5px; */
   user-select: none;
 }
 
-.Navbar__navLink__switch::before{
+/* .Navbar__navLink__switch::before{
   content: "";
   display: block;
   width: 20px;
@@ -66,7 +66,7 @@
   transform: translate(-50px);
   transition: var(--switch-transition);
   will-change: auto;
-}
+} */
 
 #switch{
   display: none;
@@ -86,6 +86,13 @@
     display: block;
     position: absolute;
     width: 100vw;
+    top: 10px;
+  }
+
+  .Navbar__navLink__switch{
+    display: inline-block;
+    position: fixed;
+    left: 0px;
   }
 
   #sidebar ul a{
