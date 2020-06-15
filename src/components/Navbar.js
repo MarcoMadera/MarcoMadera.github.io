@@ -60,15 +60,35 @@ function Navbar() {
     <div className="Navbar" id="myNavbar" onTouchMove={swipe}>
       <div className="Navbar__mobileHeader">{HeaderView()}</div>
       {(() => {
-        if (theme.darkMode) {
-          document.body.classList.add("dark-mode");
+        if (localStorage.getItem("dark-mode") === "false") {
+          document.body.classList.remove("dark-mode");
+        } else {
+          if (localStorage.getItem("dark-mode") === "true") {
+            document.body.classList.add("dark-mode");
+          } else {
+            if (theme.darkMode) {
+              document.body.classList.add("dark-mode");
+              localStorage.setItem("dark-mode", "true");
+            }
+          }
         }
       })()}
       <input
         type="checkbox"
         id="switch"
-        defaultChecked={theme.darkMode}
+        defaultChecked={(() => {
+          if (localStorage.getItem("dark-mode") === "false") {
+            return false;
+          } else {
+            if (localStorage.getItem("dark-mode") === "true") {
+              return true;
+            } else {
+              return theme.darkMode;
+            }
+          }
+        })()}
         onChange={() => {
+          console.log("cambio onchange");
           dispatch(toggleSwitch());
         }}
       />
