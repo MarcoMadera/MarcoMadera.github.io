@@ -429,8 +429,15 @@ const PseudoRandomNumbers = () => {
               </li>
             </ol>
             <p>
-              Por ahora nuestro progreso sería el siguiente para los siguientes
-              300 números.
+              Por ahora si tomamos como muestra{" "}
+              <a
+                href="https://marcomadera.github.io/assets/blog/numerosAleatorios.txt"
+                target="_blank"
+                rel="noopener"
+              >
+                esta lista
+              </a>{" "}
+              de 300 números nuestro progreso sería el siguiente:
             </p>
             <LineChart
               type="line"
@@ -509,9 +516,9 @@ const PseudoRandomNumbers = () => {
                 Para calcular K = Número de intervalos - 1, en este caso K=17.
               </li>
               <li>
-                El nivel de confianza que usaré es de 0.05, pero puede ser
-                diferente ya que este es decidido por la persona encargada de la
-                investigación, es el riesgo que se toma.
+                El nivel de confianza (&#945;) que usaré es de 0.05, pero puede
+                ser diferente ya que este es decidido por la persona encargada
+                de la investigación, es el riesgo que se toma.
               </li>
             </ul>
             <p>
@@ -812,7 +819,7 @@ const PseudoRandomNumbers = () => {
                 <span className="bar">/</span>
                 <span className="fdn">
                   <i>
-                    <i>(i + 3)</i>
+                    <i>(i + 3)!</i>
                   </i>
                 </span>
               </div>
@@ -865,14 +872,13 @@ const PseudoRandomNumbers = () => {
                 <span className="bar">/</span>
                 <span className="fdn">
                   <i>
-                    <i>(1 + 3)</i>
+                    <i>(1 + 3)!</i>
                   </i>
                 </span>
               </div>
               <i>
-                [300(1<sup>2</sup> + 3<sub>1</sub> + 1) - (1<sup>3</sup> + 3
-                <sub>1</sub>
-                <sup>2</sup> - 1 - 4)] = 125.083
+                [300(1<sup>2</sup> + 3(1) + 1) - (1<sup>3</sup> + 3(1
+                <sup>2</sup>) - 1 - 4)] = 125.083
               </i>
             </div>
             <div className="chi-eq">
@@ -886,14 +892,13 @@ const PseudoRandomNumbers = () => {
                 <span className="bar">/</span>
                 <span className="fdn">
                   <i>
-                    <i>(2 + 3)</i>
+                    <i>(2 + 3)!</i>
                   </i>
                 </span>
               </div>
               <i>
-                [300(2<sup>2</sup> + 3<sub>2</sub> + 1) - (2<sup>3</sup> + 3
-                <sub>2</sub>
-                <sup>2</sup> - 2 - 4)] = 59.766
+                [300(2<sup>2</sup> + 3(2) + 1) - (2<sup>3</sup> + 3(2
+                <sup>2</sup>) - 2 - 4)] = 59.766
               </i>
             </div>
             <div className="chi-eq">
@@ -907,14 +912,13 @@ const PseudoRandomNumbers = () => {
                 <span className="bar">/</span>
                 <span className="fdn">
                   <i>
-                    <i>(3 + 3)</i>
+                    <i>(3 + 3)!</i>
                   </i>
                 </span>
               </div>
               <i>
-                [300(3<sup>2</sup> + 3<sub>3</sub> + 1) - (3<sup>3</sup> + 3
-                <sub>3</sub>
-                <sup>2</sup> - 3 - 4)] = 17.369
+                [300(3<sup>2</sup> + 3(3) + 1) - (3<sup>3</sup> + 3(3
+                <sup>2</sup>) - 3 - 4)] = 17.369
               </i>
             </div>
             <div className="chi-eq">
@@ -928,14 +932,13 @@ const PseudoRandomNumbers = () => {
                 <span className="bar">/</span>
                 <span className="fdn">
                   <i>
-                    <i>(4 + 3)</i>
+                    <i>(4 + 3)!</i>
                   </i>
                 </span>
               </div>
               <i>
-                [300(4<sup>2</sup> + 3<sub>4</sub> + 1) - (4<sup>3</sup> + 3
-                <sub>4</sub>
-                <sup>2</sup> - 4 - 4)] = 3.768
+                [300(4<sup>2</sup> + 3(4) + 1) - (4<sup>3</sup> + 3(4
+                <sup>2</sup>) - 4 - 4)] = 3.768
               </i>
             </div>
             <p>Lo cual son números similares a los obtenidos. </p>
@@ -983,42 +986,141 @@ const PseudoRandomNumbers = () => {
               Esta muestra nos dio que los números no son uniformes pero sí
               independientes
             </p>
+            <hr />
             <h2>Resultados</h2>
+            <h5>Test 1</h5>
             <p>
-              Se ha hecho pruebas a 100 rondas de 100 números, con los
+              En 100 pruebas de 100 números cada una, se obtuvieron los
               siguientes resultados:
             </p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Numero de pruebas</th>
-                  <th>1</th>
-                  <th>2</th>
-                  <th>3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Pruebas correctas</td>
-                  <td>11</td>
-                  <td>21</td>
-                  <td>68</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className="Rand__col__streakTable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Numero de pruebas correctas</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Valores</td>
+                    <td>11</td>
+                    <td>21</td>
+                    <td>68</td>
+                    <td>100</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              De las 100 pruebas: <br />
+              68 pruebas cumplieron con la uniformidad, independencia y
+              longitud.
+              <br />1 Pruebas que no cumplieron la uniformidad e independecia
+              pero sí la longitud de rachas.
+              <br />
+              6 Pruebas que no cumplieron la uniformidad y longitud pero sí la
+              independencia.
+              <br />
+              2 Pruebas que cumplieron la uniformidad y la longitud pero no la
+              independencia.
+              <br />
+              18 Pruebas que cumplieron la uniformidad e independencia pero no
+              la longitud de rachas.
+              <br />
+              1 Pruebas que no cumplieron la uniformidad pero sí la longitud y
+              la independencia.
+              <br />4 Pruebas que cumplieron la uniformidad pero no la
+              independencia ni longitud de rachas.
+            </p>
+            <h5>Test 2</h5>
+            <p>
+              En 100 pruebas de 3000 números cada una, se obtuvieron los
+              siguientes resultados:
+            </p>
+            <div className="Rand__col__streakTable">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Número de pruebas correctas</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Valores</td>
+                    <td>3</td>
+                    <td>48</td>
+                    <td>49</td>
+                    <td>100</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              De las 100 pruebas: <br />
+              49 pruebas cumplieron con la uniformidad, independencia y
+              longitud.
+              <br />0 Pruebas que no cumplieron la uniformidad e independecia
+              pero sí la longitud de rachas.
+              <br />
+              2 Pruebas que no cumplieron la uniformidad y longitud pero sí la
+              independencia.
+              <br />
+              2 Pruebas que cumplieron la uniformidad y la longitud pero no la
+              independencia.
+              <br />
+              42 Pruebas que cumplieron la uniformidad e independencia pero no
+              la longitud de rachas.
+              <br />
+              4 Pruebas que no cumplieron la uniformidad pero sí la longitud y
+              la independencia.
+              <br />1 Pruebas que cumplieron la uniformidad pero no la
+              independencia ni longitud de rachas.
+            </p>
+            <h5>Conclusión</h5>
+            <p>
+              Si recordamos, para que una secuencia de números sea catalogada
+              como aleatoria, es necesario que tenga distribución uniforme y que
+              sea independiente, por lo que podriamos decir que que los 18
+              números y 42 números, que no cumplieron la prueba de longitud de
+              rachas, pero sí las de uniformidad e independecia, del test 1 y 2
+              respectivamente, también se comportan como números aleatorios.
+            </p>
+            <p>
+              Podriamos decir que para el test 1 de 100 pruebas de 100 números
+              cada una, 86 son aleatorias y de esas 86, 18 no cumplen la
+              longitud de rachas.
+            </p>
+            <p>
+              Para test 2 de 100 pruebas de 3000 numeros cada una, 91 son
+              aleatorias y de esas 91, 42 no cumplen la longitud de rachas.
+            </p>
+            <p>
+              En cuanto al problema inicial puedo decir que sí, los números en
+              la mayoría de los casos son legitimamente aleatorios, y que es
+              normal que siga viendo nombres que aparezcan ocasionalmente en
+              racha seguidas.
+            </p>
             <hr />
             <div className="App">
               <h2>¿Tus números son aleatorios?</h2>
               <p>
-                Puedes probar la herramienta de abajo para probar tus números
+                Puedes probar la herramienta de abajo para evaluar tus números
                 aleatorios. Ya que sabes los procedimientos de las pruebas de
-                números aleatorios, te invito a contribuir en el{" "}
+                números aleatorios, te invito a contribuir en{" "}
                 <a
                   href="https://github.com/MarcoMadera/Chi-Sqrt-Uniform-Test"
                   target="_blank"
                   rel="noopener"
                 >
-                  repositorio
+                  este repositorio
                 </a>{" "}
                 donde encontrarás el código que he estado escribiendo al mismo
                 tiempo de escribir este post.
@@ -1048,7 +1150,7 @@ const PseudoRandomNumbers = () => {
               <DiscussionEmbed
                 shortname="marcomadera"
                 config={
-                  ({ url: `http://localhost:9000/blog/2` },
+                  ({ url: `https://marcomadera.github.io/blog/2` },
                   { identifier: 2 },
                   { title: "Numeros pseudo Aleatorios" })
                 }
