@@ -81,7 +81,6 @@ function Navbar() {
             <span></span>
           </div>
           <ul className="Navbar__navLink">
-            <li></li>
             <li>
               <Link to="/">
                 <span className={`font-weight-ligh ${activeTab.homeTab}`}>
@@ -110,32 +109,27 @@ function Navbar() {
                 </span>
               </Link>
             </li>
-            <li>
-              <input
-                type="checkbox"
-                id="switch"
-                defaultChecked={(() => {
-                  if (localStorage.getItem("dark-mode") === "false") {
-                    return false;
-                  } else {
-                    if (localStorage.getItem("dark-mode") === "true") {
-                      return true;
-                    } else {
-                      return theme.darkMode;
-                    }
-                  }
-                })()}
-                onChange={() => {
-                  dispatch(toggleSwitch());
-                }}
-              />
-              <label
-                className={`Navbar__navLink__switch`}
-                htmlFor="switch"
-              ></label>
-            </li>
           </ul>
         </div>
+        <input
+          type="checkbox"
+          id="switch"
+          defaultChecked={(() => {
+            if (localStorage.getItem("dark-mode") === "false") {
+              return false;
+            } else {
+              if (localStorage.getItem("dark-mode") === "true") {
+                return true;
+              } else {
+                return theme.darkMode;
+              }
+            }
+          })()}
+          onChange={() => {
+            dispatch(toggleSwitch());
+          }}
+        />
+        <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
       </div>
     </div>
   );

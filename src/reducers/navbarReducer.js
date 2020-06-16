@@ -14,9 +14,23 @@ export default (state = INITIAL_STATE, action) => {
           : document.body.classList.remove("dark-mode");
         return !state;
       } else {
-        localStorage.setItem("dark-mode", "true");
-        document.body.classList.add("dark-mode");
-        return !state;
+        if (localStorage.getItem("dark-mode") === "false") {
+          localStorage.setItem("dark-mode", "true");
+          document.body.classList.add("dark-mode");
+          return !state;
+        } else {
+          if (state.darkMode) {
+            localStorage.setItem("dark-mode", "false");
+            document.body.attributes.length == 1
+              ? document.body.removeAttribute("class")
+              : document.body.classList.remove("dark-mode");
+            return !state;
+          } else {
+            localStorage.setItem("dark-mode", "true");
+            document.body.classList.add("dark-mode");
+            return !state;
+          }
+        }
       }
     default:
       return state;

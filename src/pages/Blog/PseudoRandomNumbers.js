@@ -273,7 +273,7 @@ const PseudoRandomNumbers = () => {
               estar probando me di cuenta que había veces que ocurrían rachas
               seguidas de nombres repetidos, 3 o 4 veces el mismo nombre, lo que
               me dio por comprobar si la aleatoriedad de Math.Random() es
-              legítima a través de unas pruebas estádisticas.
+              legítima a través de unas pruebas estadísticas.
             </p>
             <p>
               Primero hay que saber qué es Math.Random(), la definición de la
@@ -599,13 +599,13 @@ const PseudoRandomNumbers = () => {
               &#963;<sup>2</sup>
               <sub>R</sub>: La varianza del número esperado de rachas.
               <br />
-              Z: Valor estandar de la distribución normal para la prueba.
+              Z: Valor estándar de la distribución normal para la prueba.
             </p>
             <ol>
               <li>
                 <p>
-                  Igual que antes establecemos primero nuestra hipótesis nula(h
-                  <sub>0</sub>) e hipótesis alternativa<sub>1</sub>.
+                  Igual que antes establecemos primero nuestra hipótesis nula (h
+                  <sub>0</sub>) e hipótesis alternativa (h<sub>1</sub>).
                 </p>
                 <div className="Rand__col__table">
                   <table>
@@ -754,7 +754,7 @@ const PseudoRandomNumbers = () => {
               </li>
               <li>
                 <p>
-                  Para determinar la independencia, igualmente buscariamos ahora
+                  Para determinar la independencia, igualmente buscaríamos ahora
                   en una tabla de distribución normal el valor &#945;/2 seguiré
                   usando 0.05, por lo que buscaré el valor de 0.025, si vamos a
                   los valores de los laterales encontramos que la desviación
@@ -806,7 +806,7 @@ const PseudoRandomNumbers = () => {
             </p>
             <p>
               Lo que cambia es que ahora nuestros números esperados los
-              calculariamos de con la siguiente ecuación.
+              calcularíamos de con la siguiente ecuación.
             </p>
             <div className="chi-eq">
               <i>
@@ -1019,7 +1019,7 @@ const PseudoRandomNumbers = () => {
               De las 100 pruebas: <br />
               68 pruebas cumplieron con la uniformidad, independencia y
               longitud.
-              <br />1 Pruebas que no cumplieron la uniformidad e independecia
+              <br />1 Pruebas que no cumplieron la uniformidad e independencia
               pero sí la longitud de rachas.
               <br />
               6 Pruebas que no cumplieron la uniformidad y longitud pero sí la
@@ -1067,7 +1067,7 @@ const PseudoRandomNumbers = () => {
               De las 100 pruebas: <br />
               49 pruebas cumplieron con la uniformidad, independencia y
               longitud.
-              <br />0 Pruebas que no cumplieron la uniformidad e independecia
+              <br />0 Pruebas que no cumplieron la uniformidad e independencia
               pero sí la longitud de rachas.
               <br />
               2 Pruebas que no cumplieron la uniformidad y longitud pero sí la
@@ -1088,23 +1088,23 @@ const PseudoRandomNumbers = () => {
             <p>
               Si recordamos, para que una secuencia de números sea catalogada
               como aleatoria, es necesario que tenga distribución uniforme y que
-              sea independiente, por lo que podriamos decir que que los 18
+              sea independiente, por lo que podríamos decir que que los 18
               números y 42 números, que no cumplieron la prueba de longitud de
-              rachas, pero sí las de uniformidad e independecia, del test 1 y 2
+              rachas, pero sí las de uniformidad e independencia, del test 1 y 2
               respectivamente, también se comportan como números aleatorios.
             </p>
             <p>
-              Podriamos decir que para el test 1 de 100 pruebas de 100 números
+              Podríamos decir que para el test 1 de 100 pruebas de 100 números
               cada una, 86 son aleatorias y de esas 86, 18 no cumplen la
               longitud de rachas.
             </p>
             <p>
-              Para test 2 de 100 pruebas de 3000 numeros cada una, 91 son
+              Para test 2 de 100 pruebas de 3000 números cada una, 91 son
               aleatorias y de esas 91, 42 no cumplen la longitud de rachas.
             </p>
             <p>
               En cuanto al problema inicial puedo decir que sí, los números en
-              la mayoría de los casos son legitimamente aleatorios, y que es
+              la mayoría de los casos son legítimamente aleatorios, y que es
               normal que siga viendo nombres que aparezcan ocasionalmente en
               racha seguidas.
             </p>

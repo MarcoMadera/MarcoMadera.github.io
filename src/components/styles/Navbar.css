@@ -11,14 +11,13 @@
 }
 
 .Navbar {
-  text-align: center;
+  position: relative;
   align-content: center;
   background-color: var(--navbar-background);
   height: 8vh;
   text-align: center;
   align-items: center;
   font-size: 1.34rem;
-  position: relative;
   display: flex;
   box-shadow: -6px 0 rgb(27, 24, 24), 6px 0 rgb(82, 82, 82), 1px 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color var(--switch-transition);
@@ -41,40 +40,22 @@
 .Navbar__navLink__switch{
   position: absolute;
   top: 1.8vh;
-  /* left: 70%; */
   vertical-align: middle;
   align-content: center;
+  left: 68.6vw;
   cursor: pointer;
   margin: 0;
   width: 30px;
   height: 30px;
   background: var(--switch-icon);
   background-repeat: no-repeat;
-  /* padding: 5px; */
   user-select: none;
 }
-
-/* .Navbar__navLink__switch::before{
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  float: right;
-  background-image: var(--switch-icon);
-  border-radius: 50%;
-  box-sizing: border-box;
-  transform: translate(-50px);
-  transition: var(--switch-transition);
-  will-change: auto;
-} */
 
 #switch{
   display: none;
 }
 
-#switch:checked ~ .Navbar__navLink__switch:before{
-  transform: translateX(0);
-}
 
 @media screen and (max-width: 600px){
   .Navbar .container-fluid{
@@ -89,12 +70,6 @@
     top: 10px;
   }
 
-  .Navbar__navLink__switch{
-    display: inline-block;
-    position: fixed;
-    left: 0px;
-  }
-
   #sidebar ul a{
     display: block;
     padding: 10px 10px;
@@ -103,7 +78,10 @@
   }
 
   #sidebar ul{
+    position: fixed;
+    width: 190px;
     background-color: var(--navbar-background);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.23);
     transition: background-color var(--switch-transition);
     height: 100vh;
   }
@@ -112,21 +90,23 @@
     position: absolute;
     top: 0;
     width: 230px;
+    height: 100vh;
     z-index: 10;
     left: -190px;
-    padding-right: 40px;
   }
-
+  
   #sidebar.show {
     position: absolute;
     left: 0px;
-    transition: all 400ms linear;
     z-index: 20;
   }
+
   #sidebar.show .toggleBtn{
-    position:absolute;
-    left: 150px;
+    position:fixed;
+    left: 140px;
     top: 10px;
+    z-index: 30;
+    transition-delay: 0ms;
   }
 
   #sidebar .toggleBtn{
@@ -134,6 +114,8 @@
     cursor: pointer;
     left: 230px;
     top: 10px;
+    transition-duration: 0ms;
+    transition-delay: 200ms;
   }
 
   #sidebar .toggleBtn span{
@@ -147,35 +129,59 @@
   #sidebar.show .toggleBtn span:nth-last-child(1){
     opacity: 1;
     transform: rotate(45deg) translate(0px, 0px);
-    transition: all 400ms linear;
+    transition: transform 400ms linear;
   }
 
   #sidebar.show .toggleBtn span:nth-last-child(2){
     position: absolute;
     top: 10px;
     transform: rotate(-45deg) translate(0px, 0px);
-    transition: all 400ms linear;
+    transition: transform 400ms linear;
   }
+
   #sidebar.show .toggleBtn span:nth-last-child(3){
     opacity: 0;
   }
 }
 
-@media screen and (max-width: 1024px){
-  .Navbar__navLink__switch{
-    top: 3vh;
-    left: 75%;
-  }
-}
-@media screen and (max-width: 768px){
-  .Navbar__navLink__switch{
-    top: 2.5vh;
-    left: 75%;
-  }
-}
-@media screen and (max-width: 600px){
+@media screen and (max-width: 1300px){
   .Navbar__navLink__switch{
     top: 2vh;
     left: 70%;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .Navbar__navLink__switch{
+    top: 2vh;
+    left: 73%;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .Navbar__navLink__switch{
+    top: 1.9vh;
+    left: 78%;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .Navbar__navLink__switch{
+    top: 1.9vh;
+    left: 80%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .Navbar__navLink__switch{
+    top: 1.9vh;
+    left: 70vw;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .Navbar__navLink__switch{
+    top: 1.9vh;
+    left: 70vw;
   }
 }
