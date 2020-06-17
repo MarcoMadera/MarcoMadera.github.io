@@ -5,6 +5,11 @@
 hr{
 	border-top: 2px solid rgba(156, 156, 156, 0.308) !important;
 }
+
+.GenericBlog ul{
+	list-style-position: inside;
+	list-style-type: disc;
+}
   
 .GenericBlog__col {
 	text-align: justify;

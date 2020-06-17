@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Chart from "chart.js";
 
 class LineChart extends React.Component {
@@ -41,6 +41,18 @@ class LineChart extends React.Component {
                 min: min,
                 max: max,
               },
+              gridLines: {
+                display: true,
+                color: "#cccccc2a",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              gridLines: {
+                display: true,
+                color: "#cccccc2a",
+              },
             },
           ],
         },
@@ -57,6 +69,11 @@ class LineChart extends React.Component {
             label: label,
             data: datas,
             backgroundColor: backgroundColor,
+            borderDash: [5, 5],
+            pointBackgroundColor: backgroundColor,
+            pointBorderColor: backgroundColor,
+            pointHoverBackgroundColor: backgroundColor,
+            pointHoverBorderColor: backgroundColor,
           },
         ],
       },

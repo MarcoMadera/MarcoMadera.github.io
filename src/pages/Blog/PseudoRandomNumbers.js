@@ -7,7 +7,6 @@ import LineChart from "../../components/LineChart";
 import { DiscussionEmbed } from "disqus-react";
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
-
 function chiSqrt() {
   let ri = document.getElementById("ri").value.split(" ");
 
@@ -122,9 +121,10 @@ function chiSqrt() {
           label: "Ocurrencias",
           datas: oi,
           fill: false,
-          backgroundColor: "blue",
+          backgroundColor: "#0056b3",
+          pointBackgroundColor: "#0056b3",
+          borderColor: "#0056b3",
           pointRadius: 2,
-          borderColor: "#cfcfcf",
           borderWidth: 2,
           lineTension: 0,
           max: Math.max(...oi),
@@ -329,9 +329,10 @@ const PseudoRandomNumbers = () => {
                 label: "Ocurrencias",
                 datas: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                 fill: false,
-                backgroundColor: "black",
+                backgroundColor: "#0056b3",
+                pointBackgroundColor: "#0056b3",
+                borderColor: "#0056b3",
                 pointRadius: 2,
-                borderColor: "#cfcfcf",
                 borderWidth: 2,
                 lineTension: 0,
                 max: 2,
@@ -367,13 +368,23 @@ const PseudoRandomNumbers = () => {
               </div>
             </div>
             <p>
-              Donde: <br />o<sub>i</sub>: datos obtenidos
-              <br />e<sub>i</sub>: datos esperados
+              Donde: <br />
+              <i>
+                o<sub>i </sub>
+              </i>
+              : datos obtenidos
+              <br />
+              <i>
+                e<sub>i </sub>
+              </i>
+              : datos esperados
             </p>
             <ol>
               <li>
-                Primero formulamos nuestra hipótesis nula (h<sub>0</sub>) e
-                hipótesis alternativa (h<sub>1</sub>).
+                <p>
+                  Primero formulamos nuestra hipótesis nula (h<sub>0</sub>) e
+                  hipótesis alternativa (h<sub>1</sub>).
+                </p>
                 <div className="Rand__col__table">
                   <table>
                     <colgroup span="2"></colgroup>
@@ -482,9 +493,10 @@ const PseudoRandomNumbers = () => {
                   24,
                 ],
                 fill: false,
-                backgroundColor: "black",
+                backgroundColor: "#0056b3",
+                pointBackgroundColor: "#0056b3",
+                borderColor: "#0056b3",
                 pointRadius: 2,
-                borderColor: "#cfcfcf",
                 borderWidth: 2,
                 lineTension: 0,
                 max: 28,
@@ -493,12 +505,12 @@ const PseudoRandomNumbers = () => {
               title="count"
               color="#ccc"
             />
-            <b>
-              <p>
+            <p>
+              <b>
                 Muestra generada a partir de Math.Random() en la consola de
                 Google Chrome
-              </p>
-            </b>
+              </b>
+            </p>
             <p>
               Visualmente entre más recta es la línea, más uniforme es, por lo
               que a simple vista ya podemos intuir un resultado.
@@ -594,7 +606,7 @@ const PseudoRandomNumbers = () => {
               Donde: <br />
               R: El número esperado de rachas <br /> n: El número de datos a
               evaluar.
-              <br /> &#956;<sub>R</sub>:La media de rachas que esperamos tener.{" "}
+              <br /> &#956;<sub>R</sub>: La media de rachas que esperamos tener.{" "}
               <br />
               &#963;<sup>2</sup>
               <sub>R</sub>: La varianza del número esperado de rachas.
@@ -988,7 +1000,7 @@ const PseudoRandomNumbers = () => {
             </p>
             <hr />
             <h2>Resultados</h2>
-            <h5>Test 1</h5>
+            <h4>Test 1</h4>
             <p>
               En 100 pruebas de 100 números cada una, se obtuvieron los
               siguientes resultados:
@@ -998,15 +1010,15 @@ const PseudoRandomNumbers = () => {
                 <thead>
                   <tr>
                     <th>Numero de pruebas correctas</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
                     <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Valores</td>
+                    <th>Valores</th>
                     <td>11</td>
                     <td>21</td>
                     <td>68</td>
@@ -1036,7 +1048,7 @@ const PseudoRandomNumbers = () => {
               <br />4 Pruebas que cumplieron la uniformidad pero no la
               independencia ni longitud de rachas.
             </p>
-            <h5>Test 2</h5>
+            <h4>Test 2</h4>
             <p>
               En 100 pruebas de 3000 números cada una, se obtuvieron los
               siguientes resultados:
@@ -1046,15 +1058,15 @@ const PseudoRandomNumbers = () => {
                 <thead>
                   <tr>
                     <th>Número de pruebas correctas</th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
                     <th>Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Valores</td>
+                    <th>Valores</th>
                     <td>3</td>
                     <td>48</td>
                     <td>49</td>
@@ -1084,7 +1096,7 @@ const PseudoRandomNumbers = () => {
               <br />1 Pruebas que cumplieron la uniformidad pero no la
               independencia ni longitud de rachas.
             </p>
-            <h5>Conclusión</h5>
+            <h4>Conclusión</h4>
             <p>
               Si recordamos, para que una secuencia de números sea catalogada
               como aleatoria, es necesario que tenga distribución uniforme y que
@@ -1116,7 +1128,7 @@ const PseudoRandomNumbers = () => {
                 aleatorios. Ya que sabes los procedimientos de las pruebas de
                 números aleatorios, te invito a contribuir en{" "}
                 <a
-                  href="https://github.com/MarcoMadera/Chi-Sqrt-Uniform-Test"
+                  href="https://github.com/MarcoMadera/Test-for-random-numbers"
                   target="_blank"
                   rel="noopener"
                 >

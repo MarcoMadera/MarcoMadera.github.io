@@ -12,14 +12,19 @@ const PortfolioEntries = (props) => {
       >
         <Carousel interval="2000" controls={false}>
           {props.cover.map((cover, i) => (
-            <Carousel.Item key={i} style={{ height: 200 }}>
-              <img className="d-block w-100" src={cover} />
+            <Carousel.Item key={i}>
+              <img
+                className="d-block w-100 PortfolioEntries__preview"
+                src={cover}
+              />
             </Carousel.Item>
           ))}
         </Carousel>
         <div className="PortfolioEntries__content">
-          <h4 className="PortfolioEntry__title">{props.title}</h4>
-          <p>{props.description}</p>
+          <h4 className="PortfolioEntries__content__title">{props.title}</h4>
+          <p className="PortfolioEntries__content__excerpt">
+            {props.description}... <span>ver más</span>
+          </p>
         </div>
       </Link>
     </div>

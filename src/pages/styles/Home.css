@@ -51,3 +51,14 @@
 .Home__container__icons a:hover svg g{
   fill: var(--icon-color-hover);
 }
+
+@media (orientation: landscape) {
+  .Home {
+    height: 100%;
+  }
+}
+@media (orientation: landscape) and (min-width: 1024px){
+  .Home {
+    height: calc(100vh - 8vh);
+  }
+}

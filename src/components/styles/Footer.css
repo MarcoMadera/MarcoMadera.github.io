@@ -4,7 +4,7 @@
   min-height: 1.6em;
   width: 100vw;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   background-color: var(--background);
   z-index: 20;
   transition:  background-color var(--switch-transition);

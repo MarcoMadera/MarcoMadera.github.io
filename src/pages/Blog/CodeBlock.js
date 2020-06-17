@@ -5,9 +5,9 @@ import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { useSelector } from "react-redux";
 
 function CodeBlock(props) {
-  const darkMode = useSelector((state) => state.navbarReducer);
+  const theme = useSelector((state) => state.navbarReducer);
   let codeStyle = atomOneLight;
-  if (darkMode) {
+  if (localStorage.getItem("dark-mode") === "true" || theme.darkMode) {
     codeStyle = atomOneDark;
   } else {
     codeStyle = atomOneLight;

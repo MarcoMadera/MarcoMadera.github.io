@@ -31,10 +31,12 @@ export default class sreExcel extends Component {
             <div className="sreExcel__col col-11.75 col-md-8">
               <h1>Registro de trámites en Excel</h1>
               <p>
-                Se creó un bookmarklet que arranca un script que va recogiendo
-                la información necesaria, y al final de la jornada se puede
-                acceder a la siguiente pagína para filtrar solamente la
-                información necesaria.
+                Dashboard funcional en excel programado con visual basic for
+                applications para dar seguimiento a los trámites realizados, con
+                la obtención automática a través de un script en el navegador,
+                se descarga la información y se lleva al registro de excel,
+                evitando la tarea de transcribir y evitando los posibles errores
+                llevandolo directamente a el almacenamiento de la información.
               </p>
               <ImageZoom
                 className="sreExcel__image"

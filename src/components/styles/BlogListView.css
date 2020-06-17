@@ -42,7 +42,7 @@
 
 .BlogListView__footer__meta{
   color: var(--content);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .BlogListView__header__content__title:hover, 

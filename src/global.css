@@ -28,8 +28,8 @@
 :root{
   --switch-transition: 400ms;
   /* Global */
-  --title: #000000;
-  --content: #000000;
+  --title: #1e1e1e;
+  --content: #404040;
   --background: #ffffff;
   --blog-card-background: #ffffff;
   --icon-color: #3b3b3b;
@@ -90,10 +90,6 @@ input[type="text"], textarea {
   transition: background-color var(--switch-transition);
 }
 
-canvas {
-  color: red;
-}
-
 html {
   width: 100vw;
   overflow-x: hidden;
@@ -111,8 +107,7 @@ ul {
  }
 
 body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Helmet,Freesans,Helvetica,Arial,sans-serif;;
   background-color: var(--background);
   transition: background-color var(--switch-transition);
 }
@@ -125,7 +120,15 @@ cite{
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+p {
+  font-size: 1.09rem;
+  font-weight: 300;
+}
+b, strong {
+  font-weight: 700 !important;
 }
 
 .btn {

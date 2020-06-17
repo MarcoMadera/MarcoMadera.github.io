@@ -16,10 +16,6 @@
   padding-bottom: 3rem;
 }
 
-.Rand__title {
-  font-size: 2.4rem;
-}
-
 .Rand__arrows{
   line-height: 0.5;
   font-size: 1.4rem;
@@ -67,10 +63,6 @@
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
-.Rand__streakTables{
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-}
 
 .Rand__streakTables td{
   padding:0 10px;
@@ -79,6 +71,10 @@
 .Rand .res, .Rand .res input{
   display: flex;
   margin: 0 10px;
+  align-self: center;
+}
+.Rand .res h5{
+  margin: 0;
 }
 
 .Rand #resStreak{
@@ -107,6 +103,13 @@ table, th, td {
 @media screen and (max-width: 768px) {
   .eq{
     margin: 5%;
+  }
+  .Rand__streakTables{
+    display: block;
+    padding: 1px;
+  }
+  .Rand__col__streakTable td{
+    padding: 0 1px;
   }
 }
 

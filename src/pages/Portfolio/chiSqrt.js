@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import reporte from "../../images/Portfolio/ChiSqrt/ChiSqrtCover.jpeg";
+import { Link } from "react-router-dom";
+import reporte from "../../images/Portfolio/ChiSqrt/ChiSqrtCover.png";
 import reporteWebp from "../../images/Portfolio/ChiSqrt/ChiSqrtCover.webp";
 import ImageZoom from "../../components/Zoom";
 
@@ -12,11 +13,14 @@ export default class chiSqrt extends Component {
         <div className="container">
           <div className="row">
             <div className="chiSqrt__col col-11.75 col-md-8">
-              <h1>Test de correlacion de chi cuadrada de Pearson</h1>
-              <p>Se testea</p>
-              <a href="https://githubbox.com/MarcoMadera/Chi-Sqrt-Uniform-Test">
-                Test
-              </a>
+              <h1>Pruebas para números aleatorios</h1>
+              <p>
+                Herramienta para verificar números aleatorios, se puede
+                encontrar información detallada sobre la realización de este
+                programa en el blog de{" "}
+                <Link to="/blog/2">números pseudo aleatorios</Link>, y una
+                muestra al final del post.
+              </p>
               <ImageZoom
                 className="chiSqrt__image"
                 src={reporte}

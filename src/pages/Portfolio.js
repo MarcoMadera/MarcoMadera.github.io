@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PortfolioEntries from "../components/PortfolioEntries";
-import chiSqrtCover from "../images/Portfolio/ChiSqrt/ChiSqrtCover.jpeg";
+import chiSqrtCover from "../images/Portfolio/ChiSqrt/ChiSqrtCover.png";
 import chiSqrtCoverWebp from "../images/Portfolio/ChiSqrt/ChiSqrtCover.webp";
 import SRECover from "../images/Portfolio/SRE/Data.png";
 import SRECoverWebp from "../images/Portfolio/SRE/Data.webp";
@@ -38,8 +38,8 @@ export default class Portfolio extends Component {
                     link="chiSqrt"
                     cover={[chiSqrtCover]}
                     coverWebp={[chiSqrtCoverWebp]}
-                    title="Pruebas de uniformidad e independencia para números aleatorios."
-                    description="Prueba de Chi cuadrada para numeros aleatorios de 0 a 1"
+                    title="Pruebas para números aleatorios."
+                    description="Pruebas de uniformidad e independencia para números aleatorios entre 0 a 1"
                   />
                 </li>
               </ul>
