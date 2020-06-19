@@ -10,7 +10,7 @@
 
 .Blog__header{
   display: grid;
-  grid-template-columns: 77% 1fr 1fr 1fr;
+  grid-template-columns: 50% 1fr 1fr 1fr 1fr;
   align-items: center;
   padding-bottom: 0.5rem;
 }

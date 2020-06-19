@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, useState } from "react-redux";
 import { toggleView } from "../actions";
 import "./styles/Blog.css";
 import BlogPost from "../components/BlogPost";
@@ -27,35 +27,20 @@ function Blog() {
     : (state.gridViewClassName = undefined);
 
   const dispatch = useDispatch();
-  const blogEntries = entries.map(
-    (
-      {
-        title,
-        author,
-        cover,
-        coverWebp,
-        coverDescription,
-        excerpt,
-        date,
-        tags,
-        id,
-      },
-      i
-    ) => (
-      <BlogPost
-        key={i}
-        title={title}
-        author={author}
-        cover={cover}
-        coverWebp={coverWebp}
-        coverDescription={coverDescription}
-        excerpt={excerpt}
-        date={date}
-        tags={tags}
-        id={id}
-      />
-    )
-  );
+  const [search, setSearch] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+  React.useEffect(() => {
+    const results = entries
+      .map((e, i) => {
+        return { title: e.title, id: e.id };
+      })
+      .filter((ob, i) => ob.title.toLowerCase().includes(search));
+    setSearchResults(results);
+  }, [search]);
   return (
     <div className="Blog">
       <div className="container">
@@ -63,6 +48,12 @@ function Blog() {
           <div className="Blog__col col-12 col-md-8">
             <div className="Blog__header">
               <h1 className="Blog__header__title">Entradas</h1>
+              <input
+                type="text"
+                placeholder="Buscar"
+                value={search}
+                onChange={handleChange}
+              />
               <div className="Blog__View">
                 <i
                   onClick={() => {
@@ -94,7 +85,22 @@ function Blog() {
                 </i>
               </div>
             </div>
-            <ul className={state.view}>{blogEntries}</ul>
+            <ul className={state.view}>
+              {searchResults.map((ob, num) => (
+                <BlogPost
+                  key={entries[ob.id - 1].id}
+                  title={entries[ob.id - 1].title}
+                  author={entries[ob.id - 1].author}
+                  cover={entries[ob.id - 1].cover}
+                  coverWebp={entries[ob.id - 1].coverWebp}
+                  coverDescription={entries[ob.id - 1].coverDescription}
+                  excerpt={entries[ob.id - 1].excerpt}
+                  date={entries[ob.id - 1].date}
+                  tags={entries[ob.id - 1].tags}
+                  id={entries[ob.id - 1].id}
+                />
+              ))}
+            </ul>
           </div>
         </div>
       </div>
