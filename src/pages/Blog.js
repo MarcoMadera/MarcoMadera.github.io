@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector, useDispatch, useState } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { toggleView } from "../actions";
 import "./styles/Blog.css";
 import BlogPost from "../components/BlogPost";
@@ -27,20 +27,22 @@ function Blog() {
     : (state.gridViewClassName = undefined);
 
   const dispatch = useDispatch();
-  const [search, setSearch] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [search, setSearch] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
-  React.useEffect(() => {
+
+  useEffect(() => {
     const results = entries
-      .map((e, i) => {
-        return { title: e.title, id: e.id };
-      })
-      .filter((ob, i) => ob.title.toLowerCase().includes(search));
+      .map((e, i) => ({ title: e.title, id: i, tags: e.tags }))
+      .filter((ob, i) =>
+        ob.title.concat(ob.tags).toLowerCase().includes(search)
+      );
     setSearchResults(results);
   }, [search]);
+
   return (
     <div className="Blog">
       <div className="container">
@@ -48,12 +50,15 @@ function Blog() {
           <div className="Blog__col col-12 col-md-8">
             <div className="Blog__header">
               <h1 className="Blog__header__title">Entradas</h1>
-              <input
-                type="text"
-                placeholder="Buscar"
-                value={search}
-                onChange={handleChange}
-              />
+              <div className="Blog__header_search">
+                <input
+                  className="search-text"
+                  type="text"
+                  placeholder="Buscar"
+                  value={search}
+                  onChange={handleChange}
+                />
+              </div>
               <div className="Blog__View">
                 <i
                   onClick={() => {
@@ -86,20 +91,24 @@ function Blog() {
               </div>
             </div>
             <ul className={state.view}>
-              {searchResults.map((ob, num) => (
-                <BlogPost
-                  key={entries[ob.id - 1].id}
-                  title={entries[ob.id - 1].title}
-                  author={entries[ob.id - 1].author}
-                  cover={entries[ob.id - 1].cover}
-                  coverWebp={entries[ob.id - 1].coverWebp}
-                  coverDescription={entries[ob.id - 1].coverDescription}
-                  excerpt={entries[ob.id - 1].excerpt}
-                  date={entries[ob.id - 1].date}
-                  tags={entries[ob.id - 1].tags}
-                  id={entries[ob.id - 1].id}
-                />
-              ))}
+              {searchResults
+                .sort((a, b) =>
+                  a["id"] > b["id"] ? -1 : a["id"] < b["id"] ? 1 : 0
+                )
+                .map((ob, num) => (
+                  <BlogPost
+                    key={entries[ob.id].id}
+                    title={entries[ob.id].title}
+                    author={entries[ob.id].author}
+                    cover={entries[ob.id].cover}
+                    coverWebp={entries[ob.id].coverWebp}
+                    coverDescription={entries[ob.id].coverDescription}
+                    excerpt={entries[ob.id].excerpt}
+                    date={entries[ob.id].date}
+                    tags={entries[ob.id].tags}
+                    id={entries[ob.id].id}
+                  />
+                ))}
             </ul>
           </div>
         </div>

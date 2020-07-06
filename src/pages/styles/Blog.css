@@ -50,6 +50,10 @@
   padding-bottom: 50px;
 }
 
+.Blog__header_search .search-text{
+  border: none;
+}
+
 @media screen and (max-width: 991.98px) {
   .Blog__header{
     display: grid;

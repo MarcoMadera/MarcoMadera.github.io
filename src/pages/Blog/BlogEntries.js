@@ -6,6 +6,19 @@ import LigadurasTipograficasLogo from "../../images/Blog/Ligatures/LigadurasTipo
 export const entries = [
   {
     id: 1,
+    title: "Números Pseudo Aleatorios",
+    author: "Marco Madera",
+    cover: cover,
+    coverWebp: coverWebp,
+    coverDescription: "Tres dados",
+    excerpt:
+      "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
+    date: "May 20, 2020",
+    tags: ["Estadística", "Matemáticas"],
+    src: null,
+  },
+  {
+    id: 2,
     title: "Ligaduras tipográficas",
     author: "Marco Madera",
     cover: LigadurasTipograficasLogo,
@@ -17,18 +30,5 @@ export const entries = [
     date: "Jun 08, 2020",
     tags: ["Personalización"],
     src: LigadurasTipográficas,
-  },
-  {
-    id: 2,
-    title: "Números Pseudo Aleatorios",
-    author: "Marco Madera",
-    cover: cover,
-    coverWebp: coverWebp,
-    coverDescription: "Tres dados",
-    excerpt:
-      "Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios",
-    date: "May 20, 2020",
-    tags: ["Estadística", "Matemáticas"],
-    src: null,
   },
 ];

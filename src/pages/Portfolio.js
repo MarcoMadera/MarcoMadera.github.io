@@ -35,6 +35,20 @@ export default class Portfolio extends Component {
               <ul>
                 <li>
                   <PortfolioEntries
+                    link="challenges"
+                    cover={[
+                      "https://repository-images.githubusercontent.com/273826069/63db5980-b4c8-11ea-8aa5-1583b2d3e79a",
+                      "https://repository-images.githubusercontent.com/276570250/ba06b000-be6b-11ea-8d49-fb31622b8b52",
+                      "https://repository-images.githubusercontent.com/275021071/6e876a00-b972-11ea-9783-c54128c626c3",
+                      "https://repository-images.githubusercontent.com/274345491/ebec7980-b6e9-11ea-8760-3077406d08e6",
+                      "https://repository-images.githubusercontent.com/260399186/4b2b4200-b316-11ea-97ab-b223698314a4",
+                    ]}
+                    title="Desafios frontend"
+                    description="La mejor forma de mejorar en la creación de sitios web es seguir construyendo."
+                  />
+                </li>
+                <li>
+                  <PortfolioEntries
                     link="chiSqrt"
                     cover={[chiSqrtCover]}
                     coverWebp={[chiSqrtCoverWebp]}
@@ -42,8 +56,6 @@ export default class Portfolio extends Component {
                     description="Pruebas de uniformidad e independencia para números aleatorios entre 0 a 1"
                   />
                 </li>
-              </ul>
-              <ul>
                 <li>
                   <PortfolioEntries
                     link="sreExcel"
