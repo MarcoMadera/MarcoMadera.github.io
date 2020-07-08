@@ -55,6 +55,12 @@
   align-content: center;
   text-align: center;
 }
+
+.Rand__col__input input[type="text"]{
+  background-color : var(--footer-line); 
+  transition: background-color var(--switch-transition);
+}
+
 .Rand__col__streakTable td{
   padding:0 10px;
 }

@@ -85,11 +85,6 @@ p, span, li, i, th, td, img{
   transition: color var(--switch-transition);
 }
 
-input[type="text"], textarea {
-  background-color : var(--footer-line); 
-  transition: background-color var(--switch-transition);
-}
-
 html {
   width: 100vw;
   overflow-x: hidden;

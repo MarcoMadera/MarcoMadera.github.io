@@ -10,7 +10,7 @@
 
 .Blog__header{
   display: grid;
-  grid-template-columns: 50% 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, auto) repeat(3,55.33px);
   align-items: center;
   padding-bottom: 0.5rem;
 }
@@ -50,14 +50,92 @@
   padding-bottom: 50px;
 }
 
-.Blog__header_search .search-text{
+.Blog__header_search{
+  width: 100%;
+  height: 100%;
+  display: contents;
+  justify-content: flex-end;
+  align-items: center;
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox{
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 25px;
+  transition: 0.4s linear;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  justify-self: self-end;
+}
+
+.Blog__header_searchbox__input{
+  display: block;
+  height: 100%;
+  width: 100%;
   border: none;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox__input::placeholder{
+  color: transparent;
+  transition: 0.4s linear;
+}
+
+.searchbox__icon{
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 23px;
+  height: 23px;
+  pointer-events: none;
+  transition: 0.4s linear;
+}
+
+.searchbox__icon path {
+  fill: var(--icon-color);
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox:hover .searchbox__icon path {
+  fill: var(--icon-color-hover);
+}
+
+.Blog__header_searchbox:focus-within {
+  position: relative;
+  max-width: 200px;
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox:focus-within .Blog__header_searchbox__input::placeholder{
+  color: var(--content);
+}
+
+.Blog__header_searchbox:focus-within .Blog__header_searchbox__input {
+  color: var(--content);
+  padding-right: 25px;
+  border-bottom: 1px solid var(--content);
+  transition: ease-in-out 400ms;
+}
+
+.Blog__header_searchbox:focus-within .searchbox__icon path {
+  fill: var(--icon-color-hover);
 }
 
 @media screen and (max-width: 991.98px) {
   .Blog__header{
     display: grid;
-    grid-template-columns: 25fr 5fr 5fr 5fr;
+    grid-template-columns: repeat(2, auto) repeat(3,55.33px);
     align-items: center;
   }
   .Blog__gridView{
@@ -69,6 +147,11 @@
     -ms-flex-pack: center;
     padding-bottom: 50px;
   }
+}
+
+.Blog__header__search__noresults{
+  text-align: center;
+  margin-top: 80px;
 }
 
 @media screen and (min-width: 991.98px) {
