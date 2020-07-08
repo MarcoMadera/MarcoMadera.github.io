@@ -32,7 +32,7 @@ function Blog() {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  let [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -56,7 +56,7 @@ function Blog() {
   });
 
   const debounceHandleNextPage = useCallback(
-    debounce(() => (setPage((page += 1)), 1000)),
+    debounce(() => (setPage((page) => page + 1), 1000)),
     []
   );
 
