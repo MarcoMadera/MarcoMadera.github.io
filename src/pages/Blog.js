@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleView } from "../actions";
 import "./styles/Blog.css";
 import BlogPost from "../components/BlogPost";
 import { ListIcon, CardIcon, GridIcon } from "../components/Icons";
 import { entries } from "./Blog/BlogEntries";
+import useNearScreen from "../hooks/useNearScreen";
+import debounce from "just-debounce-it";
 
 function Blog() {
   let state = {
@@ -29,6 +31,8 @@ function Blog() {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  let [page, setPage] = useState(1);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -41,7 +45,24 @@ function Blog() {
         ob.title.concat(ob.tags).toLowerCase().includes(search)
       );
     setSearchResults(results);
+    setPage(1);
+    setLoading(false);
   }, [search]);
+
+  const externalRef = useRef();
+  const { isNearScreen } = useNearScreen({
+    externalRef: loading ? null : externalRef,
+    once: false,
+  });
+
+  const debounceHandleNextPage = useCallback(
+    debounce(() => (setPage((page += 1)), 1000)),
+    []
+  );
+
+  useEffect(() => {
+    if (isNearScreen) debounceHandleNextPage();
+  }, [debounceHandleNextPage, isNearScreen]);
 
   return (
     <div className="Blog">
@@ -51,7 +72,7 @@ function Blog() {
             <div className="Blog__header">
               <h1 className="Blog__header__title">Entradas</h1>
               <div className="Blog__header_search">
-                <div class="Blog__header_searchbox">
+                <div className="Blog__header_searchbox">
                   <input
                     className="Blog__header_searchbox__input"
                     type="text"
@@ -60,7 +81,7 @@ function Blog() {
                     onChange={handleChange}
                   />
                   <svg
-                    class="searchbox__icon"
+                    className="searchbox__icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 56.966 56.966"
                   >
@@ -109,21 +130,26 @@ function Blog() {
                   .sort((a, b) =>
                     a["id"] > b["id"] ? -1 : a["id"] < b["id"] ? 1 : 0
                   )
-                  .map((ob, num) => (
-                    <BlogPost
-                      key={entries[ob.id].id}
-                      title={entries[ob.id].title}
-                      author={entries[ob.id].author}
-                      cover={entries[ob.id].cover}
-                      coverWebp={entries[ob.id].coverWebp}
-                      coverDescription={entries[ob.id].coverDescription}
-                      excerpt={entries[ob.id].excerpt}
-                      date={entries[ob.id].date}
-                      tags={entries[ob.id].tags}
-                      id={entries[ob.id].id}
-                    />
-                  ))
+                  .map((ob, num) => {
+                    if (num < page * 4) {
+                      return (
+                        <BlogPost
+                          key={entries[ob.id].id}
+                          title={entries[ob.id].title}
+                          author={entries[ob.id].author}
+                          cover={entries[ob.id].cover}
+                          coverWebp={entries[ob.id].coverWebp}
+                          coverDescription={entries[ob.id].coverDescription}
+                          excerpt={entries[ob.id].excerpt}
+                          date={entries[ob.id].date}
+                          tags={entries[ob.id].tags}
+                          id={entries[ob.id].id}
+                        />
+                      );
+                    }
+                  })
               )}
+              <div id="visor" ref={externalRef}></div>
             </ul>
           </div>
         </div>
