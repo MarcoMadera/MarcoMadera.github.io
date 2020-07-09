@@ -7,6 +7,7 @@ import GenericBlog from "./pages/Blog/GenericBlog";
 import Home from "./pages/Home.js";
 import ThemeContext from "./ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
+import Blog from "./pages/Blog";
 
 const App = () => {
   const routeComponents = routes.map(({ path, component }, i) => (
@@ -26,6 +27,7 @@ const App = () => {
           <Switch>
             {routeComponents}
             <Route exact path="/" component={Home} />
+            <Route exact path="/blog/tag/:tag" component={Blog} />
             <Route exact path="/blog/:blogId" component={GenericBlog} />
             <Route component={NotFound} />
           </Switch>

@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { entries } from "../BlogEntries";
+import { useParams } from "react-router-dom";
 
 const BlogSearch = (props) => {
   const { setLoading, setSearchResults, setPage } = props;
   const [search, setSearch] = useState("");
+  const { tag } = useParams();
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   useEffect(() => {
+    if (tag) {
+      setSearch(tag);
+    }
+  }, [tag]);
+
+  useEffect(() => {
     const results = entries
-      .map((e, i) => ({ title: e.title, id: i, tags: e.tags }))
-      .filter((ob) =>
-        ob.title.concat(ob.tags).toLowerCase().includes(search.toLowerCase())
+      .map((blog, i) => ({ title: blog.title, id: i, tags: blog.tags }))
+      .filter((blog) =>
+        blog.title
+          .concat(blog.tags)
+          .toLowerCase()
+          .includes(search.toLowerCase())
       );
     setSearchResults(results);
     setPage(1);

@@ -17,8 +17,8 @@ const GenericBlog = (props) => {
             <DiscussionEmbed
               shortname="marcomadera"
               config={
-                ({ url: `https://marcomadera.github.io/blog/${blog}` },
-                { identifier: blog },
+                ({ url: `https://marcomadera.github.io/blog/${blog.id}` },
+                { identifier: blog.id },
                 { title: blog.title })
               }
             />
