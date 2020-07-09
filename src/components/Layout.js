@@ -5,7 +5,7 @@ import Footer from "./Footer.js";
 function Layout(props) {
   return (
     <React.Fragment>
-      <Navbar theme={props.theme} setTheme={props.setTheme} />
+      <Navbar darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
       {props.children}
       <Footer />
     </React.Fragment>

@@ -4,21 +4,22 @@ import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import ThemeContext from "../../ThemeContext";
 
-function CodeBlock(props) {
-  const theme = useContext(ThemeContext);
-  let codeStyle = atomOneLight;
-  if (localStorage.getItem("dark-mode") === "true" || theme) {
-    codeStyle = atomOneDark;
-  } else {
-    codeStyle = atomOneLight;
-  }
+const CodeBlock = (props) => {
+  const darkMode = useContext(ThemeContext);
 
   const { language, value } = props;
   return (
-    <SyntaxHighlighter language={language} style={codeStyle}>
+    <SyntaxHighlighter
+      language={language}
+      style={
+        localStorage.getItem("dark-mode") == "true" || darkMode == true
+          ? atomOneDark
+          : atomOneLight
+      }
+    >
       {value}
     </SyntaxHighlighter>
   );
-}
+};
 
 export default CodeBlock;

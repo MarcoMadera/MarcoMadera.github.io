@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
-  const { theme, setTheme } = props;
+  const { darkMode, setDarkMode } = props;
   const ref = useRef(null);
 
   const handleClick = () => {
@@ -16,23 +16,23 @@ const Navbar = (props) => {
       document.body.attributes.length == 1
         ? document.body.removeAttribute("class")
         : document.body.classList.remove("dark-mode");
-      return setTheme(!theme);
+      return setDarkMode(!darkMode);
     } else {
       if (localStorage.getItem("dark-mode") === "false") {
         localStorage.setItem("dark-mode", "true");
         document.body.classList.add("dark-mode");
-        return setTheme(!theme);
+        return setDarkMode(!darkMode);
       } else {
-        if (theme) {
+        if (darkMode) {
           localStorage.setItem("dark-mode", "false");
           document.body.attributes.length == 1
             ? document.body.removeAttribute("class")
             : document.body.classList.remove("dark-mode");
-          return setTheme(!theme);
+          return setDarkMode(!darkMode);
         } else {
           localStorage.setItem("dark-mode", "true");
           document.body.classList.add("dark-mode");
-          return setTheme(!theme);
+          return setDarkMode(!darkMode);
         }
       }
     }
@@ -80,7 +80,7 @@ const Navbar = (props) => {
           if (localStorage.getItem("dark-mode") === "true") {
             document.body.classList.add("dark-mode");
           } else {
-            if (theme) {
+            if (darkMode) {
               document.body.classList.add("dark-mode");
             }
           }
@@ -149,7 +149,7 @@ const Navbar = (props) => {
               if (localStorage.getItem("dark-mode") === "true") {
                 return true;
               } else {
-                return theme;
+                return darkMode;
               }
             }
           })()}
