@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { useSelector } from "react-redux";
+import ThemeContext from "../../ThemeContext";
 
 function CodeBlock(props) {
-  const theme = useSelector((state) => state.navbarReducer);
+  const theme = useContext(ThemeContext);
   let codeStyle = atomOneLight;
-  if (localStorage.getItem("dark-mode") === "true" || theme.darkMode) {
+  if (localStorage.getItem("dark-mode") === "true" || theme) {
     codeStyle = atomOneDark;
   } else {
     codeStyle = atomOneLight;

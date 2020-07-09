@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/PseudoRandomNumbers.css";
 import ReactDOM from "react-dom";
 import Chart from "chart.js";
-import chi from "chi-squared";
+import { cdf } from "chi-squared";
 import LineChart from "../../components/LineChart";
 import { DiscussionEmbed } from "disqus-react";
 
@@ -56,7 +56,7 @@ function chiSqrt() {
   }
 
   const sum = chiSqrtTest(oi, ei);
-  let uniform = (1 - chi.cdf(sum, m - 1)) * 100;
+  let uniform = (1 - cdf(sum, m - 1)) * 100;
   if (uniform > 5) {
     ReactDOM.render(
       <div className="res">
@@ -218,7 +218,7 @@ function chiSqrt() {
       document.getElementById("resStreakInput").checked = false;
       return;
     }
-    let uniformTest = (1 - chi.cdf(result, count.length)) * 100;
+    let uniformTest = (1 - cdf(result, count.length)) * 100;
     if (uniformTest > 5) {
       ReactDOM.render(
         <div className="res">
@@ -1162,8 +1162,8 @@ const PseudoRandomNumbers = () => {
               <DiscussionEmbed
                 shortname="marcomadera"
                 config={
-                  ({ url: `https://marcomadera.github.io/blog/2` },
-                  { identifier: 2 },
+                  ({ url: `https://marcomadera.github.io/blog/1` },
+                  { identifier: 1 },
                   { title: "Numeros pseudo Aleatorios" })
                 }
               />

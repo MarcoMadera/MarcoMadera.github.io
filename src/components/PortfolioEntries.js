@@ -10,7 +10,7 @@ const PortfolioEntries = (props) => {
         className="text-reset text-decoration-none"
         to={`portfolio/${props.link}`}
       >
-        <Carousel interval="2000" controls={false}>
+        <Carousel interval={2000} controls={false}>
           {props.cover.map((cover, i) => (
             <Carousel.Item key={i}>
               <img

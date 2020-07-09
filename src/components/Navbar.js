@@ -1,48 +1,62 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleSwitch } from "../actions";
 
-function Navbar() {
-  const dispatch = useDispatch();
+const Navbar = (props) => {
+  const { theme, setTheme } = props;
   const ref = useRef(null);
-  const theme = useSelector((state) => state.navbarReducer);
 
-  function handleClick() {
+  const handleClick = () => {
     ref.current.classList.toggle("show");
-  }
+  };
+
+  const handleChange = () => {
+    if (localStorage.getItem("dark-mode") === "true") {
+      localStorage.setItem("dark-mode", "false");
+      document.body.attributes.length == 1
+        ? document.body.removeAttribute("class")
+        : document.body.classList.remove("dark-mode");
+      return setTheme(!theme);
+    } else {
+      if (localStorage.getItem("dark-mode") === "false") {
+        localStorage.setItem("dark-mode", "true");
+        document.body.classList.add("dark-mode");
+        return setTheme(!theme);
+      } else {
+        if (theme) {
+          localStorage.setItem("dark-mode", "false");
+          document.body.attributes.length == 1
+            ? document.body.removeAttribute("class")
+            : document.body.classList.remove("dark-mode");
+          return setTheme(!theme);
+        } else {
+          localStorage.setItem("dark-mode", "true");
+          document.body.classList.add("dark-mode");
+          return setTheme(!theme);
+        }
+      }
+    }
+  };
 
   let location = useLocation();
-  let activeTab = {
-    blogTab: undefined,
-    portfolioTab: undefined,
-    aboutTab: undefined,
-    homeTab: undefined,
-  };
-  function HeaderView() {
-    let header = undefined;
+  const [tab, setTab] = useState("");
 
-    switch (location.pathname.split("/")[1]) {
+  useEffect(() => {
+    setTab(location.pathname.split("/")[1]);
+  }, [location.pathname.split("/")[1]]);
+
+  const HeaderView = () => {
+    switch (tab) {
       case "blog":
-        header = "Blog";
-        activeTab.blogTab = "active";
-        break;
+        return <h3>Blog</h3>;
       case "portfolio":
-        header = "Portafolio";
-        activeTab.portfolioTab = "active";
-        break;
+        return <h3>Portafolio</h3>;
       case "about":
-        header = "Sobre mí";
-        activeTab.aboutTab = "active";
-        break;
+        return <h3>Sobre mí</h3>;
       default:
-        header = "Inicio";
-        activeTab.homeTab = "active";
-        break;
+        return <h3>Inicio</h3>;
     }
-    return <h3>{header}</h3>;
-  }
+  };
 
   const swipe = (event) => {
     let touch = event.targetTouches[0];
@@ -66,7 +80,7 @@ function Navbar() {
           if (localStorage.getItem("dark-mode") === "true") {
             document.body.classList.add("dark-mode");
           } else {
-            if (theme.darkMode) {
+            if (theme) {
               document.body.classList.add("dark-mode");
             }
           }
@@ -83,28 +97,42 @@ function Navbar() {
           <ul className="Navbar__navLink">
             <li>
               <Link to="/">
-                <span className={`font-weight-ligh ${activeTab.homeTab}`}>
+                <span
+                  className={`font-weight-ligh ${tab == "" ? "active" : ""}`}
+                >
                   Inicio
                 </span>
               </Link>
             </li>
             <li>
               <Link to="/blog">
-                <span className={`font-weight-ligh ${activeTab.blogTab}`}>
+                <span
+                  className={`font-weight-ligh ${
+                    tab == "blog" ? "active" : ""
+                  }`}
+                >
                   Blog
                 </span>
               </Link>
             </li>
             <li>
               <Link to="/portfolio">
-                <span className={`font-weight-ligh ${activeTab.portfolioTab}`}>
+                <span
+                  className={`font-weight-ligh ${
+                    tab == "portfolio" ? "active" : ""
+                  }`}
+                >
                   Portafolio
                 </span>
               </Link>
             </li>
             <li>
               <Link to="/about">
-                <span className={`font-weight-ligh ${activeTab.aboutTab}`}>
+                <span
+                  className={`font-weight-ligh ${
+                    tab == "about" ? "active" : ""
+                  }`}
+                >
                   Sobre mí
                 </span>
               </Link>
@@ -121,18 +149,18 @@ function Navbar() {
               if (localStorage.getItem("dark-mode") === "true") {
                 return true;
               } else {
-                return theme.darkMode;
+                return theme;
               }
             }
           })()}
           onChange={() => {
-            dispatch(toggleSwitch());
+            handleChange();
           }}
         />
         <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

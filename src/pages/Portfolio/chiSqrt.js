@@ -18,7 +18,7 @@ export default class chiSqrt extends Component {
                 Herramienta para verificar números aleatorios, se puede
                 encontrar información detallada sobre la realización de este
                 programa en el blog de{" "}
-                <Link to="/blog/2">números pseudo aleatorios</Link>, y una
+                <Link to="/blog/1">números pseudo aleatorios</Link>, y una
                 muestra al final del post.
               </p>
               <ImageZoom

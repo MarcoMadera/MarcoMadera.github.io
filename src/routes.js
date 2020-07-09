@@ -3,7 +3,7 @@ import sreExcel from "./pages/Portfolio/sreExcel";
 import chiSqrt from "./pages/Portfolio/chiSqrt";
 import challenges from "./pages/Portfolio/challenges";
 import About from "./pages/About.js";
-import Blog from "./pages/Blog.js";
+import Blog from "./pages/Blog";
 import PseudoRandomNumbers from "./pages/Blog/PseudoRandomNumbers";
 
 export const routes = [
