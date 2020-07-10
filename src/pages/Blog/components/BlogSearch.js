@@ -1,35 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { entries } from "../BlogEntries";
-import { useParams } from "react-router-dom";
 
 const BlogSearch = (props) => {
-  const { setLoading, setSearchResults, setPage } = props;
+  const { setLoading, setSearchResults, setPage, tag, loading } = props;
   const [search, setSearch] = useState("");
-  const { tag } = useParams();
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   useEffect(() => {
-    if (tag) {
-      setSearch(tag);
+    if (tag && loading) {
+      const results = entries
+        .filter((result) => result.tags.includes(tag))
+        .map((blog) => ({ title: blog.title, id: blog.id, tags: tag }))
+        .filter((blog) =>
+          blog.title.toLowerCase().includes(search.toLowerCase())
+        );
+      setSearchResults(results);
+    } else {
+      const results = entries
+        .map((blog) => ({ title: blog.title, id: blog.id, tags: blog.tags }))
+        .filter((blog) =>
+          blog.title
+            .concat(blog.tags)
+            .toLowerCase()
+            .includes(search.toLowerCase())
+        );
+      setSearchResults(results);
     }
-  }, [tag]);
 
-  useEffect(() => {
-    const results = entries
-      .map((blog, i) => ({ title: blog.title, id: i, tags: blog.tags }))
-      .filter((blog) =>
-        blog.title
-          .concat(blog.tags)
-          .toLowerCase()
-          .includes(search.toLowerCase())
-      );
-    setSearchResults(results);
     setPage(1);
     setLoading(false);
-  }, [search]);
+  }, [search || tag]);
 
   return (
     <div className="Blog__header_searchbox">
@@ -55,4 +58,4 @@ const BlogSearch = (props) => {
   );
 };
 
-export default BlogSearch;
+export default memo(BlogSearch);

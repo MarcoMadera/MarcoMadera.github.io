@@ -5,8 +5,10 @@ import debounce from "just-debounce-it";
 import BlogSearch from "./components/BlogSearch";
 import BlogPost from "./components/BlogPost";
 import BlogView from "./components/BlogView";
+import { useParams } from "react-router-dom";
 
-function Blog() {
+const Blog = () => {
+  const { tag } = useParams();
   const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
@@ -45,12 +47,20 @@ function Blog() {
                   setSearchResults={setSearchResults}
                   setLoading={setLoading}
                   setPage={setPage}
+                  tag={tag}
+                  loading={loading}
                 />
               </div>
               <BlogView view={view} setView={setView} />
             </div>
             <ul className={view.gridView ? "Blog__gridView" : ""}>
-              <BlogPost searchResults={searchResults} view={view} page={page} />
+              <BlogPost
+                searchResults={searchResults}
+                view={view}
+                page={page}
+                tag={tag}
+                loading={loading}
+              />
               <div ref={externalRef}></div>
             </ul>
           </div>
@@ -58,5 +68,5 @@ function Blog() {
       </div>
     </div>
   );
-}
+};
 export default Blog;
