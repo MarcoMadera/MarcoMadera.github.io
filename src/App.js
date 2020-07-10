@@ -27,6 +27,7 @@ const App = () => {
           <Switch>
             {routeComponents}
             <Route exact path="/" component={Home} />
+            <Route exact path="/blog/tag/" component={Blog} />
             <Route exact path="/blog/tag/:tag" component={Blog} />
             <Route exact path="/blog/:blogId" component={GenericBlog} />
             <Route component={NotFound} />
