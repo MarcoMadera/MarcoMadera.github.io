@@ -8,6 +8,7 @@ const TersetJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const AppManifestWebpackPlugin = require("app-manifest-webpack-plugin");
+const workboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -131,6 +132,35 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/app.*"],
+    }),
+    new workboxPlugin.GenerateSW({
+      swDest: "sw.js",
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [
+        {
+          urlPattern: /images/,
+          handler: "StaleWhileRevalidate",
+        },
+        {
+          urlPattern: /assets/,
+          handler: "CacheFirst",
+        },
+        {
+          urlPattern: new RegExp("^https://i.imgur.com/(.*)"),
+          handler: "StaleWhileRevalidate",
+        },
+        {
+          urlPattern: new RegExp(
+            "^https://upload.wikimedia.org/wikipedia/commons/(.*)"
+          ),
+          handler: "StaleWhileRevalidate",
+        },
+        {
+          urlPattern: /.*/,
+          handler: "NetworkFirst",
+        },
+      ],
     }),
   ],
 };
