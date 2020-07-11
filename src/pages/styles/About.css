@@ -10,8 +10,8 @@
   padding-bottom: 3rem;
 }
 
-.About__col__title{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.About__col__title {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 @media screen and (min-width: 768px) {
@@ -19,4 +19,3 @@
     align-items: flex-start;
   }
 }
-

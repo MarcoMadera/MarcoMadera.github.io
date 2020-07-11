@@ -50,3 +50,14 @@
 .BlogListView__header__content__excerpt:hover .BlogListView__header__content__excerpt__readMore{
   text-decoration: underline;
 }
+
+@media screen and (max-width: 330px){
+  .BlogListView__header{
+    grid-template-columns: 1fr;
+  }
+
+  .BlogListView__header__preview{
+    width: calc(100vw - 60px);
+    border-radius: 1px;
+  }
+}

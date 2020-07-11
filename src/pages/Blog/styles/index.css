@@ -8,15 +8,15 @@
   padding-bottom: 3rem;
 }
 
-.Blog__header{
+.Blog__header {
   display: grid;
-  grid-template-columns: repeat(2, auto) repeat(3,55.33px);
+  grid-template-columns: repeat(2, auto) repeat(3, 55.33px);
   align-items: center;
   padding-bottom: 0.5rem;
 }
 
-.Blog__header__title{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.Blog__header__title {
+  font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0;
 }
 
@@ -24,25 +24,26 @@
   display: inline-block;
   text-align: center;
 }
-.Blog__View i{
+
+.Blog__View i {
   cursor: pointer;
 }
 
-.Blog__View i svg g{
+.Blog__View i svg g {
   fill: var(--icon-color);
 }
 
-.Blog__View i:hover svg g{
+.Blog__View i:hover svg g {
   fill: var(--icon-color-hover);
 }
 
-.Blog__View .selected svg g{
+.Blog__View .selected svg g {
   fill: var(--icon-color-selected);
 }
 
-.Blog__gridView{
+.Blog__gridView {
   display: grid;
-  grid-template-columns: repeat(3,31.5%);
+  grid-template-columns: repeat(3, 31.5%);
   grid-column-gap: 20px;
   grid-row-gap: 30px;
   -webkit-box-pack: center;
@@ -50,7 +51,7 @@
   padding-bottom: 50px;
 }
 
-.Blog__header_search{
+.Blog__header_search {
   width: 100%;
   height: 100%;
   display: contents;
@@ -59,19 +60,19 @@
   transition: 0.4s linear;
 }
 
-.Blog__header_searchbox{
+.Blog__header_searchbox {
   position: relative;
   display: block;
-  width: 100%;
+  width: 90%;
   max-width: 25px;
   transition: 0.4s linear;
   overflow: hidden;
-  margin: 0;
+  margin: 0 7.5px;
   padding: 0;
   justify-self: self-end;
 }
 
-.Blog__header_searchbox__input{
+.Blog__header_searchbox__input {
   display: block;
   height: 100%;
   width: 100%;
@@ -84,12 +85,12 @@
   transition: 0.4s linear;
 }
 
-.Blog__header_searchbox__input::placeholder{
+.Blog__header_searchbox__input::placeholder {
   color: transparent;
   transition: 0.4s linear;
 }
 
-.searchbox__icon{
+.searchbox__icon {
   position: absolute;
   right: 0;
   left: 0;
@@ -117,7 +118,8 @@
   transition: 0.4s linear;
 }
 
-.Blog__header_searchbox:focus-within .Blog__header_searchbox__input::placeholder{
+.Blog__header_searchbox:focus-within
+  .Blog__header_searchbox__input::placeholder {
   color: var(--content);
 }
 
@@ -132,56 +134,47 @@
   fill: var(--icon-color-hover);
 }
 
-@media screen and (max-width: 991.98px) {
-  .Blog__header{
-    display: grid;
-    grid-template-columns: repeat(2, auto) repeat(3,55.33px);
-    align-items: center;
-  }
-  .Blog__gridView{
-    display: grid;
-    grid-template-columns: repeat(2,48%);
-    grid-column-gap: 20px;
-    grid-row-gap: 30px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    padding-bottom: 50px;
-  }
-}
-
-.Blog__header__search__noresults{
+.Blog__header__search__noresults {
   text-align: center;
   margin-top: 80px;
 }
 
-@media screen and (min-width: 991.98px) {
-  .Blog__gridView{
+@media screen and (max-width: 991.98px) {
+  .Blog__header {
     display: grid;
-    grid-template-columns: repeat(2,48.3%);
-    grid-column-gap: 20px;
-    grid-row-gap: 30px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    padding-bottom: 50px;
+    grid-template-columns: repeat(2, auto) repeat(3, 55.33px);
+    align-items: center;
+  }
+
+  .Blog__gridView {
+    grid-template-columns: repeat(2, 48%);
+  }
+}
+
+@media screen and (min-width: 991.98px) {
+  .Blog__gridView {
+    grid-template-columns: repeat(2, 48.3%);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .Blog__gridView{
-    display: grid;
-    grid-template-columns: repeat(3,31.5%);
-    grid-column-gap: 20px;
-    grid-row-gap: 30px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    padding-bottom: 50px;
+  .Blog__gridView {
+    grid-template-columns: repeat(3, 31.5%);
   }
 }
 
 @media screen and (max-width: 490px) {
-  .Blog__gridView{
+  .Blog__header__title {
+    display: none;
+  }
+
+  .Blog__header {
+    grid-template-columns: repeat(1, auto) repeat(3, 55.33px);
+  }
+
+  .Blog__gridView {
     display: grid;
-    grid-template-columns: repeat(2,47%);
+    grid-template-columns: repeat(2, 47%);
     grid-column-gap: 20px;
     grid-row-gap: 30px;
     -webkit-box-pack: center;
@@ -189,4 +182,3 @@
     padding-bottom: 50px;
   }
 }
-

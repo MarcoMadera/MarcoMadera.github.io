@@ -12,19 +12,19 @@
   border-radius: 6px;
 }
 
-.PortfolioEntries__content{
+.PortfolioEntries__content {
   padding: 0.1rem 0.5rem;
   margin-bottom: 1rem;
 }
 
-.PortfolioEntries__content__title{
+.PortfolioEntries__content__title {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.PortfolioEntries__content__title:hover{
+.PortfolioEntries__content__title:hover {
   text-decoration: underline;
 }
 
-.PortfolioEntries__content__excerpt:hover span{
+.PortfolioEntries__content__excerpt:hover span {
   text-decoration: underline;
 }

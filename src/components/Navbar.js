@@ -72,7 +72,6 @@ const Navbar = (props) => {
 
   return (
     <div className="Navbar" id="myNavbar" onTouchMove={swipe}>
-      <div className="Navbar__mobileHeader">{HeaderView()}</div>
       {(() => {
         if (localStorage.getItem("dark-mode") === "false") {
           document.body.classList.remove("dark-mode");
@@ -157,7 +156,11 @@ const Navbar = (props) => {
             handleChange();
           }}
         />
-        <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
+
+        <div className="Navbar__mobileHeader">
+          {HeaderView()}
+          <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
+        </div>
       </div>
     </div>
   );

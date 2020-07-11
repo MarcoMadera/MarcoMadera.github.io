@@ -7,7 +7,7 @@
   font-size: 0.8rem;
   background-color: var(--background);
   z-index: 20;
-  transition:  background-color var(--switch-transition);
+  transition: background-color var(--switch-transition);
 }
 
 .Footer-text {
@@ -15,7 +15,7 @@
   display: block;
 }
 
-.Footer-text:before{
+.Footer-text:before {
   display: block;
   box-sizing: border-box;
   content: "";
