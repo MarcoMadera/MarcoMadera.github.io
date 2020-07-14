@@ -265,7 +265,9 @@
       })(window.location);
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/sw.js");
+          navigator.serviceWorker.register(
+            "https://marcomadera.github.io/sw.js/workbox-service-worker-9659c3e6.js"
+          );
         });
       }
     </script>
