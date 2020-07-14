@@ -43,7 +43,9 @@ if (!self.define) {
       }));
   };
 }
-define("./sw.js", ["./workbox-9659c3e6"], function (a) {
+define("https://marcomadera.github.io/workbox-service-worker-9659c3e6.js", [
+  "https://marcomadera.github.io/workbox-9659c3e6",
+], function (a) {
   "use strict";
   a.skipWaiting(),
     a.clientsClaim(),
