@@ -82,7 +82,7 @@ module.exports = {
         theme_color: "#fff", // Theme color for browser chrome. `string`
         display: "standalone", // Android display: "browser" or "standalone". `string`
         orientation: "portrait", // Android orientation: "portrait" or "landscape". `string`
-        start_url: "/", // Android start application's URL. `string`
+        start_url: "https://marcomadera.github.io/", // Android start application's URL. `string`
         version: "1.0", // Your application's version number. `number`
         logging: true, // Print logs to console? `boolean`
         icons: {
@@ -147,12 +147,12 @@ module.exports = {
           handler: "CacheFirst",
         },
         {
-          urlPattern: new RegExp("^https://i.imgur.com/(.*)"),
+          urlPattern: new RegExp("https://i.imgur.com/"),
           handler: "StaleWhileRevalidate",
         },
         {
           urlPattern: new RegExp(
-            "^https://upload.wikimedia.org/wikipedia/commons/(.*)"
+            "https://upload.wikimedia.org/wikipedia/commons/"
           ),
           handler: "StaleWhileRevalidate",
         },

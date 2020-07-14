@@ -1,10 +1,21 @@
-import Portfolio from "./pages/Portfolio.js";
-import sreExcel from "./pages/Portfolio/sreExcel";
-import chiSqrt from "./pages/Portfolio/chiSqrt";
-import challenges from "./pages/Portfolio/challenges";
-import About from "./pages/About.js";
-import Blog from "./pages/Blog";
-import PseudoRandomNumbers from "./pages/Blog/PseudoRandomNumbers";
+import { lazy } from "react";
+// import challenges from "./pages/Portfolio/challenges";
+// import Portfolio from "./pages/Portfolio";
+// import chiSqrt from "./pages/Portfolio/chiSqrt";
+// import sreExcel from "./pages/Portfolio/sreExcel";
+// import About from "./pages/About";
+// import PseudoRandomNumbers from "./pages/Blog/PseudoRandomNumbers";
+// import Blog from "./pages/Blog/index";
+
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const sreExcel = lazy(() => import("./pages/Portfolio/sreExcel"));
+const chiSqrt = lazy(() => import("./pages/Portfolio/chiSqrt"));
+const challenges = lazy(() => import("./pages/Portfolio/challenges"));
+const About = lazy(() => import("./pages/About"));
+const PseudoRandomNumbers = lazy(() =>
+  import("./pages/Blog/PseudoRandomNumbers")
+);
+const Blog = lazy(() => import("./pages/Blog"));
 
 export const routes = [
   {

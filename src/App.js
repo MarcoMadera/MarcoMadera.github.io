@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Layout from "./components/Layout.js";
 import { routes } from "./routes";
-import NotFound from "./pages/NotFound.js";
-import GenericBlog from "./pages/Blog/GenericBlog";
-import Home from "./pages/Home.js";
 import ThemeContext from "./ThemeContext";
 import ScrollToTop from "./components/ScrollToTop";
-import Blog from "./pages/Blog";
+import NotFound from "./pages/NotFound";
+import ProgressLoader from "./components/ProgressLoader";
+import Layout from "./components/Layout";
+
+const Home = lazy(() => import("./pages/Home"));
+const Blog = lazy(() => import("./pages/Blog"));
+const GenericBlog = lazy(() => import("./pages/Blog/GenericBlog"));
 
 const App = () => {
   const routeComponents = routes.map(({ path, component }, i) => (
@@ -24,14 +26,16 @@ const App = () => {
       <ThemeContext.Provider value={darkMode}>
         <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
           <ScrollToTop />
-          <Switch>
-            {routeComponents}
-            <Route exact path="/" component={Home} />
-            <Route exact path="/blog/tag/" component={Blog} />
-            <Route exact path="/blog/tag/:tag" component={Blog} />
-            <Route exact path="/blog/:blogId" component={GenericBlog} />
-            <Route component={NotFound} />
-          </Switch>
+          <Suspense fallback={<ProgressLoader />}>
+            <Switch>
+              {routeComponents}
+              <Route exact path="/" component={Home} />
+              <Route exact path="/blog/tag/" component={Blog} />
+              <Route exact path="/blog/tag/:tag" component={Blog} />
+              <Route exact path="/blog/:blogId" component={GenericBlog} />
+              <Route component={NotFound} />
+            </Switch>
+          </Suspense>
         </Layout>
       </ThemeContext.Provider>
     </BrowserRouter>

@@ -43,6 +43,7 @@ const challenges = () => {
               <ImageZoom
                 className="challenges__image"
                 src="https://repository-images.githubusercontent.com/260399186/4b2b4200-b316-11ea-97ab-b223698314a4"
+                srcWebp="https://repository-images.githubusercontent.com/260399186/4b2b4200-b316-11ea-97ab-b223698314a4"
                 magnify={1.75}
                 alt="Social Media Dashboard"
               />
@@ -85,6 +86,7 @@ const challenges = () => {
               <ImageZoom
                 className="challenges__image"
                 src="https://repository-images.githubusercontent.com/273826069/63db5980-b4c8-11ea-8aa5-1583b2d3e79a"
+                srcWebp="https://repository-images.githubusercontent.com/273826069/63db5980-b4c8-11ea-8aa5-1583b2d3e79a"
                 magnify={1.75}
                 alt="Clipboard Landing Page"
               />
@@ -125,6 +127,7 @@ const challenges = () => {
               <ImageZoom
                 className="challenges__image"
                 src="https://repository-images.githubusercontent.com/274345491/ebec7980-b6e9-11ea-8760-3077406d08e6"
+                srcWebp="https://repository-images.githubusercontent.com/274345491/ebec7980-b6e9-11ea-8760-3077406d08e6"
                 magnify={1.75}
                 alt="Job listings with filtering"
               />
@@ -169,6 +172,7 @@ const challenges = () => {
               <ImageZoom
                 className="challenges__image"
                 src="https://repository-images.githubusercontent.com/275021071/6e876a00-b972-11ea-9783-c54128c626c3"
+                srcWebp="https://repository-images.githubusercontent.com/275021071/6e876a00-b972-11ea-9783-c54128c626c3"
                 magnify={1.75}
                 alt="Easybank landing page"
               />
@@ -209,6 +213,7 @@ const challenges = () => {
               <ImageZoom
                 className="challenges__image"
                 src="https://repository-images.githubusercontent.com/276570250/ba06b000-be6b-11ea-8d49-fb31622b8b52"
+                srcWebp="https://repository-images.githubusercontent.com/276570250/ba06b000-be6b-11ea-8d49-fb31622b8b52"
                 magnify={1.75}
                 alt="Manage landing page"
               />
