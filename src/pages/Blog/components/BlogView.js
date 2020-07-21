@@ -1,45 +1,36 @@
 import React, { Fragment } from "react";
-import { ListIcon, CardIcon, GridIcon } from "../../../components/Icons";
+import ListIcon from "../../../components/icons/ListIcon";
+import CardIcon from "../../../components/icons/CardIcon";
+import GridIcon from "../../../components/icons/GridIcon";
+import "./styles/BlogView.css";
 
 const BlogView = (props) => {
   const { view, setView } = props;
   return (
     <Fragment>
-      <div className="Blog__View">
-        <i
-          onClick={() => {
-            setView({ listView: true, cardView: false, gridView: false });
-          }}
-          className={`text-reset text-decoration-none ${
-            view.listView ? "selected" : ""
-          }`}
-        >
-          <ListIcon />
-        </i>
+      <div
+        onClick={() => {
+          setView({ listView: true, cardView: false, gridView: false });
+        }}
+        className={`Blog__View ${view.listView ? "selected" : ""}`}
+      >
+        <ListIcon />
       </div>
-      <div className="Blog__View">
-        <i
-          onClick={() => {
-            setView({ listView: false, cardView: true, gridView: false });
-          }}
-          className={`text-reset text-decoration-none ${
-            view.cardView ? "selected" : ""
-          }`}
-        >
-          <CardIcon />
-        </i>
+      <div
+        onClick={() => {
+          setView({ listView: false, cardView: true, gridView: false });
+        }}
+        className={`Blog__View ${view.cardView ? "selected" : ""}`}
+      >
+        <CardIcon />
       </div>
-      <div className="Blog__View">
-        <i
-          onClick={() => {
-            setView({ listView: false, cardView: false, gridView: true });
-          }}
-          className={`text-reset text-decoration-none ${
-            view.gridView ? "selected" : ""
-          }`}
-        >
-          <GridIcon />
-        </i>
+      <div
+        onClick={() => {
+          setView({ listView: false, cardView: false, gridView: true });
+        }}
+        className={`Blog__View ${view.gridView ? "selected" : ""}`}
+      >
+        <GridIcon />
       </div>
     </Fragment>
   );

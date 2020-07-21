@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./pages/NotFound";
 import ProgressLoader from "./components/ProgressLoader";
 import Layout from "./components/Layout";
+import ErrorBoundary from "./ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -26,16 +27,18 @@ const App = () => {
       <ThemeContext.Provider value={darkMode}>
         <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
           <ScrollToTop />
-          <Suspense fallback={<ProgressLoader />}>
-            <Switch>
-              {routeComponents}
-              <Route exact path="/" component={Home} />
-              <Route exact path="/blog/tag/" component={Blog} />
-              <Route exact path="/blog/tag/:tag" component={Blog} />
-              <Route exact path="/blog/:blogId" component={GenericBlog} />
-              <Route component={NotFound} />
-            </Switch>
-          </Suspense>
+          <ErrorBoundary>
+            <Suspense fallback={<ProgressLoader />}>
+              <Switch>
+                {routeComponents}
+                <Route exact path="/" component={Home} />
+                <Route exact path="/blog/tag/" component={Blog} />
+                <Route exact path="/blog/tag/:tag" component={Blog} />
+                <Route exact path="/blog/:blogId" component={GenericBlog} />
+                <Route component={NotFound} />
+              </Switch>
+            </Suspense>
+          </ErrorBoundary>
         </Layout>
       </ThemeContext.Provider>
     </BrowserRouter>

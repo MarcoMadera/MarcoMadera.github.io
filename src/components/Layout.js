@@ -2,14 +2,14 @@ import React from "react";
 import Navbar from "./Navbar.js";
 import Footer from "./Footer.js";
 
-function Layout(props) {
+const Layout = ({ darkMode, setDarkMode, children }) => {
   return (
     <React.Fragment>
-      <Navbar darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
-      {props.children}
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      {children}
       <Footer />
     </React.Fragment>
   );
-}
+};
 
 export default Layout;

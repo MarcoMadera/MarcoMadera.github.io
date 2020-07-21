@@ -2,39 +2,42 @@ import React from "react";
 import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
 
-const BlogGridView = (props) => {
-  const title = props.title.replace(/\s/g, "-");
+const BlogGridView = ({
+  title,
+  id,
+  excerpt,
+  cover,
+  coverDescription,
+  tags,
+  author,
+  date,
+}) => {
   return (
     <li className="BlogGridView">
       <article>
         <Link
           className="text-reset text-decoration-none"
-          to={`/blog/${props.id}/#${title}`}
+          to={`/blog/${id}/#${title.replace(/\s/g, "-")}`}
         >
           <header className="BlogGridView__header">
-            <picture>
-              <source srcSet={props.coverWebp} type="image/webp" />
-              <img
-                src={props.cover}
-                alt={props.coverDescription}
-                className="BlogGridView__header__cover"
-              />
-            </picture>
-            <div className="BlogGridView__header__content">
-              <h4 className="BlogGridView__header__content__title">
-                {props.title}
-              </h4>
+            <img
+              src={cover.w760}
+              alt={coverDescription}
+              className="BlogGridView__header__cover"
+            />
+            <section className="BlogGridView__header__content">
+              <h4 className="BlogGridView__header__content__title">{title}</h4>
               <p className="BlogGridView__header__content__excerpt">
-                {props.excerpt}
+                {excerpt}
                 ...{" "}
                 <span className="BlogGridView__footer__readMore">Leer más</span>
               </p>
-            </div>
+            </section>
           </header>
         </Link>
         <footer className="BlogGridView__footer">
           {(() =>
-            props.tags.map((tags, i) => (
+            tags.map((tags, i) => (
               <span key={i}>
                 <Link
                   className="text-reset text-decoration-none"
@@ -45,7 +48,12 @@ const BlogGridView = (props) => {
               </span>
             )))()}
           <p className="BlogGridView__footer__meta">
-            {props.author} | {props.date}
+            {author} |{" "}
+            {date.toLocaleString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
           </p>
         </footer>
       </article>

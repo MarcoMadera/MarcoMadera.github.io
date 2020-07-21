@@ -11,42 +11,28 @@ const Navbar = (props) => {
   };
 
   const handleChange = () => {
-    if (localStorage.getItem("dark-mode") === "true") {
+    if (localStorage.getItem("dark-mode") === "true" || darkMode === true) {
       localStorage.setItem("dark-mode", "false");
-      document.body.attributes.length == 1
+      document.body.attributes.length === 1
         ? document.body.removeAttribute("class")
         : document.body.classList.remove("dark-mode");
-      return setDarkMode(!darkMode);
+      return setDarkMode(false);
     } else {
-      if (localStorage.getItem("dark-mode") === "false") {
-        localStorage.setItem("dark-mode", "true");
-        document.body.classList.add("dark-mode");
-        return setDarkMode(!darkMode);
-      } else {
-        if (darkMode) {
-          localStorage.setItem("dark-mode", "false");
-          document.body.attributes.length == 1
-            ? document.body.removeAttribute("class")
-            : document.body.classList.remove("dark-mode");
-          return setDarkMode(!darkMode);
-        } else {
-          localStorage.setItem("dark-mode", "true");
-          document.body.classList.add("dark-mode");
-          return setDarkMode(!darkMode);
-        }
-      }
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("dark-mode", "true");
+      return setDarkMode(true);
     }
   };
 
-  let location = useLocation();
-  const [tab, setTab] = useState("");
+  const location = useLocation();
+  const [currentTab, setCurrentTab] = useState("");
 
   useEffect(() => {
-    setTab(location.pathname.split("/")[1]);
-  }, [location.pathname.split("/")[1]]);
+    setCurrentTab(location.pathname.split("/")[1]);
+  }, [location.pathname]);
 
   const HeaderView = () => {
-    switch (tab) {
+    switch (currentTab) {
       case "blog":
         return <h3>Blog</h3>;
       case "portfolio":
@@ -58,10 +44,10 @@ const Navbar = (props) => {
     }
   };
 
-  const swipe = (event) => {
+  const swipeSideBar = (event) => {
     let touch = event.targetTouches[0];
     const px = touch.pageX;
-    const midpoint = Math.floor(screen.width / 3);
+    const midpoint = Math.floor(window.screen.width / 3);
     if (px > midpoint) {
       ref.current.classList.add("show");
     } else {
@@ -71,7 +57,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <div className="Navbar" id="myNavbar" onTouchMove={swipe}>
+    <nav className="Navbar" id="myNavbar" onTouchMove={swipeSideBar}>
       {(() => {
         if (localStorage.getItem("dark-mode") === "false") {
           document.body.classList.remove("dark-mode");
@@ -85,59 +71,53 @@ const Navbar = (props) => {
           }
         }
       })()}
-
-      <div className="container-fluid">
-        <div id="sidebar" ref={ref}>
-          <div className="toggleBtn" onClick={handleClick}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <ul className="Navbar__navLink">
-            <li>
-              <Link to="/">
-                <span
-                  className={`font-weight-ligh ${tab == "" ? "active" : ""}`}
-                >
-                  Inicio
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/blog">
-                <span
-                  className={`font-weight-ligh ${
-                    tab == "blog" ? "active" : ""
-                  }`}
-                >
-                  Blog
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/portfolio">
-                <span
-                  className={`font-weight-ligh ${
-                    tab == "portfolio" ? "active" : ""
-                  }`}
-                >
-                  Portafolio
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/about">
-                <span
-                  className={`font-weight-ligh ${
-                    tab == "about" ? "active" : ""
-                  }`}
-                >
-                  Sobre mí
-                </span>
-              </Link>
-            </li>
-          </ul>
+      <aside className="Navbar__navLink" id="sidebar" ref={ref}>
+        <ul>
+          <li>
+            <Link
+              to="/"
+              style={{ textDecoration: currentTab === "" && "underline" }}
+            >
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/blog"
+              style={{ textDecoration: currentTab === "blog" && "underline" }}
+            >
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/portfolio"
+              style={{
+                textDecoration: currentTab === "portfolio" && "underline",
+              }}
+            >
+              Portafolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              style={{
+                textDecoration: currentTab === "about" && "underline",
+              }}
+            >
+              Sobre mí
+            </Link>
+          </li>
+        </ul>
+      </aside>
+      <header className="Navbar__mobileHeader">
+        <div className="toggleBtn" onClick={handleClick}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+        {HeaderView()}
         <input
           type="checkbox"
           id="switch"
@@ -156,13 +136,9 @@ const Navbar = (props) => {
             handleChange();
           }}
         />
-
-        <div className="Navbar__mobileHeader">
-          {HeaderView()}
-          <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
-        </div>
-      </div>
-    </div>
+        <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
+      </header>
+    </nav>
   );
 };
 

@@ -1,111 +1,65 @@
-import React, { Component } from "react";
-import data from "../../images/Portfolio/SRE/Data.png";
-import dataWebp from "../../images/Portfolio/SRE/Data.webp";
-import reporte from "../../images/Portfolio/SRE/Reporte Diario.png";
-import reporteWebp from "../../images/Portfolio/SRE/Reporte Diario.webp";
-import datos from "../../images/Portfolio/SRE/SRE Datos.png";
-import datosWebp from "../../images/Portfolio/SRE/SRE Datos.webp";
-import genGraph from "../../images/Portfolio/SRE/SRE Gen Graph.png";
-import genGraphWebp from "../../images/Portfolio/SRE/SRE Gen Graph.webp";
-import genReporte from "../../images/Portfolio/SRE/SRE Gen Reporte.png";
-import genReporteWebp from "../../images/Portfolio/SRE/SRE Gen Reporte.webp";
-import graphGen from "../../images/Portfolio/SRE/SRE Graph Generada.png";
-import graphGenWebp from "../../images/Portfolio/SRE/SRE Graph Generada.webp";
-import programacion from "../../images/Portfolio/SRE/SRE Programacion.png";
-import programacionWebp from "../../images/Portfolio/SRE/SRE Programacion.webp";
-import registro from "../../images/Portfolio/SRE/SRE Registro.png";
-import registroWebp from "../../images/Portfolio/SRE/SRE Registro.webp";
-import reportePDF from "../../images/Portfolio/SRE/SRE Reporte PDF.png";
-import reportePDFWebp from "../../images/Portfolio/SRE/SRE Reporte PDF.webp";
-
-import ImageZoom from "../../components/Zoom";
-
+import React from "react";
 import "./styles/sreExcel.css";
 
-export default class sreExcel extends Component {
-  render() {
-    return (
-      <div className="sreExcel">
-        <div className="container">
-          <div className="row">
-            <div className="sreExcel__col col-11.75 col-md-8">
-              <h1>Registro de trámites en Excel</h1>
-              <p>
-                Dashboard funcional en excel programado con visual basic for
-                applications para dar seguimiento a los trámites realizados, con
-                la obtención automática a través de un script en el navegador,
-                se descarga la información y se lleva al registro de excel,
-                evitando la tarea de transcribir y evitando los posibles errores
-                llevandolo directamente a el almacenamiento de la información.
-              </p>
-              <ImageZoom
-                className="sreExcel__image"
-                src={reporte}
-                srcWebp={reporteWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={data}
-                srcWebp={dataWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={registro}
-                srcWebp={registroWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={datos}
-                srcWebp={datosWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={genGraph}
-                srcWebp={genGraphWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={graphGen}
-                srcWebp={graphGenWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
+const sreExcel = () => {
+  return (
+    <main className="sreExcel container">
+      <h1>Registro de trámites en Excel</h1>
+      <p>
+        Dashboard funcional en excel programado con visual basic for
+        applications para dar seguimiento a los trámites realizados, con la
+        obtención automática a través de un script en el navegador, se descarga
+        la información y se lleva al registro de excel, evitando la tarea de
+        transcribir y evitando los posibles errores llevandolo directamente a el
+        almacenamiento de la información.
+      </p>
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275322/Potfolio/sreExcel/Reporte_Diario_db5g11.png"
+        alt="Navegador"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/Data_splifz.png"
+        alt="Vista Excel"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/SRE_Registro_fbjsqg.png"
+        alt="Registro"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275321/Potfolio/sreExcel/SRE_Datos_rznxtt.png"
+        alt="Datos"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Gen_Graph_iz4vgw.png"
+        alt="Generar Grafica"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275323/Potfolio/sreExcel/SRE_Graph_Generada_gg2do4.png"
+        alt="Grafica generada"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Gen_Reporte_yvv11c.png"
+        alt="Generar Reporte"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Reporte_PDF_yvvswb.png"
+        alt="Reporte PDF"
+      />
+      <img
+        className="sreExcel__image"
+        src="https://res.cloudinary.com/marcomadera/image/upload/v1595275324/Potfolio/sreExcel/SRE_Reporte_PDF_yvvswb.png"
+        alt="VBA Programacion"
+      />
+    </main>
+  );
+};
 
-              <ImageZoom
-                className="sreExcel__image"
-                src={genReporte}
-                srcWebp={genReporteWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={reportePDF}
-                srcWebp={reportePDFWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-              <ImageZoom
-                className="sreExcel__image"
-                src={programacion}
-                srcWebp={programacionWebp}
-                magnify={1.75}
-                alt="Reporte Diario"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+export default sreExcel;

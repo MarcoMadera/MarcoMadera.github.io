@@ -164,3 +164,26 @@ strong {
 .btn.btn-primary:not(:disabled):not(.disabled):focus {
   box-shadow: 0 0 0 0.2rem rgba(73, 73, 73, 0.5);
 }
+
+.container {
+  margin: 1rem auto;
+  padding: 0 15px;
+  text-align: justify;
+}
+
+@media screen and (min-width: 425px) {
+  .container {
+    max-width: 520px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 670px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 790px;
+  }
+}

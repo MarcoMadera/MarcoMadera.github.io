@@ -1,0 +1,20 @@
+.Blog__View {
+  display: inline-block;
+  text-align: center;
+}
+
+.Blog__View svg {
+  cursor: pointer;
+}
+
+.Blog__View svg path {
+  fill: var(--icon-color);
+}
+
+.Blog__View svg:hover path {
+  fill: var(--icon-color-hover);
+}
+
+.Blog__View.selected svg path {
+  fill: var(--icon-color-selected);
+}

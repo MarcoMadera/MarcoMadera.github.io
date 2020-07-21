@@ -21,9 +21,6 @@ var preventBehavior = function preventBehavior(e) {
 
 var Zoom = function Zoom(props) {
   var src = props.src;
-  if (document.documentElement.className) {
-    src = props.srcWebp;
-  }
   var zoomSrc = props.zoomSrc,
     duration = props.duration,
     magnify = props.magnify,
@@ -56,23 +53,27 @@ var Zoom = function Zoom(props) {
         onZoomOut(imageRef.current);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [isZoom]
   );
-  useLayoutEffect(function () {
-    var image = document.createElement("img");
+  useLayoutEffect(
+    function () {
+      var image = document.createElement("img");
 
-    image.onload = function () {
-      setData(
-        _objectSpread({}, data, {
-          width: imageRef.current.clientWidth * magnify,
-          height: imageRef.current.clientHeight * magnify,
-        })
-      );
-      onImageLoaded(imageRef.current);
-    };
+      image.onload = function () {
+        setData(
+          _objectSpread({}, data, {
+            width: imageRef.current.clientWidth * magnify,
+            height: imageRef.current.clientHeight * magnify,
+          })
+        );
+        onImageLoaded(imageRef.current);
+      };
 
-    image.src = src;
-  }, []);
+      image.src = src;
+    },
+    [data, magnify, onImageLoaded, setData, src]
+  );
 
   var getPos = function getPos(e) {
     var isTouch =

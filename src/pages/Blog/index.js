@@ -26,6 +26,7 @@ const Blog = () => {
   });
 
   const debounceHandleNextPage = useCallback(
+    // eslint-disable-next-line no-sequences
     debounce(() => (setPage((page) => page + 1), 1000)),
     []
   );
@@ -33,40 +34,34 @@ const Blog = () => {
   useEffect(() => {
     if (isNearScreen && page * 4 < searchResults.length)
       debounceHandleNextPage();
-  }, [debounceHandleNextPage, isNearScreen]);
+  }, [debounceHandleNextPage, isNearScreen, page, searchResults]);
 
   return (
-    <div className="Blog">
-      <div className="container">
-        <div className="row">
-          <div className="Blog__col col-12 col-md-8">
-            <div className="Blog__header">
-              <h1 className="Blog__header__title">Entradas</h1>
-              <div className="Blog__header_search">
-                <BlogSearch
-                  setSearchResults={setSearchResults}
-                  setLoading={setLoading}
-                  setPage={setPage}
-                  tag={tag}
-                  loading={loading}
-                />
-              </div>
-              <BlogView view={view} setView={setView} />
-            </div>
-            <ul className={view.gridView ? "Blog__gridView" : ""}>
-              <BlogPost
-                searchResults={searchResults}
-                view={view}
-                page={page}
-                tag={tag}
-                loading={loading}
-              />
-              <div ref={externalRef}></div>
-            </ul>
-          </div>
+    <main className="Blog container">
+      <header className="Blog__header">
+        <h1 className="Blog__header__title">Entradas</h1>
+        <div className="Blog__header_search">
+          <BlogSearch
+            setSearchResults={setSearchResults}
+            setLoading={setLoading}
+            setPage={setPage}
+            tag={tag}
+            loading={loading}
+          />
         </div>
-      </div>
-    </div>
+        <BlogView view={view} setView={setView} />
+      </header>
+      <ul className={view.gridView ? "Blog__gridView" : ""}>
+        <BlogPost
+          searchResults={searchResults}
+          view={view}
+          page={page}
+          tag={tag}
+          loading={loading}
+        />
+        <div ref={externalRef}></div>
+      </ul>
+    </main>
   );
 };
 export default Blog;

@@ -1,5 +1,5 @@
-import React from 'react';
-import './styles/NotFound.css'
+import React from "react";
+import "./styles/NotFound.css";
 
 function NotFound() {
   return (
@@ -11,7 +11,7 @@ function NotFound() {
         </div>
       </div>
     </React.Fragment>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;

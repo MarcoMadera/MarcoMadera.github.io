@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import "./styles/Home.css";
 import profileImgWebp from "./../images/profile.webp";
 import profileImg from "./../images/profile.jpg";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "../components/Icons";
+import GithubIcon from "../components/icons/GithubIcon";
+import LinkedinIcon from "../components/icons/LinkedInIcon";
+import TwitterIcon from "../components/icons/TwitterIcon";
 import { routes } from "../routes";
 
 const Home = () => {
@@ -12,55 +14,48 @@ const Home = () => {
     return pages[Math.round(Math.random() * (pages.length - 1))];
   };
   return (
-    <div className="Home">
-      <div className="Home__col">
-        <div className="Home__container">
-          <picture>
-            <source srcSet={profileImgWebp} type="image/webp" />
-            <img
-              className="Home__container__profileImg"
-              src={profileImg}
-              alt="profile photo"
-              height="120"
-              width="120"
-            />
-          </picture>
-          <h1 className="Home__container__name">Marco Madera</h1>
-          <div className="Home__container__icons">
-            <a
-              aria-label="Github"
-              href="https://github.com/MarcoMadera"
-              target="_blank"
-              rel="noopener"
-            >
-              <GithubIcon />
-            </a>
-            <a
-              aria-label="LinkedIn"
-              href="https://www.linkedin.com/in/marcomadera/"
-              target="_blank"
-              rel="noopener"
-            >
-              <LinkedinIcon />
-            </a>
-            <a
-              aria-label="Twitter"
-              href="https://twitter.com/madera_marco"
-              target="_blank"
-              rel="noopener"
-            >
-              <TwitterIcon />
-            </a>
-          </div>
-          <Link
-            className="btn btn-primary Home__container__button"
-            to={randomPage()}
-          >
-            Página aleatoria
-          </Link>
-        </div>
+    <main className="Home">
+      <picture>
+        <source srcSet={profileImgWebp} type="image/webp" />
+        <img
+          className="Home__profileImg"
+          src={profileImg}
+          alt="Marco Madera"
+          height="120"
+          width="120"
+        />
+      </picture>
+      <h1 className="Home__name">Marco Madera</h1>
+      <div className="Home__icons">
+        <a
+          aria-label="Github"
+          href="https://github.com/MarcoMadera"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GithubIcon />
+        </a>
+        <a
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/marcomadera/"
+          target="_blank"
+          rel="noopener  noreferrer"
+        >
+          <LinkedinIcon />
+        </a>
+        <a
+          aria-label="Twitter"
+          href="https://twitter.com/madera_marco"
+          target="_blank"
+          rel="noopener  noreferrer"
+        >
+          <TwitterIcon />
+        </a>
       </div>
-    </div>
+      <Link className="btn btn-primary Home__button" to={randomPage()}>
+        Página aleatoria
+      </Link>
+    </main>
   );
 };
 export default Home;

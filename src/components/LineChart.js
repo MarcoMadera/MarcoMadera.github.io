@@ -1,88 +1,87 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Chart from "chart.js";
 
-class LineChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.canvasRef = React.createRef();
-  }
+const LineChart = (props) => {
+  const {
+    labels,
+    label,
+    datas,
+    fill,
+    backgroundColor,
+    pointRadius,
+    borderColor,
+    borderWidth,
+    lineTension,
+    max,
+    min,
+  } = props.data;
 
-  componentDidUpdate() {
-    this.myChart.options.scales.yAxes[0].ticks.max = this.props.data.max;
-    this.myChart.options.scales.yAxes[0].ticks.min = this.props.data.min;
-    this.myChart.data.labels = this.props.data.labels;
-    this.myChart.data.datasets[0].data = this.props.data.datas;
-    this.myChart.update();
-  }
+  const canvasRef = useRef();
 
-  componentDidMount() {
-    const {
-      labels,
-      label,
-      datas,
-      fill,
-      backgroundColor,
-      pointRadius,
-      borderColor,
-      borderWidth,
-      lineTension,
-      max,
-      min,
-    } = this.props.data;
-
-    this.myChart = new Chart(this.canvasRef.current, {
-      type: this.props.type,
-      options: {
-        maintainAspectRatio: true,
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                min: min,
-                max: max,
-              },
-              gridLines: {
-                display: true,
-                color: "#cccccc2a",
-              },
-            },
-          ],
-          xAxes: [
-            {
-              gridLines: {
-                display: true,
-                color: "#cccccc2a",
-              },
-            },
-          ],
-        },
-      },
-      data: {
-        labels: labels,
-        datasets: [
+  const config = {
+    type: props.type,
+    options: {
+      maintainAspectRatio: true,
+      scales: {
+        yAxes: [
           {
-            fill: fill,
-            pointRadius: pointRadius,
-            borderWidth: borderWidth,
-            lineTension: lineTension,
-            borderColor: borderColor,
-            label: label,
-            data: datas,
-            backgroundColor: backgroundColor,
-            borderDash: [5, 5],
-            pointBackgroundColor: backgroundColor,
-            pointBorderColor: backgroundColor,
-            pointHoverBackgroundColor: backgroundColor,
-            pointHoverBorderColor: backgroundColor,
+            ticks: {
+              min: min,
+              max: max,
+            },
+            gridLines: {
+              display: true,
+              color: "#cccccc2a",
+            },
+          },
+        ],
+        xAxes: [
+          {
+            gridLines: {
+              display: true,
+              color: "#cccccc2a",
+            },
           },
         ],
       },
-    });
-  }
+    },
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          fill: fill,
+          pointRadius: pointRadius,
+          borderWidth: borderWidth,
+          lineTension: lineTension,
+          borderColor: borderColor,
+          label: label,
+          data: datas,
+          backgroundColor: backgroundColor,
+          borderDash: [5, 5],
+          pointBackgroundColor: backgroundColor,
+          pointBorderColor: backgroundColor,
+          pointHoverBackgroundColor: backgroundColor,
+          pointHoverBorderColor: backgroundColor,
+        },
+      ],
+    },
+  };
 
-  render() {
-    return <canvas ref={this.canvasRef} />;
-  }
-}
+  useEffect(() => {
+    const myChart = new Chart(canvasRef.current, config);
+    myChart.options.scales.yAxes[0].ticks.max = props.data.max;
+    myChart.options.scales.yAxes[0].ticks.min = props.data.min;
+    myChart.data.labels = props.data.labels;
+    myChart.data.datasets[0].data = props.data.datas;
+    myChart.update();
+  }, [
+    props.data.max,
+    props.data.min,
+    props.data.labels,
+    props.data.datas,
+    config,
+  ]);
+  return <canvas ref={canvasRef} />;
+};
 
 export default LineChart;

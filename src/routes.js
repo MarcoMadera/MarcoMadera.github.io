@@ -1,12 +1,4 @@
 import { lazy } from "react";
-// import challenges from "./pages/Portfolio/challenges";
-// import Portfolio from "./pages/Portfolio";
-// import chiSqrt from "./pages/Portfolio/chiSqrt";
-// import sreExcel from "./pages/Portfolio/sreExcel";
-// import About from "./pages/About";
-// import PseudoRandomNumbers from "./pages/Blog/PseudoRandomNumbers";
-// import Blog from "./pages/Blog/index";
-
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const sreExcel = lazy(() => import("./pages/Portfolio/sreExcel"));
 const chiSqrt = lazy(() => import("./pages/Portfolio/chiSqrt"));
