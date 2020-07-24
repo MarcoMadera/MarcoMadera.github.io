@@ -37,18 +37,16 @@ const Blog = () => {
   }, [debounceHandleNextPage, isNearScreen, page, searchResults]);
 
   return (
-    <main className="Blog container">
+    <main className="Blog container" id="main">
       <header className="Blog__header">
         <h1 className="Blog__header__title">Entradas</h1>
-        <div className="Blog__header_search">
-          <BlogSearch
-            setSearchResults={setSearchResults}
-            setLoading={setLoading}
-            setPage={setPage}
-            tag={tag}
-            loading={loading}
-          />
-        </div>
+        <BlogSearch
+          setSearchResults={setSearchResults}
+          setLoading={setLoading}
+          setPage={setPage}
+          tag={tag}
+          loading={loading}
+        />
         <BlogView view={view} setView={setView} />
       </header>
       <ul className={view.gridView ? "Blog__gridView" : ""}>

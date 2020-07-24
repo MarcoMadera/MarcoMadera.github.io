@@ -14,7 +14,7 @@ const Home = () => {
     return pages[Math.round(Math.random() * (pages.length - 1))];
   };
   return (
-    <main className="Home">
+    <main className="Home" id="main">
       <picture>
         <source srcSet={profileImgWebp} type="image/webp" />
         <img

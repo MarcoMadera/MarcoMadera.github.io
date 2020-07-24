@@ -1,3 +1,22 @@
+.skip-link {
+  display: block;
+  line-height: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.skip-link:focus,
+.skip-link:active {
+  border-radius: 5px;
+  color: var(--content);
+  font-family: var(--navbar-font-family);
+  height: auto;
+  width: auto;
+  padding: 8px;
+  text-decoration: none;
+}
+
 .Navbar__mobileHeader h3 {
   display: none;
 }
@@ -29,16 +48,12 @@
   position: relative;
   align-content: center;
   background-color: var(--navbar-background);
-  min-height: 50px;
-  height: 8vh;
+  height: 50px;
   text-align: center;
   align-items: center;
   justify-content: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  font-size: 1.34rem;
   display: flex;
-  box-shadow: -6px 0 rgb(27, 24, 24), 6px 0 rgb(82, 82, 82),
+  box-shadow: -6px 0 rgb(39, 36, 36), 6px 0 rgb(82, 82, 82),
     1px 3px 6px rgba(0, 0, 0, 0.15);
   transition: background-color var(--switch-transition);
 }
@@ -48,8 +63,10 @@
 }
 
 .Navbar__navLink > ul li a {
+  font-family: var(--navbar-font-family);
   color: var(--content);
   margin: 1em;
+  font-size: 1.34rem;
 }
 
 .Navbar__navLink > ul li a:hover {
@@ -81,6 +98,7 @@
 
   .Navbar__navLink {
     display: inline;
+    padding-left: 0;
   }
 
   .Navbar__navLink__switch {
@@ -90,6 +108,7 @@
   }
 
   .Navbar__mobileHeader h3 {
+    font-family: var(--pageTitle-font-family);
     display: block;
     grid-area: title;
     margin: 0;

@@ -52,6 +52,7 @@
 }
 
 .Rand__col__input input[type="text"] {
+  padding: 8px 9px;
   background-color: var(--footer-line);
   transition: background-color var(--switch-transition);
 }
@@ -82,19 +83,6 @@
 
 .Rand #resStreak {
   margin-bottom: 80px;
-}
-
-table {
-  display: inline-block;
-  margin: 0 1rem 1rem 0;
-  text-align: center;
-}
-
-table,
-th,
-td {
-  border: 1px solid var(--content);
-  transition: border var(--switch-transition);
 }
 
 @media screen and (min-width: 768px) {

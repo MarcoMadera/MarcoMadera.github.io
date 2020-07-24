@@ -5,5 +5,5 @@
 }
 
 .About__title {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: var(--pageTitle-font-family);
 }

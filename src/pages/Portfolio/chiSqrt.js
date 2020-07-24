@@ -5,7 +5,7 @@ import "./styles/chiSqrt.css";
 
 const chiSqrt = () => {
   return (
-    <main className="chiSqrt container">
+    <main className="chiSqrt container" id="main">
       <h1>Pruebas para números aleatorios</h1>
       <p>
         Herramienta para verificar números aleatorios, se puede encontrar

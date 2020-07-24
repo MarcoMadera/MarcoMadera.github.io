@@ -4,7 +4,7 @@ import "./styles/About.css";
 
 const About = () => {
   return (
-    <main className="About container">
+    <main className="About container" id="main">
       <h1 className="About__title">Sobre mí</h1>
       <p>
         ¡Hola! Mi nombre es Marco Madera tengo 23 años, actualmente soy auxiliar

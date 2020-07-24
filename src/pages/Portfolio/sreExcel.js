@@ -3,7 +3,7 @@ import "./styles/sreExcel.css";
 
 const sreExcel = () => {
   return (
-    <main className="sreExcel container">
+    <main className="sreExcel container" id="main">
       <h1>Registro de trámites en Excel</h1>
       <p>
         Dashboard funcional en excel programado con visual basic for

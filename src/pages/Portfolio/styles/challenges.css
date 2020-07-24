@@ -8,6 +8,10 @@
   list-style-position: inside;
 }
 
+.challenge span {
+  font-family: var(--general-font-family);
+}
+
 .challenge__subList {
   padding-inline-start: 20px;
 }

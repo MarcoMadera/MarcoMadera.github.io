@@ -57,88 +57,93 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav className="Navbar" id="myNavbar" onTouchMove={swipeSideBar}>
-      {(() => {
-        if (localStorage.getItem("dark-mode") === "false") {
-          document.body.classList.remove("dark-mode");
-        } else {
-          if (localStorage.getItem("dark-mode") === "true") {
-            document.body.classList.add("dark-mode");
+    <>
+      <nav className="Navbar" id="myNavbar" onTouchMove={swipeSideBar}>
+        <a href="#main" className="skip-link">
+          Saltar al contenido
+        </a>
+        {(() => {
+          if (localStorage.getItem("dark-mode") === "false") {
+            document.body.classList.remove("dark-mode");
           } else {
-            if (darkMode) {
+            if (localStorage.getItem("dark-mode") === "true") {
               document.body.classList.add("dark-mode");
-            }
-          }
-        }
-      })()}
-      <aside className="Navbar__navLink" id="sidebar" ref={ref}>
-        <ul>
-          <li>
-            <Link
-              to="/"
-              style={{ textDecoration: currentTab === "" && "underline" }}
-            >
-              Inicio
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/blog"
-              style={{ textDecoration: currentTab === "blog" && "underline" }}
-            >
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/portfolio"
-              style={{
-                textDecoration: currentTab === "portfolio" && "underline",
-              }}
-            >
-              Portafolio
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              style={{
-                textDecoration: currentTab === "about" && "underline",
-              }}
-            >
-              Sobre mí
-            </Link>
-          </li>
-        </ul>
-      </aside>
-      <header className="Navbar__mobileHeader">
-        <div className="toggleBtn" onClick={handleClick}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        {HeaderView()}
-        <input
-          type="checkbox"
-          id="switch"
-          defaultChecked={(() => {
-            if (localStorage.getItem("dark-mode") === "false") {
-              return false;
             } else {
-              if (localStorage.getItem("dark-mode") === "true") {
-                return true;
-              } else {
-                return darkMode;
+              if (darkMode) {
+                document.body.classList.add("dark-mode");
               }
             }
-          })()}
-          onChange={() => {
-            handleChange();
-          }}
-        />
-        <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
-      </header>
-    </nav>
+          }
+        })()}
+        <aside className="Navbar__navLink" id="sidebar" ref={ref}>
+          <ul>
+            <li>
+              <Link
+                to="/"
+                style={{ textDecoration: currentTab === "" && "underline" }}
+              >
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blog"
+                style={{ textDecoration: currentTab === "blog" && "underline" }}
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/portfolio"
+                style={{
+                  textDecoration: currentTab === "portfolio" && "underline",
+                }}
+              >
+                Portafolio
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                style={{
+                  textDecoration: currentTab === "about" && "underline",
+                }}
+              >
+                Sobre mí
+              </Link>
+            </li>
+          </ul>
+        </aside>
+        <header className="Navbar__mobileHeader">
+          <div className="toggleBtn" onClick={handleClick}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          {HeaderView()}
+          <input
+            type="checkbox"
+            id="switch"
+            defaultChecked={(() => {
+              if (localStorage.getItem("dark-mode") === "false") {
+                return false;
+              } else {
+                if (localStorage.getItem("dark-mode") === "true") {
+                  return true;
+                } else {
+                  return darkMode;
+                }
+              }
+            })()}
+            onChange={() => {
+              handleChange();
+            }}
+          />
+          <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
+        </header>
+      </nav>
+    </>
   );
 };
 

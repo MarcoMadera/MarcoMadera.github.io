@@ -1,21 +1,26 @@
 .Footer {
+  display: block;
   position: fixed;
   bottom: 0;
-  min-height: 1.6em;
+  height: 20px;
   width: 100vw;
   text-align: center;
-  font-size: 0.8rem;
   background-color: var(--background);
   z-index: 20;
   transition: background-color var(--switch-transition);
 }
 
-.Footer-text {
+.Footer span {
+  font-family: var(--general-font-family);
+  font-size: 0.8rem;
   margin: auto;
   display: block;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
-.Footer-text:before {
+.Footer span:before {
   display: block;
   box-sizing: border-box;
   content: "";

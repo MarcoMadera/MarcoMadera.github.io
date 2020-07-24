@@ -3,6 +3,11 @@
   border-radius: 5px;
   background-color: var(--blog-card-background);
   transition: background-color var(--switch-transition);
+  margin-bottom: 1rem;
+}
+
+.BlogListView a {
+  text-decoration: none;
 }
 
 .BlogListView__header {
@@ -11,16 +16,16 @@
   padding: 0.5rem 1rem;
 }
 
-.BlogListView__header__content{
+.BlogListView__header__content {
   padding-right: 1rem;
 }
 
-.BlogListView__header__content__title{
+.BlogListView__header__content__title {
   color: var(--title);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--cardTitle-font-family);
 }
 
-.BlogListView__header__content__excerpt{
+.BlogListView__header__content__excerpt {
   color: var(--content);
   text-align: justify;
 }
@@ -31,32 +36,32 @@
   border-radius: 10%;
 }
 
-.BlogListView__footer{
+.BlogListView__footer {
   padding: 0 1rem 0.1rem;
-  margin-bottom: 1rem;
 }
 
-.BlogListView__footer__tags{
+.BlogListView__footer__tags {
   color: var(--content);
 }
 
-.BlogListView__footer__meta{
+.BlogListView__footer__meta {
   color: var(--content);
   font-size: 1rem;
 }
 
-.BlogListView__header__content__title:hover, 
+.BlogListView__header__content__title:hover,
 .BlogListView__footer__tags:hover,
-.BlogListView__header__content__excerpt:hover .BlogListView__header__content__excerpt__readMore{
+.BlogListView__header__content__excerpt:hover
+  .BlogListView__header__content__excerpt__readMore {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 330px){
-  .BlogListView__header{
+@media screen and (max-width: 330px) {
+  .BlogListView__header {
     grid-template-columns: 1fr;
   }
 
-  .BlogListView__header__preview{
+  .BlogListView__header__preview {
     width: calc(100vw - 60px);
     border-radius: 1px;
   }

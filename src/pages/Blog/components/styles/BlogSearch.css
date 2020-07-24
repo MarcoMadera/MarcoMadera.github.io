@@ -1,0 +1,78 @@
+.Blog__header_searchbox {
+  position: relative;
+  display: block;
+  width: 90%;
+  max-width: 25px;
+  transition: 0.4s linear;
+  overflow: hidden;
+  margin: 0 7.5px;
+  padding: 0;
+  justify-self: self-end;
+}
+
+.Blog__header_searchbox__input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox__input::placeholder {
+  color: transparent;
+  transition: 0.4s linear;
+}
+
+.searchbox__icon {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 23px;
+  height: 23px;
+  pointer-events: none;
+  transition: 0.4s linear;
+}
+
+.searchbox__icon path {
+  fill: var(--icon-color);
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox:hover .searchbox__icon path {
+  fill: var(--icon-color-hover);
+}
+
+.Blog__header_searchbox:focus-within {
+  position: relative;
+  max-width: 200px;
+  transition: 0.4s linear;
+}
+
+.Blog__header_searchbox:focus-within
+  .Blog__header_searchbox__input::placeholder {
+  color: var(--content);
+}
+
+.Blog__header_searchbox:focus-within .Blog__header_searchbox__input {
+  color: var(--content);
+  padding-right: 25px;
+  border-bottom: 1px solid var(--content);
+  transition: ease-in-out 400ms;
+}
+
+.Blog__header_searchbox:focus-within .searchbox__icon path {
+  fill: var(--icon-color-hover);
+}
+
+.Blog__header__search__noresults {
+  text-align: center;
+  margin-top: 80px;
+}

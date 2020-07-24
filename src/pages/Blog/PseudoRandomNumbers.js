@@ -253,7 +253,7 @@ function chiSqrt() {
 
 const PseudoRandomNumbers = () => {
   return (
-    <main className="Rand container">
+    <main className="Rand container" id="main">
       <h1 className="Rand__title">Números Pseudo Aleatorios</h1>
       <p>
         Esta entrada es posible gracias a la aleatoriedad de Math.random() de

@@ -5,7 +5,7 @@ import "./styles/Portfolio.css";
 
 const Portfolio = () => {
   return (
-    <main className="Portfolio container">
+    <main className="Portfolio container" id="main">
       <ul>
         <li>
           <PortfolioEntries

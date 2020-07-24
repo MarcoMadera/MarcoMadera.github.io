@@ -5,7 +5,7 @@ import "./styles/challenges.css";
 
 const challenges = () => {
   return (
-    <main className="challenges container">
+    <main className="challenges container" id="main">
       <h1>Desafios frontend</h1>
       <p>
         La mejor forma de mejorar en la creación de sitios web es seguir
@@ -77,7 +77,7 @@ const challenges = () => {
         ]}
       />
       <Challenge
-        title="Manage landing page"
+        title="Chat App CSS Illustration"
         liveDemo="https://chat-app-css-illustration.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/chat-app-css-illustration-O5auMkFqY"
         repo="https://github.com/MarcoMadera/chat-app-css-illustration"
