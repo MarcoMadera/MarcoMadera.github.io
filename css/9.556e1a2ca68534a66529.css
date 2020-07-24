@@ -1,0 +1,1 @@
+.challenge__links{display:flex;justify-content:space-evenly}.challenge li{list-style:disc;list-style-position:inside}.challenge span{font-family:var(--general-font-family)}.challenge__subList{padding-inline-start:20px}.challenge__subList li{list-style-position:inside;list-style-type:lower-latin}.challenges__image{width:100%}
