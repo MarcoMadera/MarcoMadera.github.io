@@ -212,15 +212,10 @@ td {
   border: 1px solid var(--content);
   transition: border var(--switch-transition);
 }
-button,
-[role="button"] {
-  padding: 3px;
-  border: 2px solid transparent;
-}
 
-button:active,
-button:focus {
-  border: 2px solid red;
+hr {
+  border: 1px solid var(--footer-line);
+  margin: 25px 0;
 }
 .btn {
   cursor: pointer;

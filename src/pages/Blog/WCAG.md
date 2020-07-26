@@ -387,7 +387,7 @@ const listenKeys= (e) => {
   }
 }
 
-document.body.addEventListener("keyup", e=> listenKeys(key));
+document.body.addEventListener("keyup", e=> listenKeys(e));
 ```
 
 &nbsp;

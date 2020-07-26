@@ -11,7 +11,14 @@ const chiSqrt = () => {
         Herramienta para verificar números aleatorios, se puede encontrar
         información detallada sobre la realización de este programa en el blog
         de <Link to="/blog/1">números pseudo aleatorios</Link>, y una muestra al
-        final del post.
+        final del post, pero igual lo puedes probar en la siguiente este{" "}
+        <a
+          href="https://test-for-random-numbers.marcomadera.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          enlace.
+        </a>
       </p>
       <img
         className="chiSqrt__image"

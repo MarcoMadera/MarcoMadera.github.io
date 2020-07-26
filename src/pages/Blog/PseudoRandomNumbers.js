@@ -5,6 +5,7 @@ import Chart from "chart.js";
 import { cdf } from "chi-squared";
 import LineChart from "../../components/LineChart";
 import { DiscussionEmbed } from "disqus-react";
+import MetaData from "../../components/MetaData";
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 function chiSqrt() {
@@ -254,6 +255,11 @@ function chiSqrt() {
 const PseudoRandomNumbers = () => {
   return (
     <main className="Rand container" id="main">
+      <MetaData
+        title="Números Pseudo Aleatorios"
+        image="https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1595270596/Blog/1/pseudoRandomNumbers_todtwy.jpg"
+        description="Los números pseudo-aleatorios son creados a partir de algoritmos matemáticos, por lo que no se puede decir que son realmente aleatorios"
+      />
       <h1 className="Rand__title">Números Pseudo Aleatorios</h1>
       <p>
         Esta entrada es posible gracias a la aleatoriedad de Math.random() de

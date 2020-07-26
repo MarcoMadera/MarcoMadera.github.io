@@ -4,6 +4,10 @@
   margin-bottom: 1rem;
 }
 
+.Rand span {
+  font-family: var(--general-font-family);
+}
+
 .Rand__arrows {
   line-height: 0.5;
   font-size: 1.4rem;

@@ -1,11 +1,13 @@
-hr {
-  border: 1px solid var(--footer-line);
-  margin: 25px 0;
-}
-
 .GenericBlog a:hover {
   text-decoration: underline;
   color: #007bffcb;
+}
+
+.GenericBlog span {
+  font-family: var(--general-font-family);
+}
+.GenericBlog code span {
+  font-family: monospace;
 }
 
 .GenericBlog ul li {
