@@ -1,11 +1,16 @@
 import React from "react";
 import PortfolioEntries from "../components/PortfolioEntries";
+import MetaData from "../components/MetaData";
 
 import "./styles/Portfolio.css";
 
 const Portfolio = () => {
   return (
     <main className="Portfolio container" id="main">
+      <MetaData
+        title="Marco Madera | Portafolio"
+        description="Aquí puedes encontrar mi proyectos"
+      />
       <ul>
         <li>
           <PortfolioEntries

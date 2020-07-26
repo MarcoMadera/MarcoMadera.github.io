@@ -7,6 +7,7 @@ import GithubIcon from "../components/icons/GithubIcon";
 import LinkedinIcon from "../components/icons/LinkedInIcon";
 import TwitterIcon from "../components/icons/TwitterIcon";
 import { routes } from "../routes";
+import MetaData from "../components/MetaData";
 
 const Home = () => {
   const randomPage = () => {
@@ -15,6 +16,10 @@ const Home = () => {
   };
   return (
     <main className="Home" id="main">
+      <MetaData
+        title="Marco Madera | Ingeniero"
+        description="Página principal"
+      />
       <picture>
         <source srcSet={profileImgWebp} type="image/webp" />
         <img

@@ -5,6 +5,7 @@ import CodeBlock from "./CodeBlock";
 import { DiscussionEmbed } from "disqus-react";
 import "./styles/GenericBlog.css";
 import NotFound from "../../pages/NotFound";
+import MetaData from "../../components/MetaData";
 
 const GenericBlog = ({ match }) => {
   const blog = entries.find(
@@ -17,6 +18,11 @@ const GenericBlog = ({ match }) => {
         <NotFound />
       ) : (
         <main className="GenericBlog container" id="main">
+          <MetaData
+            title={blog.title}
+            description={blog.excerpt}
+            image={blog.cover.w760}
+          />
           <ReactMarkdown
             source={blog.src}
             renderers={{ code: CodeBlock }}
@@ -28,11 +34,7 @@ const GenericBlog = ({ match }) => {
             config={
               ({ url: `https://marcomadera.github.io/blog/${blog.id}` },
               { identifier: blog.id },
-              { title: blog.title },
-              {
-                cookie:
-                  'document.cookie = "my_cookie_name=my_cookie_value; expires=Thu, 11 Jun 2070 11:11:11 UTC; path=/; SameSite=None; Secure";',
-              })
+              { title: blog.title })
             }
           />
         </main>

@@ -6,6 +6,7 @@ import BlogSearch from "./components/BlogSearch";
 import BlogPost from "./components/BlogPost";
 import BlogView from "./components/BlogView";
 import { useParams } from "react-router-dom";
+import MetaData from "../../components/MetaData";
 
 const Blog = () => {
   const { tag } = useParams();
@@ -38,6 +39,10 @@ const Blog = () => {
 
   return (
     <main className="Blog container" id="main">
+      <MetaData
+        title="Marco Madera | Blog"
+        description="Aquí puedes encontrar las entradas de blog"
+      />
       <header className="Blog__header">
         <h1 className="Blog__header__title">Entradas</h1>
         <BlogSearch
