@@ -2,11 +2,10 @@ import React, { useState, useEffect, memo } from "react";
 import "./styles/BlogSearch.css";
 import { entries } from "../BlogEntries";
 import SearchIcon from "../../../components/icons/SearchIcon";
+import PropTypes from "prop-types";
 
-const BlogSearch = (props) => {
-  const { setLoading, setSearchResults, setPage, tag, loading } = props;
+const BlogSearch = ({ resetScrollPage, searchBlogEntries, tag, loading }) => {
   const [search, setSearch] = useState("");
-
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
@@ -19,7 +18,7 @@ const BlogSearch = (props) => {
         .filter((blog) =>
           blog.title.toLowerCase().includes(search.toLowerCase())
         );
-      setSearchResults(results);
+      searchBlogEntries(results);
     } else {
       const results = entries
         .map((blog) => ({ title: blog.title, id: blog.id, tags: blog.tags }))
@@ -29,12 +28,10 @@ const BlogSearch = (props) => {
             .toLowerCase()
             .includes(search.toLowerCase())
         );
-      setSearchResults(results);
+      searchBlogEntries(results);
     }
-
-    setPage(1);
-    setLoading(false);
-  }, [search || tag]);
+    resetScrollPage();
+  }, [search, tag, loading, resetScrollPage, searchBlogEntries]);
 
   return (
     <form className="Blog__header_searchbox">
@@ -52,6 +49,13 @@ const BlogSearch = (props) => {
       <SearchIcon className="searchbox__icon" />
     </form>
   );
+};
+
+BlogSearch.propTypes = {
+  resetScrollPage: PropTypes.func,
+  searchBlogEntries: PropTypes.func,
+  tag: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default memo(BlogSearch);

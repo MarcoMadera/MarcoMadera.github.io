@@ -3,36 +3,45 @@ import ListIcon from "../../../components/icons/ListIcon";
 import CardIcon from "../../../components/icons/CardIcon";
 import GridIcon from "../../../components/icons/GridIcon";
 import "./styles/BlogView.css";
+import PropTypes from "prop-types";
 
 const BlogView = ({ view, setView }) => {
   return (
     <Fragment>
-      <button>
-        <ListIcon
-          onClick={() => {
-            setView({ listView: true, cardView: false, gridView: false });
-          }}
-          className={`Blog__View ${view.listView ? "selected" : ""}`}
-        />
+      <button
+        onClick={() => {
+          setView({ listView: true, cardView: false, gridView: false });
+        }}
+        className={view.listView ? "Blog__View selected" : "Blog__View"}
+        aria-label="Vista de lista"
+      >
+        <ListIcon />
       </button>
-      <button>
-        <CardIcon
-          onClick={() => {
-            setView({ listView: false, cardView: true, gridView: false });
-          }}
-          className={`Blog__View ${view.cardView ? "selected" : ""}`}
-        />
+      <button
+        onClick={() => {
+          setView({ listView: false, cardView: true, gridView: false });
+        }}
+        className={view.cardView ? "Blog__View selected" : "Blog__View"}
+        aria-label="Vista de tarjeta"
+      >
+        <CardIcon/>
       </button>
-      <button>
-        <GridIcon
-          onClick={() => {
-            setView({ listView: false, cardView: false, gridView: true });
-          }}
-          className={`Blog__View ${view.gridView ? "selected" : ""}`}
-        />
+      <button
+        onClick={() => {
+          setView({ listView: false, cardView: false, gridView: true });
+        }}
+        className={view.gridView ? "Blog__View selected" : "Blog__View"}
+        aria-label="Vista de cuadrícula"
+      >
+        <GridIcon />
       </button>
     </Fragment>
   );
+};
+
+BlogView.propTypes = {
+  view: PropTypes.object,
+  setView: PropTypes.func,
 };
 
 export default BlogView;

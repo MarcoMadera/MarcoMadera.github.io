@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import Chart from "chart.js";
+import PropTypes from "prop-types";
 
 const LineChart = (props) => {
   const {
@@ -82,6 +83,11 @@ const LineChart = (props) => {
     config,
   ]);
   return <canvas ref={canvasRef} />;
+};
+
+LineChart.propTypes = {
+  data: PropTypes.object,
+  type: PropTypes.string,
 };
 
 export default LineChart;

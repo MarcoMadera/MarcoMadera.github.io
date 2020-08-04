@@ -1146,9 +1146,12 @@ const PseudoRandomNumbers = () => {
         <DiscussionEmbed
           shortname="marcomadera"
           config={
-            ({ url: `https://marcomadera.github.io/blog/1` },
-            { identifier: 1 },
-            { title: "Numeros pseudo Aleatorios" })
+            {
+              url: "https://marcomadera.github.io/blog/1",
+              identifier: "1",
+              title: "Numeros pseudo Aleatorios",
+              language: "es-MX"
+            }
           }
         />
       </div>

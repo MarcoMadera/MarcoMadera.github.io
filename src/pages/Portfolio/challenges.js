@@ -15,6 +15,7 @@ const challenges = () => {
 
       <Challenge
         title="Social Media Dashboard"
+        level="Junior"
         liveDemo="https://social-media-dashboard.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H"
         repo="https://github.com/MarcoMadera/social-media-dashboard"
@@ -27,6 +28,7 @@ const challenges = () => {
       />
       <Challenge
         title="Clipboard Landing Page"
+        level="Junior"
         liveDemo="https://clipboard-landing-page.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/clipboard-landing-page-5cc9bccd6c4c91111378ecb9"
         repo="https://github.com/MarcoMadera/clipboard-landing-page"
@@ -38,6 +40,7 @@ const challenges = () => {
       />
       <Challenge
         title="Job listings with filtering"
+        level="Intermedio"
         liveDemo="https://job-listings-with-filtering.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt"
         repo="https://github.com/MarcoMadera/Job-listings-with-filtering"
@@ -50,6 +53,7 @@ const challenges = () => {
       />
       <Challenge
         title="Easybank landing page"
+        level="Intermedio"
         liveDemo="https://easy-bank-landing-page.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/easybank-landing-page-WaUhkoDN"
         repo="https://github.com/MarcoMadera/easy-bank-landing-page"
@@ -61,6 +65,7 @@ const challenges = () => {
       />
       <Challenge
         title="Manage landing page"
+        level="Intermedio"
         liveDemo="https://manage-landing-page.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/manage-landing-page-SLXqC6P5"
         repo="https://github.com/MarcoMadera/manage-landing-page"
@@ -78,6 +83,7 @@ const challenges = () => {
       />
       <Challenge
         title="Chat App CSS Illustration"
+        level="Intermedio"
         liveDemo="https://chat-app-css-illustration.marcomadera.vercel.app/"
         challengePage="https://www.frontendmentor.io/challenges/chat-app-css-illustration-O5auMkFqY"
         repo="https://github.com/MarcoMadera/chat-app-css-illustration"
@@ -86,6 +92,23 @@ const challenges = () => {
           "Ver el diseño óptimo para el sitio dependiendo del tamaño de la pantalla 1440px y 375px",
           "Ver los estados para todos los elementos interactivos",
           "Ver la interfaz del chat animada en la entrada inicial (opcional)",
+        ]}
+      />
+      <Challenge
+        title="Rock Paper Scissors / Lizard Spock"
+        level="Avanzado"
+        liveDemo="http://rock-paper-scissors.marcomadera.vercel.app/"
+        challengePage="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH"
+        repo="https://github.com/MarcoMadera/Rock-Paper-Scissors-Lizard-Spock"
+        challengeImg="https://res.cloudinary.com/marcomadera/image/upload/v1596519017/Potfolio/challenges/bccd-hs23c-fdfns_lhan01.jpg"
+        todoList={[
+          "Ver el diseño óptimo para el sitio dependiendo del tamaño de la pantalla 1366px y 375px",
+          "Jugar a piedra papel o tijeras contra la computadora",
+          "Mantener el estado del score despu'es de refrescar el navegador",
+          "Bonus",
+          [
+            "Jugar a piedra papel tijeras lagartija o spock contra la computadora (opcional)"
+          ]
         ]}
       />
     </main>

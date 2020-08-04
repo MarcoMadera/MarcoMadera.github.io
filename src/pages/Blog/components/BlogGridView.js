@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const BlogGridView = ({
   title,
@@ -59,6 +60,17 @@ const BlogGridView = ({
       </article>
     </li>
   );
+};
+
+BlogGridView.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.number,
+  excerpt: PropTypes.string,
+  cover: PropTypes.object,
+  coverDescription: PropTypes.string,
+  tags: PropTypes.array,
+  author: PropTypes.string,
+  date: PropTypes.instanceOf(Date)
 };
 
 export default BlogGridView;

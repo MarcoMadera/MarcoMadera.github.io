@@ -24,3 +24,26 @@
 .challenges__image {
   width: 100%;
 }
+
+table.greyGridTable {
+  background-color: var(--generalcolor1);
+  width: 100%;
+  text-align: center;
+}
+table.greyGridTable td,
+table.greyGridTable th {
+  width: calc(100% / 3);
+  padding: 3px 2px;
+}
+table.greyGridTable tbody td {
+  font-size: 13px;
+}
+table.greyGridTable thead {
+  background: var(--generalcolor1);
+}
+table.greyGridTable thead th {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--content);
+  text-align: center;
+}

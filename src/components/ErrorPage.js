@@ -2,7 +2,6 @@ import React from "react";
 import "./styles/ErrorPage.css";
 
 const ErrorPage = () => {
-  console.log(window.location.href);
   return (
     <main className="ErrorPage container" id="main">
       <h3>Ha ocurrido un error</h3>

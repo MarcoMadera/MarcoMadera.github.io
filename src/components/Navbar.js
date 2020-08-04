@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./styles/Navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Navbar = (props) => {
-  const { darkMode, setDarkMode } = props;
+const Navbar = ({ darkMode, setDarkMode }) => {
   const ref = useRef(null);
 
   const handleClick = () => {
@@ -33,14 +33,14 @@ const Navbar = (props) => {
 
   const HeaderView = () => {
     switch (currentTab) {
-      case "blog":
-        return <h3>Blog</h3>;
-      case "portfolio":
-        return <h3>Portafolio</h3>;
-      case "about":
-        return <h3>Sobre mí</h3>;
-      default:
-        return <h3>Inicio</h3>;
+    case "blog":
+      return <h3>Blog</h3>;
+    case "portfolio":
+      return <h3>Portafolio</h3>;
+    case "about":
+      return <h3>Sobre mí</h3>;
+    default:
+      return <h3>Inicio</h3>;
     }
   };
 
@@ -58,7 +58,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <nav className="Navbar" id="myNavbar" onTouchMove={swipeSideBar}>
+      <header className="Navbar" id="myNavbar" onTouchMove={swipeSideBar}>
         <a href="#main" className="skip-link">
           Saltar al contenido
         </a>
@@ -75,7 +75,7 @@ const Navbar = (props) => {
             }
           }
         })()}
-        <aside className="Navbar__navLink" id="sidebar" ref={ref}>
+        <nav className="Navbar__navLink" id="sidebar" ref={ref}>
           <ul>
             <li>
               <Link
@@ -114,17 +114,30 @@ const Navbar = (props) => {
               </Link>
             </li>
           </ul>
-        </aside>
+        </nav>
         <header className="Navbar__mobileHeader">
-          <div className="toggleBtn" onClick={handleClick}>
+          <div
+            className="toggleBtn"
+            onClick={handleClick}
+            onKeyDown={(e) => e.keyCode === 13 && handleClick()}
+            role="button"
+            tabIndex="-1"
+          >
             <span></span>
             <span></span>
             <span></span>
           </div>
           {HeaderView()}
+          <button
+            className={"Navbar__navLink__switch"}
+            onClick={() => handleChange()}
+            aria-label="Cambiar tema"
+          ></button>
           <input
+            tabIndex="-1"
             type="checkbox"
             id="switch"
+            name="switch"
             defaultChecked={(() => {
               if (localStorage.getItem("dark-mode") === "false") {
                 return false;
@@ -140,11 +153,15 @@ const Navbar = (props) => {
               handleChange();
             }}
           />
-          <label className={`Navbar__navLink__switch`} htmlFor="switch"></label>
         </header>
-      </nav>
+      </header>
     </>
   );
+};
+
+Navbar.propTypes = {
+  darkMode: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  setDarkMode: PropTypes.func,
 };
 
 export default Navbar;

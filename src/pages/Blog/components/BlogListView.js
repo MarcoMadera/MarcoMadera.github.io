@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/BlogListView.css";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const BlogListView = ({
   title,
@@ -55,6 +56,17 @@ const BlogListView = ({
       </footer>
     </li>
   );
+};
+
+BlogListView.propTypes = {
+  title: PropTypes.string,
+  id: PropTypes.number,
+  excerpt: PropTypes.string,
+  cover: PropTypes.object,
+  coverDescription: PropTypes.string,
+  tags: PropTypes.array,
+  author: PropTypes.string,
+  date: PropTypes.instanceOf(Date)
 };
 
 export default BlogListView;

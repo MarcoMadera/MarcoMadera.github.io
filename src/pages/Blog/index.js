@@ -26,16 +26,23 @@ const Blog = () => {
     once: false,
   });
 
+  const resetScrollPage = useCallback(() => {
+    setPage(1);
+    setLoading(false);
+  }, []);
+  const searchBlogEntries = useCallback((results) => {
+    setSearchResults(results);
+  }, []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceHandleNextPage = useCallback(
-    // eslint-disable-next-line no-sequences
-    debounce(() => (setPage((page) => page + 1), 1000)),
+    debounce(() => setPage((page) => page + 1), 200),
     []
   );
 
   useEffect(() => {
-    if (isNearScreen && page * 4 < searchResults.length)
-      debounceHandleNextPage();
-  }, [debounceHandleNextPage, isNearScreen, page, searchResults]);
+    if (isNearScreen) debounceHandleNextPage();
+  }, [debounceHandleNextPage, isNearScreen, searchResults]);
 
   return (
     <main className="Blog container" id="main">
@@ -46,15 +53,14 @@ const Blog = () => {
       <header className="Blog__header">
         <h1 className="Blog__header__title">Entradas</h1>
         <BlogSearch
-          setSearchResults={setSearchResults}
-          setLoading={setLoading}
-          setPage={setPage}
+          searchBlogEntries={searchBlogEntries}
+          resetScrollPage={resetScrollPage}
           tag={tag}
           loading={loading}
         />
         <BlogView view={view} setView={setView} />
       </header>
-      <ul className={view.gridView ? "Blog__gridView" : ""}>
+      <ul className={view.gridView ? "Blog__gridView" : undefined}>
         <BlogPost
           searchResults={searchResults}
           view={view}
@@ -62,8 +68,8 @@ const Blog = () => {
           tag={tag}
           loading={loading}
         />
-        <div ref={externalRef}></div>
       </ul>
+      <div ref={externalRef}></div>
     </main>
   );
 };

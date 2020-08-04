@@ -3,9 +3,8 @@ import BlogListView from "./BlogListView";
 import { entries } from "../BlogEntries";
 import BlogGridView from "./BlogGridView";
 import "./styles/BlogPost.css";
-
-const BlogPost = (props) => {
-  const { searchResults, view, page, tag, loading } = props;
+import PropTypes from "prop-types";
+const BlogPost = ( { searchResults, view, page, tag, loading }) => {
 
   const post = (toPost) =>
     toPost
@@ -53,6 +52,14 @@ const BlogPost = (props) => {
       )}
     </Fragment>
   );
+};
+
+BlogPost.propTypes = {
+  searchResults: PropTypes.array,
+  view: PropTypes.object,
+  page:PropTypes.number,
+  tag: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default BlogPost;

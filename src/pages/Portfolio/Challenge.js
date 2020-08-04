@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Challenge = ({
   title,
@@ -7,21 +8,36 @@ const Challenge = ({
   repo,
   challengeImg,
   todoList,
+  level
 }) => {
   return (
     <article className="challenge">
       <h3>{title}</h3>
-      <section className="challenge__links">
-        <a href={liveDemo} rel="noopener noreferrer" target="_blank">
-          Live Demo
-        </a>
-        <a href={challengePage} rel="noopener noreferrer" target="_blank">
-          Challenge
-        </a>
-        <a href={repo} rel="noopener noreferrer" target="_blank">
-          Code
-        </a>
-      </section>
+      <table className="greyGridTable">
+        <thead>
+          <tr>
+            <th>
+              <a href={liveDemo} rel="noopener noreferrer" target="_blank">
+                Live Demo
+              </a>
+            </th>
+            <th>
+              <a href={challengePage} rel="noopener noreferrer" target="_blank">
+                Challenge
+              </a>
+            </th>
+            <th>
+              <a href={repo} rel="noopener noreferrer" target="_blank">
+                Code
+              </a>
+            </th>
+            <th>
+              {level}
+            </th>
+          </tr>
+        </thead>
+      </table>
+      <section className="challenge__links"></section>
       <img className="challenges__image" src={challengeImg} alt={title} />
       <span>Reto:</span>
       <ul>
@@ -42,6 +58,16 @@ const Challenge = ({
       <hr />
     </article>
   );
+};
+
+Challenge.propTypes = {
+  title: PropTypes.string,
+  liveDemo: PropTypes.string,
+  challengePage: PropTypes.string,
+  repo: PropTypes.string,
+  challengeImg: PropTypes.string,
+  level: PropTypes.string,
+  todoList: PropTypes.array,
 };
 
 export default Challenge;

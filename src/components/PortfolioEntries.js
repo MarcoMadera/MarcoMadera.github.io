@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/PortfolioEntries.css";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import PropTypes from "prop-types";
 
 const PortfolioEntries = ({ link, cover, description, title }) => {
   return (
@@ -30,6 +31,13 @@ const PortfolioEntries = ({ link, cover, description, title }) => {
       </Link>
     </article>
   );
+};
+
+PortfolioEntries.propTypes = {
+  link: PropTypes.string,
+  cover: PropTypes.array,
+  description: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default PortfolioEntries;

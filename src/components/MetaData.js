@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import ThemeContext from "../ThemeContext";
+import PropTypes from "prop-types";
 
 const MetaData = ({ title, description, image }) => {
   const url = document.location.href;
@@ -27,6 +28,12 @@ const MetaData = ({ title, description, image }) => {
       )}
     </Helmet>
   );
+};
+
+MetaData.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default MetaData;

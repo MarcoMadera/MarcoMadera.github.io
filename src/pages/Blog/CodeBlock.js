@@ -3,11 +3,10 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { atomOneLight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import ThemeContext from "../../ThemeContext";
+import PropTypes from "prop-types";
 
-const CodeBlock = (props) => {
+const CodeBlock = ({ language, value }) => {
   const darkMode = useContext(ThemeContext);
-
-  const { language, value } = props;
   return (
     <SyntaxHighlighter
       language={language}
@@ -20,6 +19,11 @@ const CodeBlock = (props) => {
       {value}
     </SyntaxHighlighter>
   );
+};
+
+CodeBlock.propTypes ={
+  language: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default CodeBlock;

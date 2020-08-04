@@ -6,6 +6,7 @@ import { DiscussionEmbed } from "disqus-react";
 import "./styles/GenericBlog.css";
 import NotFound from "../../pages/NotFound";
 import MetaData from "../../components/MetaData";
+import PropTypes from "prop-types";
 
 const GenericBlog = ({ match }) => {
   const blog = entries.find(
@@ -32,15 +33,22 @@ const GenericBlog = ({ match }) => {
           <DiscussionEmbed
             shortname="marcomadera"
             config={
-              ({ url: `https://marcomadera.github.io/blog/${blog.id}` },
-              { identifier: blog.id },
-              { title: blog.title })
+              {
+                url: `https://marcomadera.github.io/blog/${blog.id}`,
+                identifier: blog.id.toString(),
+                title: blog.title,
+                language: "es-MX"
+              }
             }
           />
         </main>
       )}
     </Fragment>
   );
+};
+
+GenericBlog.propTypes = {
+  match: PropTypes.object
 };
 
 export default GenericBlog;

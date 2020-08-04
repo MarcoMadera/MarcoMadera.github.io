@@ -13,6 +13,8 @@
   --icon-color: #3b3b3b;
   --icon-color-hover: #585858;
   --icon-color-selected: #969696;
+  --generalcolor1: #5052570c;
+  --tables: #ffffff;
 
   /* Navbar */
   --navbar-background: #ffffff;
@@ -39,6 +41,8 @@
   --icon-color: #dbdbdb;
   --icon-color-hover: #afafaf;
   --icon-color-selected: #9e9e9e;
+  --generalcolor1: #7b71ff05;
+  --tables: #cfcfcf;
 
   /* Navbar */
   --navbar-background: #000000;
@@ -217,6 +221,11 @@ hr {
   border: 1px solid var(--footer-line);
   margin: 25px 0;
 }
+
+button {
+  border: none;
+}
+
 .btn {
   cursor: pointer;
   display: inline-block;
