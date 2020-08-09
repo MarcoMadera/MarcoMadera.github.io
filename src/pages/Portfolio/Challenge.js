@@ -8,7 +8,7 @@ const Challenge = ({
   repo,
   challengeImg,
   todoList,
-  level
+  level,
 }) => {
   return (
     <article className="challenge">
@@ -31,14 +31,17 @@ const Challenge = ({
                 Code
               </a>
             </th>
-            <th>
-              {level}
-            </th>
+            <th>{level}</th>
           </tr>
         </thead>
       </table>
       <section className="challenge__links"></section>
-      <img className="challenges__image" src={challengeImg} alt={title} />
+      <img
+        loading="lazy"
+        className="challenges__image"
+        src={challengeImg}
+        alt={title}
+      />
       <span>Reto:</span>
       <ul>
         {todoList.map((todo, i) => {

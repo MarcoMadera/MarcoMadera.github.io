@@ -8,9 +8,21 @@ const challenges = () => {
     <main className="challenges container" id="main">
       <h1>Desafios frontend</h1>
       <p>
-        La mejor forma de mejorar en la creación de sitios web es seguir
-        construyendo. Aqui se listan desafios que he completado ordenados desde
-        el primero que completé hasta el último.
+        Esta es una serie de retos que he ido realizando para pasar el rato de
+        la página de{" "}
+        <a
+          href="https://www.frontendmentor.io/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Frontend Mentor
+        </a>{" "}
+        donde el objetivo es mejorar las habilidades de código con proyectos
+        reales.
+      </p>
+      <p>
+        Los retos son de la sección gratis, no incluyen el archivo de diseño
+        solo la imagen, por lo que son realizados principalmente a ojo.
       </p>
 
       <Challenge
@@ -105,10 +117,26 @@ const challenges = () => {
           "Ver el diseño óptimo para el sitio dependiendo del tamaño de la pantalla 1366px y 375px",
           "Jugar a piedra papel o tijeras contra la computadora",
           "Mantener el estado del score despu'es de refrescar el navegador",
-          "Bonus",
+          "Bonus:",
           [
-            "Jugar a piedra papel tijeras lagartija o spock contra la computadora (opcional)"
-          ]
+            "Jugar a piedra papel tijeras lagartija o spock contra la computadora (opcional)",
+          ],
+        ]}
+      />
+      <Challenge
+        title="REST Countries API with color theme switcher"
+        level="Avanzado"
+        liveDemo="https://countries.marcomadera.vercel.app/"
+        challengePage="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca"
+        repo="https://github.com/MarcoMadera/REST-Countries-API-with-color-theme-switcher"
+        challengeImg="https://res.cloudinary.com/marcomadera/image/upload/v1597007828/Potfolio/challenges/abbcd-bsde-bbvb_ax6hja.jpg"
+        todoList={[
+          "Ver todos los paises de la API en la página principal",
+          "Buscar por un país usando un campo de entrada",
+          "Filtrar los paises por region",
+          "Hacer clic en un país para ver información detallada en una página separada",
+          "Hacer clic en los paises fronterizos en la página de detalles",
+          "Alternar el tema entre modo claro y oscuro (opcional)",
         ]}
       />
     </main>
