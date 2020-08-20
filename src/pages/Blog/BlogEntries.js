@@ -1,5 +1,6 @@
 import LigadurasTipográficas from "./LigadurasTipográficas.md";
 import WCAGAccesibilidad from "./WCAG.md";
+import RSS from "./RSS.md";
 
 export const entries = [
   {
@@ -65,5 +66,26 @@ export const entries = [
     date: new Date("Jul 20 2020"),
     tags: ["Accesibilidad", "Web"],
     src: WCAGAccesibilidad,
+  },
+  {
+    id: 4,
+    title: "RSS",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1597944129/Blog/4/RSS_znjs6w.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1597944129/Blog/4/RSS_znjs6w.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1597944129/Blog/4/RSS_znjs6w.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1597944129/Blog/4/RSS_znjs6w.png",
+    },
+    coverDescription: "RSS",
+    excerpt:
+      "RSS es un formato para acceder a las actualizaciones de un sitio ya sea de noticias, blog, podcasts o de alguna otra característica",
+    date: new Date("Aug 20 2020"),
+    tags: ["Web"],
+    src: RSS,
   },
 ];

@@ -42,6 +42,7 @@
 .GenericBlog img[alt$="ajustar derecha"] {
   display: block;
   float: right;
+  margin: 10px;
 }
 .GenericBlog img[alt$="ajustar derecha 200px"] {
   display: block;
