@@ -60,6 +60,12 @@ const Blog = () => {
         />
         <BlogView view={view} setView={setView} />
       </header>
+      <p>
+        Las entradas del blog se seguirán actualizando, pero no están creadas
+        para esta página, para una mejor experiencia visita la página
+        actualizada{" "}
+        <a href="https://marcomadera.com">https://marcomadera.com</a>
+      </p>
       <ul className={view.gridView ? "Blog__gridView" : undefined}>
         <BlogPost
           searchResults={searchResults}

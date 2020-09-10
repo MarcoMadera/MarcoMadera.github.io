@@ -1,6 +1,7 @@
 import LigadurasTipográficas from "./LigadurasTipográficas.md";
 import WCAGAccesibilidad from "./WCAG.md";
 import RSS from "./RSS.md";
+import HTMLSemantico from "./HTML-Semantico.md";
 
 export const entries = [
   {
@@ -87,5 +88,26 @@ export const entries = [
     date: new Date("Aug 20 2020"),
     tags: ["Web"],
     src: RSS,
+  },
+  {
+    id: 5,
+    title: "HTML Semántico",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1599325340/Blog/5/abbc-ebeeb-cbba_vm8uju.png",
+    },
+    coverDescription: "HTML Tags",
+    excerpt:
+      "HTML Semántico es el uso de HTML, pero con etiquetas, atributos y valores coherentes al contenido y estructura de nuestras páginas para que tengan un mayor significado",
+    date: new Date("Sep 08 2020"),
+    tags: ["HTML", "Accesibilidad", "Web"],
+    src: HTMLSemantico,
   },
 ];
