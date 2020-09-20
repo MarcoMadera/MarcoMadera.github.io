@@ -2,6 +2,7 @@ import LigadurasTipográficas from "./LigadurasTipográficas.md";
 import WCAGAccesibilidad from "./WCAG.md";
 import RSS from "./RSS.md";
 import HTMLSemantico from "./HTML-Semantico.md";
+import GithubCLI from "./Github-CLI.md";
 
 export const entries = [
   {
@@ -109,5 +110,26 @@ export const entries = [
     date: new Date("Sep 08 2020"),
     tags: ["HTML", "Accesibilidad", "Web"],
     src: HTMLSemantico,
+  },
+  {
+    id: 6,
+    title: "Github CLI",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1600483976/Blog/6/Octocat-removebg_wamv2v.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1600483976/Blog/6/Octocat-removebg_wamv2v.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1600483976/Blog/6/Octocat-removebg_wamv2v.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1600483976/Blog/6/Octocat-removebg_wamv2v.png",
+    },
+    coverDescription: "Gato pulpo y signo de consola",
+    excerpt:
+      "Github CLI es la herramienta oficial para ejecutar todo el flujo de trabajo en github desde la línea de comandos.",
+    date: new Date("Sep 20 2020"),
+    tags: ["Terminal"],
+    src: GithubCLI,
   },
 ];
