@@ -3,6 +3,7 @@ import WCAGAccesibilidad from "./WCAG.md";
 import RSS from "./RSS.md";
 import HTMLSemantico from "./HTML-Semantico.md";
 import GithubCLI from "./Github-CLI.md";
+import CSSBlog from "./CSS.md";
 
 export const entries = [
   {
@@ -131,5 +132,26 @@ export const entries = [
     date: new Date("Sep 20 2020"),
     tags: ["Terminal"],
     src: GithubCLI,
+  },
+  {
+    id: 7,
+    title: "CSS",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1602894559/Blog/7/css_k23ypb.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1602894559/Blog/7/css_k23ypb.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1602894559/Blog/7/css_k23ypb.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1602894559/Blog/7/css_k23ypb.png",
+    },
+    coverDescription: "CSS Logo",
+    excerpt:
+      "CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.",
+    date: new Date("Oct 20 2020"),
+    tags: ["CSS","Personalización"],
+    src: CSSBlog,
   },
 ];
