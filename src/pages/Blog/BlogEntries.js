@@ -4,6 +4,8 @@ import RSS from "./RSS.md";
 import HTMLSemantico from "./HTML-Semantico.md";
 import GithubCLI from "./Github-CLI.md";
 import CSSBlog from "./CSS.md";
+import GitBlog from "./git.md";
+import TiposObjetosJavaScript from "./tipos-y-objetos-en-javascript.md";
 
 export const entries = [
   {
@@ -151,7 +153,49 @@ export const entries = [
     excerpt:
       "CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.",
     date: new Date("Oct 20 2020"),
-    tags: ["CSS","Personalización"],
+    tags: ["CSS", "Personalización"],
     src: CSSBlog,
+  },
+  {
+    id: 8,
+    title: "Git",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1608823033/Blog/Git/Git-logo_pr848f.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1608823033/Blog/Git/Git-logo_pr848f.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1608823033/Blog/Git/Git-logo_pr848f.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1608823033/Blog/Git/Git-logo_pr848f.png",
+    },
+    coverDescription: "Git Logo",
+    excerpt:
+      "El control de versiones es un sistema que guarda los cambios en el tiempo de uno o varios archivos.",
+    date: new Date("Dec 31 2020"),
+    tags: ["Terminal"],
+    src: GitBlog,
+  },
+  {
+    id: 9,
+    title: "Tipos y objetos en JavaScript",
+    author: "Marco Madera",
+    cover: {
+      original:
+        "https://res.cloudinary.com/marcomadera/image/upload/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png",
+      w120:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,h_120,w_120/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png",
+      w300:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_300/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png",
+      w760:
+        "https://res.cloudinary.com/marcomadera/image/upload/c_scale,w_760/v1611100833/Blog/tipos-y-objetos-en-javascript/Js_ul0yih.png",
+    },
+    coverDescription: "JavaScript Logo",
+    excerpt:
+      "CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.",
+    date: new Date("Jan 27 2020"),
+    tags: ["JavaScript"],
+    src: TiposObjetosJavaScript,
   },
 ];
