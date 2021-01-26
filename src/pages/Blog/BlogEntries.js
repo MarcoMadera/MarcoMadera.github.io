@@ -193,7 +193,7 @@ export const entries = [
     },
     coverDescription: "JavaScript Logo",
     excerpt:
-      "CSS es el lenguaje que se usa para dar estilos a un documento escrito en lenguaje marcado. Con él podemos controlar los elementos en aspecto, posición y más.",
+      "En JavaScript tenemos varios tipos de datos; booleanos, numéricos, los de texto o string, el null que indica que una variable.",
     date: new Date("Jan 27 2020"),
     tags: ["JavaScript"],
     src: TiposObjetosJavaScript,
