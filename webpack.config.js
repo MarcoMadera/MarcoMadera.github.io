@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].[hash].js",
+    filename: "js/[name].js",
     publicPath: "https://marcomadera.github.io/",
     chunkFilename: "js/[id].[chunkhash].js",
   },
@@ -56,8 +56,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "css/[name].[hash].css",
-      chunkFilename: "css/[id].[hash].css",
+      filename: "css/[name].css",
+      chunkFilename: "css/[id].css",
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),

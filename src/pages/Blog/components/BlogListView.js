@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/BlogListView.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import slugify from "slugify";
+import slug from "slug";
 const BlogListView = ({
   link,
   creator,
@@ -13,7 +13,7 @@ const BlogListView = ({
 }) => {
   return (
     <li className="BlogListView">
-      <Link to={`/blog/${slugify(title)}`}>
+      <Link to={`/blog/${slug(title)}`}>
         <header className="BlogListView__header">
           <section className="BlogListView__header__content">
             <h4 className="BlogListView__header__content__title">{title}</h4>

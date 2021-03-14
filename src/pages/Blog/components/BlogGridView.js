@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import slugify from "slugify";
+import slug from "slug";
 const BlogGridView = ({
   link,
   creator,
@@ -16,7 +16,7 @@ const BlogGridView = ({
       <article>
         <Link
           className="text-reset text-decoration-none"
-          to={`/blog/${slugify(title)}`}
+          to={`/blog/${slug(title)}`}
         >
           <header className="BlogGridView__header">
             <img

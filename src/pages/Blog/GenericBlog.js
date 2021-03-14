@@ -5,13 +5,11 @@ import "./styles/GenericBlog.css";
 import NotFound from "../../pages/NotFound";
 import MetaData from "../../components/MetaData";
 import PropTypes from "prop-types";
-import slugify from "slugify";
+import slug from "slug";
 import HtmlToReact from "html-to-react";
 
 const GenericBlog = ({ match, posts }) => {
-  const blog = posts.find(
-    (post) => slugify(post.title) === match.params.blogId
-  );
+  const blog = posts.find((post) => slug(post.title) === match.params.blogId);
   const {
     creator,
     title,
@@ -149,8 +147,8 @@ const GenericBlog = ({ match, posts }) => {
           <DiscussionEmbed
             shortname="marcomadera"
             config={{
-              url: `https://marcomadera.github.io/blog/${slugify(title)}`,
-              identifier: slugify(title),
+              url: `https://marcomadera.github.io/blog/${slug(title)}`,
+              identifier: slug(title),
               title: title,
               language: "es-MX",
             }}

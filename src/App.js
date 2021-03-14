@@ -45,7 +45,7 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route
                   exact
-                  path="/blog/"
+                  path="/blog"
                   render={() => <Blog posts={posts} />}
                 />
                 <Route
