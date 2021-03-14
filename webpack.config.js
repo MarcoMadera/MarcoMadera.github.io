@@ -6,9 +6,6 @@ const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TersetJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const RobotstxtPlugin = require("robotstxt-webpack-plugin");
-const WebpackPwaManifestPlugin = require("webpack-pwa-manifest");
-const workboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -36,7 +33,8 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-          "css-loader", "postcss-loader"
+          "css-loader",
+          "postcss-loader",
         ],
       },
       {
@@ -64,50 +62,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public/index.html"),
     }),
-    new WebpackPwaManifestPlugin({
-      name: "Marco Madera GitHub Pages",
-      short_name: "Marco Madera",
-      description: "My github pages repository created in react",
-      orientation: "portrait",
-      display: "standalone",
-      start_url: "https://marcomadera.github.io/",
-      scope: "/",
-      background_color: "#ffffff",
-      theme_color: "#ffffff",
-      icons: [
-        {
-          src: path.resolve(__dirname, "src/images/logo512.png"),
-          sizes: [96, 128, 192, 256, 384, 512],
-          destination: path.join("images"),
-          ios: true,
-        },
-      ],
-    }),
-    new RobotstxtPlugin({
-      policy: [
-        {
-          userAgent: "Googlebot",
-          allow: "/",
-          disallow: "/search",
-          crawlDelay: 2,
-        },
-        {
-          userAgent: "OtherBot",
-          allow: ["/allow-for-all-bots", "/allow-only-for-other-bot"],
-          disallow: ["/admin", "/login"],
-          crawlDelay: 2,
-        },
-        {
-          userAgent: "*",
-          allow: "/",
-          disallow: "/search",
-          crawlDelay: 10,
-          cleanParam: "ref /articles/",
-        },
-      ],
-      sitemap: "https://marcomadera.github.io/sitemap.xml",
-      host: "https://github.io",
-    }),
     new webpack.DllReferencePlugin({
       manifest: require("./modules-manifest.json"),
     }),
@@ -118,29 +72,6 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/app.*"],
-    }),
-    new workboxPlugin.GenerateSW({
-      swDest: "serviceWorker-9659c3e6.js",
-      clientsClaim: true,
-      skipWaiting: true,
-      runtimeCaching: [
-        {
-          urlPattern: /images/,
-          handler: "StaleWhileRevalidate",
-        },
-        {
-          urlPattern: /assets/,
-          handler: "CacheFirst",
-        },
-        {
-          urlPattern: new RegExp("https://res.cloudinary.com/"),
-          handler: "StaleWhileRevalidate",
-        },
-        {
-          urlPattern: /.*/,
-          handler: "NetworkFirst",
-        },
-      ],
     }),
   ],
 };
