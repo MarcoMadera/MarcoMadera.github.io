@@ -55,6 +55,78 @@
   display: block;
   height: 100px;
 }
+.GenericBlog pre,
+.GenericBlog pre code,
+.GenericBlog pre code[data-lang]:before {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+.GenericBlog pre {
+  background: #011327;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #ccc;
+  display: block;
+  font-size: 14px;
+  hyphens: none;
+  line-height: 1.8;
+  margin: 0.5em 0px;
+  overflow: auto;
+  padding: 0.8em 1em;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+.GenericBlog pre:focus {
+  outline: none;
+}
+.GenericBlog pre span {
+  color: white;
+}
+.GenericBlog pre code {
+  background: none;
+  padding: 0;
+}
+.GenericBlog code {
+  background: rgba(240, 246, 252, 0.15);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  padding: 3px 6px;
+}
+.GenericBlog pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  overflow: visible;
+}
+.GenericBlog pre::-webkit-scrollbar-thumb {
+  background: #d32f2fe1;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.GenericBlog pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+.GenericBlog pre code[data-lang]:before {
+  background: #011327;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #fff;
+  content: attr(data-lang);
+  font-size: 12px;
+  padding: 2px 8px;
+  position: absolute;
+  right: 8px;
+  text-transform: uppercase;
+  top: -11px;
+}
 
 @media screen and (min-width: 768px) {
   .GenericBlog {

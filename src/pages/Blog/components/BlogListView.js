@@ -2,25 +2,23 @@ import React from "react";
 import "./styles/BlogListView.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import slugify from "slugify";
 const BlogListView = ({
+  link,
+  creator,
+  enclosure,
+  contentSnippet,
+  pubDate,
   title,
-  id,
-  excerpt,
-  cover,
-  coverDescription,
-  tags,
-  author,
-  date,
 }) => {
   return (
     <li className="BlogListView">
-      <Link to={`/blog/${id}/#${title.replace(/\s/g, "-")}`}>
+      <Link to={`/blog/${slugify(title)}`}>
         <header className="BlogListView__header">
           <section className="BlogListView__header__content">
             <h4 className="BlogListView__header__content__title">{title}</h4>
             <p className="BlogListView__header__content__excerpt">
-              {excerpt}
+              {contentSnippet.slice(0, 180)}
               ...{" "}
               <span className="BlogListView__header__content__excerpt__readMore">
                 Leer más
@@ -28,8 +26,8 @@ const BlogListView = ({
             </p>
           </section>
           <img
-            src={cover.w120}
-            alt={coverDescription}
+            src={enclosure.url}
+            alt=""
             className="BlogListView__header__preview"
             width="120"
             height="120"
@@ -37,17 +35,12 @@ const BlogListView = ({
         </header>
       </Link>
       <footer className="BlogListView__footer">
-        {(() =>
-          tags.map((tags, i) => (
-            <span key={i}>
-              <Link to={`/blog/tag/${tags}`}>
-                <span className="BlogListView__footer__tags">#{tags}</span>{" "}
-              </Link>
-            </span>
-          )))()}
+        <a href={link} rel="noopener noreferrer" target="_blank">
+          Original
+        </a>
         <p className="BlogListView__footer__meta">
-          {author} |{" "}
-          {date.toLocaleString("en-US", {
+          {creator} |{" "}
+          {new Date(pubDate).toLocaleString("en-US", {
             month: "short",
             day: "numeric",
             year: "numeric",
@@ -60,13 +53,11 @@ const BlogListView = ({
 
 BlogListView.propTypes = {
   title: PropTypes.string,
-  id: PropTypes.number,
-  excerpt: PropTypes.string,
-  cover: PropTypes.object,
-  coverDescription: PropTypes.string,
-  tags: PropTypes.array,
-  author: PropTypes.string,
-  date: PropTypes.instanceOf(Date)
+  link: PropTypes.string,
+  creator: PropTypes.string,
+  enclosure: PropTypes.object,
+  contentSnippet: PropTypes.string,
+  pubDate: PropTypes.string,
 };
 
 export default BlogListView;

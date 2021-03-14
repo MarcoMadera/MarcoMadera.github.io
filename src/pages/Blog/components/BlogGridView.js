@@ -2,34 +2,32 @@ import React from "react";
 import "./styles/BlogGridView.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
+import slugify from "slugify";
 const BlogGridView = ({
+  link,
+  creator,
+  enclosure,
+  contentSnippet,
+  pubDate,
   title,
-  id,
-  excerpt,
-  cover,
-  coverDescription,
-  tags,
-  author,
-  date,
 }) => {
   return (
     <li className="BlogGridView">
       <article>
         <Link
           className="text-reset text-decoration-none"
-          to={`/blog/${id}/#${title.replace(/\s/g, "-")}`}
+          to={`/blog/${slugify(title)}`}
         >
           <header className="BlogGridView__header">
             <img
-              src={cover.w760}
-              alt={coverDescription}
+              src={enclosure.url}
+              alt={title}
               className="BlogGridView__header__cover"
             />
             <section className="BlogGridView__header__content">
               <h4 className="BlogGridView__header__content__title">{title}</h4>
               <p className="BlogGridView__header__content__excerpt">
-                {excerpt}
+                {contentSnippet.slice(0, 180)}
                 ...{" "}
                 <span className="BlogGridView__footer__readMore">Leer más</span>
               </p>
@@ -37,20 +35,12 @@ const BlogGridView = ({
           </header>
         </Link>
         <footer className="BlogGridView__footer">
-          {(() =>
-            tags.map((tags, i) => (
-              <span key={i}>
-                <Link
-                  className="text-reset text-decoration-none"
-                  to={`/blog/tag/${tags}`}
-                >
-                  <span className="BlogGridView__footer__tags">#{tags}</span>{" "}
-                </Link>
-              </span>
-            )))()}
+          <a href={link} rel="noopener noreferrer" target="_blank">
+            Original
+          </a>
           <p className="BlogGridView__footer__meta">
-            {author} |{" "}
-            {date.toLocaleString("en-US", {
+            {creator} |{" "}
+            {new Date(pubDate).toLocaleString("en-US", {
               month: "short",
               day: "numeric",
               year: "numeric",
@@ -64,13 +54,11 @@ const BlogGridView = ({
 
 BlogGridView.propTypes = {
   title: PropTypes.string,
-  id: PropTypes.number,
-  excerpt: PropTypes.string,
-  cover: PropTypes.object,
-  coverDescription: PropTypes.string,
-  tags: PropTypes.array,
-  author: PropTypes.string,
-  date: PropTypes.instanceOf(Date)
+  link: PropTypes.string,
+  creator: PropTypes.string,
+  enclosure: PropTypes.object,
+  contentSnippet: PropTypes.string,
+  pubDate: PropTypes.string,
 };
 
 export default BlogGridView;

@@ -5,11 +5,9 @@ import debounce from "just-debounce-it";
 import BlogSearch from "./components/BlogSearch";
 import BlogPost from "./components/BlogPost";
 import BlogView from "./components/BlogView";
-import { useParams } from "react-router-dom";
 import MetaData from "../../components/MetaData";
-
-const Blog = () => {
-  const { tag } = useParams();
+import PropTypes from "prop-types";
+const Blog = ({ posts }) => {
   const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState([]);
   const [page, setPage] = useState(1);
@@ -55,7 +53,7 @@ const Blog = () => {
         <BlogSearch
           searchBlogEntries={searchBlogEntries}
           resetScrollPage={resetScrollPage}
-          tag={tag}
+          posts={posts}
           loading={loading}
         />
         <BlogView view={view} setView={setView} />
@@ -71,8 +69,8 @@ const Blog = () => {
           searchResults={searchResults}
           view={view}
           page={page}
-          tag={tag}
           loading={loading}
+          posts={posts}
         />
       </ul>
       <div ref={externalRef}></div>
@@ -80,3 +78,7 @@ const Blog = () => {
   );
 };
 export default Blog;
+
+Blog.propTypes = {
+  posts: PropTypes.array,
+};
