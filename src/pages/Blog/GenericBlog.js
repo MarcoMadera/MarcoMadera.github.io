@@ -9,154 +9,170 @@ import slug from "slug";
 import HtmlToReact from "html-to-react";
 
 const GenericBlog = ({ match, posts }) => {
-  const blog = posts.find((post) => slug(post.title) === match.params.blogId);
-  const {
-    creator,
-    title,
-    link,
-    enclosure,
-    pubDate,
-    content,
-    contentSnippet,
-  } = blog;
-  const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
-  const processingInstructions = [
-    {
-      shouldProcessNode: ({ type, name }) =>
-        type === "tag" && name === "youtube",
-      processNode: function YoutubeVideoNode({ attribs }) {
-        return (
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube-nocookie.com/embed/${attribs.id}`}
-            title={attribs.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ maxWidth: 100 + "%" }}
-          ></iframe>
-        );
-      },
-    },
-    {
-      shouldProcessNode: ({ type, name }) =>
-        type === "tag" && name === "videogif",
-      processNode: function VideoGifNode({ attribs }, children) {
-        return (
-          <>
-            <div>
-              <video title={attribs.title} muted loop autoPlay playsInline>
-                <source
-                  src={attribs.src || attribs.dark || attribs.light}
-                  type="video/mp4"
-                />
-              </video>
-              {children}
-            </div>
-          </>
-        );
-      },
-    },
-    {
-      shouldProcessNode: ({ type, name }) => type === "tag" && name === "pre",
-      processNode: function Prev({ attribs }, children) {
-        return (
-          <div style={{ position: "relative" }}>
-            <pre {...attribs}>{children}</pre>
-          </div>
-        );
-      },
-    },
-    {
-      shouldProcessNode: ({ type, name }) => type === "tag" && name === "image",
-      processNode: function Image({ attribs }, children) {
-        return (
-          <>
-            <img
-              title={attribs.title}
-              src={attribs.src || attribs.dark || attribs.light || attribs.dark}
-              alt={attribs.alt}
-            />
-            {children}
-          </>
-        );
-      },
-    },
-    {
-      shouldProcessNode: ({ type, name }) => type === "tag" && name === "tweet",
-      processNode: function Image({ attribs }, children) {
-        return (
-          <>
+  if (posts.length > 0) {
+    const blog = posts.find((post) => slug(post.title) === match.params.blogId);
+    const {
+      creator,
+      title,
+      link,
+      enclosure,
+      pubDate,
+      content,
+      contentSnippet,
+    } = blog;
+    const processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(
+      React
+    );
+    const processingInstructions = [
+      {
+        shouldProcessNode: ({ type, name }) =>
+          type === "tag" && name === "youtube",
+        processNode: function YoutubeVideoNode({ attribs }) {
+          return (
             <iframe
               width="560"
-              height="400"
-              src={`https://platform.twitter.com/embed/Tweet.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${attribs.id}&lang=es`}
+              height="315"
+              src={`https://www.youtube-nocookie.com/embed/${attribs.id}`}
               title={attribs.title}
               frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
               style={{ maxWidth: 100 + "%" }}
             ></iframe>
-            {children}
-          </>
-        );
+          );
+        },
       },
-    },
-    {
-      shouldProcessNode: function () {
-        return true;
+      {
+        shouldProcessNode: ({ type, name }) =>
+          type === "tag" && name === "videogif",
+        processNode: function VideoGifNode({ attribs }, children) {
+          return (
+            <>
+              <div>
+                <video title={attribs.title} muted loop autoPlay playsInline>
+                  <source
+                    src={attribs.src || attribs.dark || attribs.light}
+                    type="video/mp4"
+                  />
+                </video>
+                {children}
+              </div>
+            </>
+          );
+        },
       },
-      processNode: processNodeDefinitions.processDefaultNode,
-    },
-  ];
-  const HTMLToReactParser = HtmlToReact.Parser;
-  const htmlParser = new HTMLToReactParser();
-  const isValidNode = function () {
-    return true;
-  };
-  const PostContent = htmlParser.parseWithInstructions(
-    `<div>${content}<div>`,
-    isValidNode,
-    processingInstructions
-  );
+      {
+        shouldProcessNode: ({ type, name }) => type === "tag" && name === "pre",
+        processNode: function Prev({ attribs }, children) {
+          return (
+            <div style={{ position: "relative" }}>
+              <pre {...attribs}>{children}</pre>
+            </div>
+          );
+        },
+      },
+      {
+        shouldProcessNode: ({ type, name }) =>
+          type === "tag" && name === "image",
+        processNode: function Image({ attribs }, children) {
+          return (
+            <>
+              <img
+                title={attribs.title}
+                src={
+                  attribs.src || attribs.dark || attribs.light || attribs.dark
+                }
+                alt={attribs.alt}
+              />
+              {children}
+            </>
+          );
+        },
+      },
+      {
+        shouldProcessNode: ({ type, name }) =>
+          type === "tag" && name === "tweet",
+        processNode: function Image({ attribs }, children) {
+          return (
+            <>
+              <iframe
+                width="560"
+                height="400"
+                src={`https://platform.twitter.com/embed/Tweet.html?dnt=false&embedId=twitter-widget-0&frame=false&hideCard=false&hideThread=false&id=${attribs.id}&lang=es`}
+                title={attribs.title}
+                frameBorder="0"
+                style={{ maxWidth: 100 + "%" }}
+              ></iframe>
+              {children}
+            </>
+          );
+        },
+      },
+      {
+        shouldProcessNode: function () {
+          return true;
+        },
+        processNode: processNodeDefinitions.processDefaultNode,
+      },
+    ];
+    const HTMLToReactParser = HtmlToReact.Parser;
+    const htmlParser = new HTMLToReactParser();
+    const isValidNode = function () {
+      return true;
+    };
+    const PostContent = htmlParser.parseWithInstructions(
+      `<div>${content}<div>`,
+      isValidNode,
+      processingInstructions
+    );
 
-  return (
-    <Fragment>
-      {posts.length > 0 && !blog ? (
-        <NotFound />
-      ) : (
-        <main className="GenericBlog container" id="main">
-          <MetaData
-            title={title}
-            description={contentSnippet.slice(0, 180)}
-            image={enclosure.url}
-          />
-          <h1>{title}</h1>
-          <p className="BlogListView__footer__meta">
-            {creator} |{" "}
-            {new Date(pubDate).toLocaleString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </p>
-          {PostContent}
-          <hr></hr>
-          <a href={link} rel="noopener noreferrer" target="_blank">
-            Contenido Fuente Original
-          </a>
-          <DiscussionEmbed
-            shortname="marcomadera"
-            config={{
-              url: `https://marcomadera.github.io/blog/${slug(title)}`,
-              identifier: slug(title),
-              title: title,
-              language: "es-MX",
-            }}
-          />
-        </main>
-      )}
-    </Fragment>
-  );
+    return (
+      <Fragment>
+        {posts.length > 0 && !blog ? (
+          <NotFound />
+        ) : (
+          <main className="GenericBlog container" id="main">
+            <MetaData
+              title={title}
+              description={contentSnippet.slice(0, 180)}
+              image={enclosure.url}
+            />
+            <h1>{title}</h1>
+            <div style={{ maxWidth: "100%", overflowWrap: "break-word" }}>
+              <p className="BlogListView__footer__meta">
+                {creator} |{" "}
+                {new Date(pubDate).toLocaleString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </p>
+              {PostContent}
+              <hr></hr>
+              <a href={link} rel="noopener noreferrer" target="_blank">
+                Contenido Fuente Original
+              </a>
+            </div>
+            <DiscussionEmbed
+              shortname="marcomadera"
+              config={{
+                url: `https://marcomadera.github.io/blog/${slug(title)}`,
+                identifier: slug(title),
+                title: title,
+                language: "es-MX",
+              }}
+            />
+          </main>
+        )}
+      </Fragment>
+    );
+  } else {
+    return (
+      <main className="GenericBlog container" id="main">
+        <h1>Cargando...</h1>
+      </main>
+    );
+  }
 };
 
 GenericBlog.propTypes = {

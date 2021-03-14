@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
     publicPath: "/",
-    chunkFilename: "js/[id].[chunkhash].js",
+    chunkFilename: "js/[id].js",
   },
   devtool: "inline-source-map",
   devServer: {

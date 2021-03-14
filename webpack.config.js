@@ -15,7 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
     publicPath: "https://marcomadera.github.io/",
-    chunkFilename: "js/[id].[chunkhash].js",
+    chunkFilename: "js/[id].js",
   },
   optimization: {
     minimizer: [new TersetJSPlugin(), new OptimizeCSSAssetsPlugin()],

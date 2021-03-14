@@ -12,7 +12,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].[hash].dll.js",
+    filename: "js/[name].dll.js",
     library: "[name]",
   },
   plugins: [

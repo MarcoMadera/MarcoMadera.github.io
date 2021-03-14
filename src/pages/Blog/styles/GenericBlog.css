@@ -6,6 +6,9 @@
 .GenericBlog span {
   font-family: var(--general-font-family);
 }
+.GenericBlog * {
+  max-width: 100%;
+}
 .GenericBlog code span {
   font-family: monospace;
 }

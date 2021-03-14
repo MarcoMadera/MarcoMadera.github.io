@@ -56,7 +56,7 @@ const BlogPost = ({ searchResults, view, page, loading, posts }) => {
             }
           }
         )
-      ) : (
+      ) : posts.length > 0 ? (
         posts.map(
           (
             { link, creator, enclosure, contentSnippet, pubDate, title },
@@ -92,7 +92,7 @@ const BlogPost = ({ searchResults, view, page, loading, posts }) => {
             }
           }
         )
-      )}
+      ) : null}
     </>
   );
 };
