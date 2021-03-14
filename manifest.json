@@ -1,0 +1,43 @@
+{
+  "icons": [
+    {
+      "src": "https://marcomadera.github.io/images/icon_512x512.533b88cde8898536cd19f69b18c7c6e7.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://marcomadera.github.io/images/icon_384x384.e68dfcd5641a2e87f70b92c6047c8ff5.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "https://marcomadera.github.io/images/icon_256x256.5571ec7109bc482d1cbfd7c78413568a.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "https://marcomadera.github.io/images/icon_192x192.2d5f248cc235020d88f7a2790d8cd2bd.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://marcomadera.github.io/images/icon_128x128.7e3db203ed6c29e5288f593599d008af.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://marcomadera.github.io/images/icon_96x96.59b51e5821a5771a937a1ec3a7645a01.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Marco Madera GitHub Pages",
+  "short_name": "Marco Madera",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "https://marcomadera.github.io/",
+  "description": "My github pages repository created in react",
+  "scope": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
